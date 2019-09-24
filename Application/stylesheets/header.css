@@ -13,3 +13,8 @@ header img {
     width: 70%;
     height: 50%;
 }
+
+#header-placeholder {
+    width: 100vw;
+    height: 10vh;
+}
