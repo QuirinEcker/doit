@@ -21,6 +21,7 @@ main {
     height: 12vh;
     margin-bottom: 2vh;
     border-radius: 25px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
 
 #completed-tasks div {
