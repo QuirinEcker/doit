@@ -1,8 +1,11 @@
 #home-open-animation {
+    z-index: 5;
     border-radius: 100%;
     width: 1vh;
     height: 1vh;
     position: fixed;
     bottom: 0;
     left: 49.5%;
+    background-color: #cd5f5b;
+    transition: 1s all ease-in-out;
 }
