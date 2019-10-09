@@ -1,5 +1,5 @@
 #home-open-animation {
-    z-index: 5;
+    z-index: 2;
     border-radius: 100%;
     width: 1vh;
     height: 1vh;
@@ -8,4 +8,18 @@
     left: 49.5%;
     background-color: #cd5f5b;
     transition: 1s all ease-in-out;
+}
+
+#home-open-animation-container {
+    transition: 1s all ease-in-out;
+}
+
+#home {
+    z-index: 3;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    transition: 0.5s all;
+    opacity: 0;
 }
