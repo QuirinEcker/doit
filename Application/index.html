@@ -16,16 +16,18 @@
     </head>
     <body>
         <div id="login">
-            <input type="text">
-            <input type="password">
+            <input type="text" placeholder="username / email">
+            <input type="password" placeholder="password">
 
             <div id="login-button">
                 log in
             </div>
 
             <div id="signup-button">
-                Sign up for new account
+                Don't have an account yet
             </div>
+
+            <div id="login-placeholder"></div>
         </div>
 
         <main>
@@ -75,7 +77,12 @@
             <div id="home-open-animation"></div>
         </div>
         <div id="home">
-            <div id="home-navigation-bar"></div>
+            <div id="home-navigation-bar">
+                <div class="usersettings-entry" id="usersettings-entry-info"></div>
+                <div class="usersettings-entry" id="usersettings-entry-edit"></div>
+                <div class="usersettings-entry" id="usersettings-entry-settings"></div>
+                <div class="usersettings-entry" id="usersettings-entry-logout"></div>
+            </div>
             <div id="task-lists">
                 <div class="list" id="tl0">school</div>
                 <div class="list">work</div>
