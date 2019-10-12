@@ -1,15 +1,11 @@
-function getListObject(listID) {
-    let taskLists = Array.from(document.querySelector('#task-lists').children);
-    let taskListElement;
+import {UiMenus} from './UiMenus.js'
+import {UiMenu} from "./UiMenu.js";
+let uiMenus = new UiMenus();
 
-    taskLists.forEach((taskList) => {
-        if (taskList.id = listID) {
-            taskListElement = taskList;
-        }
-    });
-
-    return taskListElement;
-}
+window.addEventListener('load', () => {
+    initialUiMenus();
+    initialEventListener();
+});
 
 function circleAnimation(color) {
     let animation = document.querySelector('#home-open-animation');
@@ -29,7 +25,6 @@ function circleAnimation(color) {
         animation.style.transitionDuration = '0s'
         animation.style.transform = 'scale(1)';
         animation.style.backgroundColor = color;
-        animation.style.opacity = '0.1';
     }, 1000)
 }
 
@@ -37,9 +32,7 @@ function closeHome() {
     let home = document.querySelector('#home');
     let main = document.querySelector('main');
 
-    circleAnimation('white');
-    main.style.display = 'flex';
-    home.style.display = 'none';
+    uiMenus.get('home').switchTo(uiMenus.get('main'));
 }
 
 function loadTasks(listID) {
@@ -63,20 +56,12 @@ function initialEventListener() {
 }
 
 function openHome() {
-    let home = document.querySelector('#home');
-    let main = document.querySelector('main');
-    main.style.display = 'none';
-    home.style.display = 'flex';
-
-    home.style.display = 'flex';
-    main.style.opacity = '0';
-    setTimeout(() => {
-        main.style.display = 'none';
-        home.style.opacity = '1';
-        circleAnimation('black');
-    }, 10)
+    uiMenus.get('main').switchTo(uiMenus.get('home'));
 }
 
-window.addEventListener('load', () => {
-    initialEventListener();
-});
+function initialUiMenus() {
+    uiMenus.push(new UiMenu('main', document.querySelector('main')));
+    uiMenus.push(new UiMenu('home', document.querySelector('#home')));
+}
+
+export {circleAnimation}
