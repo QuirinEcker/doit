@@ -1,16 +1,20 @@
 import {UiMenu} from "./UiMenu.js";
 import {circleAnimation} from "./index.js";
 
-class UiMenuArray extends Array {
+class UiMenuController {
 
     constructor() {
-        super();
+        this.uiMenus = new Array();
     }
 
     get(name) {
-        return this.filter((uiMenu) => {
+        return this.uiMenus.filter((uiMenu) => {
             return uiMenu.name === name;
         })[0];
+    }
+
+    push(uiMenu) {
+        this.uiMenus.push(uiMenu);
     }
 
     initiateCurrentMenu(name) {
@@ -29,4 +33,4 @@ class UiMenuArray extends Array {
     }
 }
 
-export {UiMenuArray};
+export {UiMenuController};

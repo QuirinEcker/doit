@@ -1,6 +1,6 @@
-import {UiMenuArray} from './UiMenuArray.js'
+import {UiMenuController} from './UiMenuController.js'
 import {UiMenu} from "./UiMenu.js";
-let uiMenus = new UiMenuArray();
+let uiMenus = new UiMenuController();
 
 window.addEventListener('load', () => {
     initialUiMenus();
