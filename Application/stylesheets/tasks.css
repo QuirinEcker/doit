@@ -1,10 +1,15 @@
 main {
+    z-index: 0;
     width: 100vw;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: 0.5s all;
+    background-color: white;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 .task-list {
