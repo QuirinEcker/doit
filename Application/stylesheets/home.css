@@ -9,6 +9,7 @@
     background-color: #cd5f5b;
     transition: 1s all ease-in-out;
     transition-delay: 0s;
+    opacity: 0;
 }
 
 #home-open-animation-container {

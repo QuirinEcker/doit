@@ -1,0 +1,14 @@
+#login {
+    position: fixed;
+    z-index: 4;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s all;
+    transition-delay: 0s;
+    background-color: white;
+    opacity: 1;
+}

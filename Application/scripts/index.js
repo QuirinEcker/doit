@@ -47,12 +47,18 @@ function openList() {
 function initialEventListener() {
     let homeButton = document.querySelector('footer');
     let lists = Array.from(document.querySelectorAll('.list'));
+    let loginButton = document.querySelector('#login-button')
 
     homeButton.addEventListener('click', openHome);
 
     lists.forEach((list) => {
         list.addEventListener('click', openList)
     })
+
+    loginButton.addEventListener('click', () => {
+        uiMenus.get('login').switchTo(uiMenus.get('home'));
+    })
+
 }
 
 function openHome() {
@@ -62,6 +68,7 @@ function openHome() {
 function initialUiMenus() {
     uiMenus.push(new UiMenu('main', document.querySelector('main')));
     uiMenus.push(new UiMenu('home', document.querySelector('#home')));
+    uiMenus.push(new UiMenu('login', document.querySelector('#login')));
 }
 
 export {circleAnimation}
