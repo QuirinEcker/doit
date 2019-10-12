@@ -1,6 +1,6 @@
 import {UiMenu} from "./UiMenu.js";
 
-class UiMenus extends Array {
+class UiMenuArray extends Array {
 
     constructor() {
         super();
@@ -13,4 +13,4 @@ class UiMenus extends Array {
     }
 }
 
-export {UiMenus};
+export {UiMenuArray};
