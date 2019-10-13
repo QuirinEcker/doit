@@ -23,11 +23,11 @@ class UiMenuController {
 
     switchUiTo(uiMenu) {
         uiMenu.htmlElement.style.display = 'flex';
-        this.currentMenu.htmlElement.style.opacity = '0';
         setTimeout(() => {
             this.currentMenu.htmlElement.style.display = 'none';
             uiMenu.htmlElement.style.opacity = '1';
             circleAnimation('black');
+            this.currentMenu.htmlElement.style.opacity = '0';
             this.currentMenu = uiMenu;
         }, 10)
     }
