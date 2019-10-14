@@ -1,6 +1,5 @@
 #settings {
     z-index: 3;
-    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: white;
@@ -50,7 +49,7 @@
     height: 3vh;
     font-size: 2vh;
     padding: 1vh 1vh 1vh 2vh;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
     margin-bottom: 2vh;
 }
@@ -82,6 +81,7 @@
     justify-content: flex-end;
     align-items: center;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    background-color: white;
 }
 
 #settings-control #button-container {
@@ -114,4 +114,9 @@
 
 #settings-control #button-container #settings-back-button {
     background-color: #cd5f5b;
+}
+
+#settings-control-placeholder {
+    height: 7vh;
+    width: 100vw;
 }
