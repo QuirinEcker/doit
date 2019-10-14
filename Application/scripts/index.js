@@ -50,6 +50,8 @@ function initialEventListener() {
     let loginButton = document.querySelector('#login-button');
     let logoutButton = document.querySelector('#home-navigation-entry-logout');
     let settingsButton = document.querySelector('#home-navigation-entry-settings');
+    let settingsSubmitButton = document.querySelector('#settings-submit-button');
+    let settingsBackButton = document.querySelector('#settings-back-button');
 
     homeButton.addEventListener('click', openHome);
 
@@ -67,6 +69,14 @@ function initialEventListener() {
 
     settingsButton.addEventListener('click', () => {
         uiMenus.switchUiTo(uiMenus.get('settings'));
+    })
+
+    settingsSubmitButton.addEventListener('click', () => {
+        uiMenus.switchUiTo(uiMenus.get('home'));
+    })
+
+    settingsBackButton.addEventListener('click', () => {
+        uiMenus.switchUiTo(uiMenus.get('home'));
     })
 
 }
