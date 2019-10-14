@@ -49,6 +49,7 @@ function initialEventListener() {
     let lists = Array.from(document.querySelectorAll('.list'));
     let loginButton = document.querySelector('#login-button');
     let logoutButton = document.querySelector('#home-navigation-entry-logout');
+    let settingsButton = document.querySelector('#home-navigation-entry-settings');
 
     homeButton.addEventListener('click', openHome);
 
@@ -63,6 +64,11 @@ function initialEventListener() {
     logoutButton.addEventListener('click', () => {
         uiMenus.switchUiTo(uiMenus.get('login'));
     })
+
+    settingsButton.addEventListener('click', () => {
+        uiMenus.switchUiTo(uiMenus.get('settings'));
+    })
+
 }
 
 function openHome() {
@@ -73,6 +79,7 @@ function initialUiMenus() {
     uiMenus.push(new UiMenu('main', document.querySelector('main')));
     uiMenus.push(new UiMenu('home', document.querySelector('#home')));
     uiMenus.push(new UiMenu('login', document.querySelector('#login')));
+    uiMenus.push(new UiMenu('settings', document.querySelector('#settings')))
 
     uiMenus.initiateCurrentMenu('login');
 }
