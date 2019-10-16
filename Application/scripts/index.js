@@ -56,13 +56,6 @@ function initialEventListener() {
     homeButton.addEventListener('click', openHome);
 
     lists.forEach((list) => {
-        alert(list)
-        let hammertime = new Hammer(list);
-
-        hammertime.on('swipeleft', (ev) => {
-            console.log(ev);
-        });
-
         list.children[0].addEventListener('click', openList)
     })
 
