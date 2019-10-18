@@ -1,6 +1,7 @@
 import {UiMenuController} from './UiMenuController.js'
-import {UiMenu} from "./UiMenu.js";
+import {UiMenu} from "./UiMenu.js"
 let uiMenus = new UiMenuController();
+let listMaxWidth;
 
 window.addEventListener('load', () => {
     initialUiMenus();
@@ -56,7 +57,23 @@ function initialEventListener() {
     homeButton.addEventListener('click', openHome);
 
     lists.forEach((list) => {
-        list.children[0].addEventListener('click', openList)
+        let position = {x: 0, y: 0};
+        interact(list.children[0]).draggable({
+            listeners: {
+                start (event) {
+                    console.log(event.type, event.target);
+                },
+                move (event) {
+                    position.x = event.dx;
+                    event.target.style.width = `${event.target.clientWidth + position.x}px`;
+                    setTimeout(() => {
+                        event.target.parentElement.children[1].style.width = `${event.target.parentElement.children[1].clientWidth - position.x}px`;
+                    }, 10);
+                }
+            }
+        })
+
+        //list.children[0].addEventListener('click', openList)
     })
 
     loginButton.addEventListener('click', () => {
