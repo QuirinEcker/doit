@@ -65,15 +65,13 @@ function initialEventListener() {
                 },
                 move (event) {
                     position.x = event.dx;
+                    event.target.parentElement.children[1].style.width = `${event.target.parentElement.children[1].clientWidth - position.x}px`;
                     event.target.style.width = `${event.target.clientWidth + position.x}px`;
-                    setTimeout(() => {
-                        event.target.parentElement.children[1].style.width = `${event.target.parentElement.children[1].clientWidth - position.x}px`;
-                    }, 10);
                 }
             }
         })
 
-        //list.children[0].addEventListener('click', openList)
+        list.children[0].addEventListener('click', openList)
     })
 
     loginButton.addEventListener('click', () => {
