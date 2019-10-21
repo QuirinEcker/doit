@@ -94,7 +94,7 @@ function initialEventListener() {
             }
         });
 
-        // list.children[0].addEventListener('click', openList)
+        list.children[0].addEventListener('click', openList)
     })
 
     loginButton.addEventListener('click', () => {
