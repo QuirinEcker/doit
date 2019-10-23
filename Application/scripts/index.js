@@ -1,11 +1,12 @@
 import {UiMenuController} from './UiMenuController.js'
 import {UiMenu} from "./UiMenu.js"
 import {Animations} from "./Animations.js";
-let uiMenus = new UiMenuController();
+import {Setup} from "./Setup";
+let uiMenuController = new UiMenuController();
 let isSwiping = false;
 
 window.addEventListener('load', () => {
-    initialUiMenus();
+    Setup.initialUiMenus(uiMenuController);
     initialEventListener();
 });
 
@@ -13,7 +14,7 @@ function closeHome() {
     let home = document.querySelector('#home');
     let main = document.querySelector('main');
 
-    uiMenus.switchUiTo(uiMenus.get('main'), Animations.circleAnimation);
+    uiMenuController.switchUiTo(uiMenuController.get('main'), Animations.circleAnimation);
 }
 
 function loadTasks(listID) {
@@ -82,36 +83,36 @@ function initialEventListener() {
     })
 
     loginButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
+        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
     })
 
     logoutButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('login'), Animations.circleAnimation);
+        uiMenuController.switchUiTo(uiMenuController.get('login'), Animations.circleAnimation);
     })
 
     settingsButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('settings'), Animations.circleAnimation);
+        uiMenuController.switchUiTo(uiMenuController.get('settings'), Animations.circleAnimation);
     })
 
     settingsSubmitButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
+        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
     })
 
     settingsBackButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
+        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
     })
 
 }
 
 function openHome() {
-    uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation)
+    uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation)
 }
 
-function initialUiMenus() {
-    uiMenus.push(new UiMenu('main', document.querySelector('main')));
-    uiMenus.push(new UiMenu('home', document.querySelector('#home')));
-    uiMenus.push(new UiMenu('login', document.querySelector('#login')));
-    uiMenus.push(new UiMenu('settings', document.querySelector('#settings')));
-
-    uiMenus.initiateCurrentMenu('login');
-}
+// function initialUiMenus() {
+//     uiMenuController.push(new UiMenu('main', document.querySelector('main')));
+//     uiMenuController.push(new UiMenu('home', document.querySelector('#home')));
+//     uiMenuController.push(new UiMenu('login', document.querySelector('#login')));
+//     uiMenuController.push(new UiMenu('settings', document.querySelector('#settings')));
+//
+//     uiMenuController.initiateCurrentMenu('login');
+// }
