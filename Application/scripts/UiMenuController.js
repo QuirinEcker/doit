@@ -1,4 +1,3 @@
-import {UiMenu} from "./UiMenu.js";
 import {circleAnimation} from "./index.js";
 
 class UiMenuController {
