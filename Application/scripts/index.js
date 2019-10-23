@@ -1,34 +1,12 @@
 import {UiMenuController} from './UiMenuController.js'
-import {UiMenu} from "./UiMenu.js"
 import {Animations} from "./Animations.js";
-import {Setup} from "./Setup";
+import {Setup} from "./Setup.js";
 let uiMenuController = new UiMenuController();
-let isSwiping = false;
 
 window.addEventListener('load', () => {
     Setup.initialUiMenus(uiMenuController);
     initialEventListener();
 });
-
-function closeHome() {
-    let home = document.querySelector('#home');
-    let main = document.querySelector('main');
-
-    uiMenuController.switchUiTo(uiMenuController.get('main'), Animations.circleAnimation);
-}
-
-function loadTasks(listID) {
-
-}
-
-function openList() {
-    if (isSwiping) {
-        isSwiping = false;
-    } else {
-        closeHome();
-        loadTasks(this.id);
-    }
-}
 
 function initialEventListener() {
     let homeButton = document.querySelector('footer');
@@ -39,7 +17,9 @@ function initialEventListener() {
     let settingsSubmitButton = document.querySelector('#settings-submit-button');
     let settingsBackButton = document.querySelector('#settings-back-button');
 
-    homeButton.addEventListener('click', openHome);
+    homeButton.addEventListener('click', () => {
+        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
+    });
 
     lists.forEach((list) => {
         let position = {x: 0, y: 0};
@@ -79,7 +59,9 @@ function initialEventListener() {
             }
         });
 
-        list.children[0].addEventListener('click', openList)
+        list.children[0].addEventListener('click', () => {
+            uiMenuController.switchUiTo(uiMenuController.get('main'), Animations.circleAnimation)
+        })
     })
 
     loginButton.addEventListener('click', () => {
@@ -103,16 +85,3 @@ function initialEventListener() {
     })
 
 }
-
-function openHome() {
-    uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation)
-}
-
-// function initialUiMenus() {
-//     uiMenuController.push(new UiMenu('main', document.querySelector('main')));
-//     uiMenuController.push(new UiMenu('home', document.querySelector('#home')));
-//     uiMenuController.push(new UiMenu('login', document.querySelector('#login')));
-//     uiMenuController.push(new UiMenu('settings', document.querySelector('#settings')));
-//
-//     uiMenuController.initiateCurrentMenu('login');
-// }

@@ -1,4 +1,4 @@
-import {UiMenu} from "./UiMenu";
+import {UiMenu} from "./UiMenu.js";
 
 class Setup {
     static initialUiMenus(uiMenuController) {
