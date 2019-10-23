@@ -8,27 +8,6 @@ window.addEventListener('load', () => {
     initialEventListener();
 });
 
-function circleAnimation() {
-    let animation = document.querySelector('#home-open-animation');
-    animation.style.zIndex = '10'
-    animation.style.transitionDuration = '0s'
-    animation.style.transform = 'scale(1)';
-    animation.style.backgroundColor = 'black';
-    animation.style.opacity = '0.1';
-    setTimeout(() => {
-        animation.style.transitionDuration = '1s';
-        animation.style.transform = 'scale(100)';
-        animation.style.transitionDuration = '0.5s';
-        animation.style.opacity = '0';
-    }, 20)
-
-    setTimeout(() => {
-        animation.style.transitionDuration = '0s'
-        animation.style.transform = 'scale(1)';
-        animation.style.backgroundColor = color;
-    }, 1000)
-}
-
 function closeHome() {
     let home = document.querySelector('#home');
     let main = document.querySelector('main');
@@ -135,5 +114,3 @@ function initialUiMenus() {
 
     uiMenus.initiateCurrentMenu('login');
 }
-
-export {circleAnimation}

@@ -1,4 +1,4 @@
-import {circleAnimation} from "./index.js";
+import {Animations} from "./Animations.js";
 
 class UiMenuController {
 
@@ -25,7 +25,7 @@ class UiMenuController {
         setTimeout(() => {
             this.currentMenu.htmlElement.style.display = 'none';
             uiMenu.htmlElement.style.opacity = '1';
-            circleAnimation();
+            Animations.circleAnimation();
             this.currentMenu.htmlElement.style.opacity = '0';
             this.currentMenu = uiMenu;
         }, 10)
