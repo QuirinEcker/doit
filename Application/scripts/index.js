@@ -1,7 +1,7 @@
 import {UiMenuController} from './UiMenuController.js'
 import {UiMenu} from "./UiMenu.js"
 let uiMenus = new UiMenuController();
-let listMaxWidth;
+let isSwiping = false;
 
 window.addEventListener('load', () => {
     initialUiMenus();
@@ -41,8 +41,12 @@ function loadTasks(listID) {
 }
 
 function openList() {
-    closeHome();
-    loadTasks(this.id);
+    if (isSwiping) {
+        isSwiping = false;
+    } else {
+        closeHome();
+        loadTasks(this.id);
+    }
 }
 
 function initialEventListener() {
