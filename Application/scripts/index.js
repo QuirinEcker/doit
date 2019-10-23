@@ -1,5 +1,6 @@
 import {UiMenuController} from './UiMenuController.js'
 import {UiMenu} from "./UiMenu.js"
+import {Animations} from "./Animations.js";
 let uiMenus = new UiMenuController();
 let isSwiping = false;
 
@@ -12,7 +13,7 @@ function closeHome() {
     let home = document.querySelector('#home');
     let main = document.querySelector('main');
 
-    uiMenus.switchUiTo(uiMenus.get('main'))
+    uiMenus.switchUiTo(uiMenus.get('main'), Animations.circleAnimation);
 }
 
 function loadTasks(listID) {
@@ -81,29 +82,29 @@ function initialEventListener() {
     })
 
     loginButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'));
+        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
     })
 
     logoutButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('login'));
+        uiMenus.switchUiTo(uiMenus.get('login'), Animations.circleAnimation);
     })
 
     settingsButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('settings'));
+        uiMenus.switchUiTo(uiMenus.get('settings'), Animations.circleAnimation);
     })
 
     settingsSubmitButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'));
+        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
     })
 
     settingsBackButton.addEventListener('click', () => {
-        uiMenus.switchUiTo(uiMenus.get('home'));
+        uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation);
     })
 
 }
 
 function openHome() {
-    uiMenus.switchUiTo(uiMenus.get('home'))
+    uiMenus.switchUiTo(uiMenus.get('home'), Animations.circleAnimation)
 }
 
 function initialUiMenus() {

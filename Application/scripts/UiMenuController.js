@@ -1,5 +1,3 @@
-import {Animations} from "./Animations.js";
-
 class UiMenuController {
 
     constructor() {
@@ -20,12 +18,12 @@ class UiMenuController {
         this.currentMenu = this.get(name)
     }
 
-    switchUiTo(uiMenu) {
+    switchUiTo(uiMenu, animation) {
         uiMenu.htmlElement.style.display = 'flex';
         setTimeout(() => {
             this.currentMenu.htmlElement.style.display = 'none';
             uiMenu.htmlElement.style.opacity = '1';
-            Animations.circleAnimation();
+            animation();
             this.currentMenu.htmlElement.style.opacity = '0';
             this.currentMenu = uiMenu;
         }, 10)
