@@ -25,7 +25,7 @@ class UiMenuController {
         setTimeout(() => {
             this.currentMenu.htmlElement.style.display = 'none';
             uiMenu.htmlElement.style.opacity = '1';
-            circleAnimation('black');
+            circleAnimation();
             this.currentMenu.htmlElement.style.opacity = '0';
             this.currentMenu = uiMenu;
         }, 10)
