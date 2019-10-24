@@ -1,10 +1,8 @@
-import {UiMenuController} from './UiMenuController.js'
 import {Animations} from "./Animations.js";
-import {Setup} from "./Setup.js";
-let uiMenuController = new UiMenuController();
+import {Config} from "./Config.js";
 
 window.addEventListener('load', () => {
-    Setup.initialUiMenus(uiMenuController);
+    Config.load();
     initialEventListener();
 });
 
@@ -18,7 +16,7 @@ function initialEventListener() {
     let settingsBackButton = document.querySelector('#settings-back-button');
 
     homeButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
+        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('home'), Animations.circleAnimation);
     });
 
     lists.forEach((list) => {
@@ -60,28 +58,24 @@ function initialEventListener() {
         });
 
         list.children[0].addEventListener('click', () => {
-            uiMenuController.switchUiTo(uiMenuController.get('main'), Animations.circleAnimation)
+             Config.uiMenuController.switchUiTo(Config.uiMenuController.get('main'), Animations.circleAnimation)
         })
     })
 
-    loginButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
-    })
+    loginButton.addEventListener('click', () => Config.actionController.openHome());
 
     logoutButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('login'), Animations.circleAnimation);
+        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('login'), Animations.circleAnimation);
     })
 
     settingsButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('settings'), Animations.circleAnimation);
+        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('settings'), Animations.circleAnimation);
     })
 
     settingsSubmitButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
     })
 
     settingsBackButton.addEventListener('click', () => {
-        uiMenuController.switchUiTo(uiMenuController.get('home'), Animations.circleAnimation);
+        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('home'), Animations.circleAnimation);
     })
-
 }
