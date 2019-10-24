@@ -8,13 +8,13 @@ window.addEventListener('load', () => {
 });
 
 function initialEventListener() {
-    let homeButton = document.querySelector('footer');
-    let lists = Array.from(document.querySelectorAll('.list'));
-    let loginButton = document.querySelector('#login-button');
-    let logoutButton = document.querySelector('#home-navigation-entry-logout');
-    let settingsButton = document.querySelector('#home-navigation-entry-settings');
-    let settingsSubmitButton = document.querySelector('#settings-submit-button');
-    let settingsBackButton = document.querySelector('#settings-back-button');
+    const homeButton = document.querySelector('footer');
+    const lists = Array.from(document.querySelectorAll('.list'));
+    const loginButton = document.querySelector('#login-button');
+    const logoutButton = document.querySelector('#home-navigation-entry-logout');
+    const settingsButton = document.querySelector('#home-navigation-entry-settings');
+    const settingsSubmitButton = document.querySelector('#settings-submit-button');
+    const settingsBackButton = document.querySelector('#settings-back-button');
 
     homeButton.addEventListener('click', actionController.openHome);
     loginButton.addEventListener('click', actionController.openHome);
