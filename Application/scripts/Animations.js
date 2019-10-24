@@ -1,6 +1,7 @@
 class Animations {
     static circleAnimation() {
         let animation = document.querySelector('#home-open-animation');
+
         animation.style.zIndex = '10'
         animation.style.transitionDuration = '0s'
         animation.style.transform = 'scale(1)';

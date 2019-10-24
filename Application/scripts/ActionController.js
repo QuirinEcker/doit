@@ -3,8 +3,24 @@ import {Config} from "./Config.js";
 
 class ActionController {
     openHome() {
-        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('home'), Animations.circleAnimation);
+        openMenu('home', Animations.circleAnimation);
     }
+
+    openList() {
+        openMenu('main', Animations.circleAnimation);
+    }
+
+    openLogin() {
+        openMenu('login', Animations.circleAnimation);
+    }
+
+    openSettings() {
+        openMenu('settings', Animations.circleAnimation);
+    }
+}
+
+function openMenu(uiName, animation) {
+    Config.uiMenuController.switchUiTo(Config.uiMenuController.get(uiName), animation);
 }
 
 export {ActionController}

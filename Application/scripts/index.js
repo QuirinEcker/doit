@@ -15,9 +15,13 @@ function initialEventListener() {
     let settingsSubmitButton = document.querySelector('#settings-submit-button');
     let settingsBackButton = document.querySelector('#settings-back-button');
 
-    homeButton.addEventListener('click', () => {
-        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('home'), Animations.circleAnimation);
-    });
+    homeButton.addEventListener('click', Config.actionController.openHome);
+    loginButton.addEventListener('click', Config.actionController.openHome);
+    logoutButton.addEventListener('click', Config.actionController.openLogin);
+    settingsButton.addEventListener('click', Config.actionController.openSettings);
+    settingsSubmitButton.addEventListener('click', Config.actionController.openHome);
+    settingsBackButton.addEventListener('click', Config.actionController.openHome);
+
 
     lists.forEach((list) => {
         let position = {x: 0, y: 0};
@@ -60,22 +64,5 @@ function initialEventListener() {
         list.children[0].addEventListener('click', () => {
              Config.uiMenuController.switchUiTo(Config.uiMenuController.get('main'), Animations.circleAnimation)
         })
-    })
-
-    loginButton.addEventListener('click', () => Config.actionController.openHome());
-
-    logoutButton.addEventListener('click', () => {
-        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('login'), Animations.circleAnimation);
-    })
-
-    settingsButton.addEventListener('click', () => {
-        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('settings'), Animations.circleAnimation);
-    })
-
-    settingsSubmitButton.addEventListener('click', () => {
-    })
-
-    settingsBackButton.addEventListener('click', () => {
-        Config.uiMenuController.switchUiTo(Config.uiMenuController.get('home'), Animations.circleAnimation);
     })
 }
