@@ -20,4 +20,9 @@ class Config {
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
 
+let uiMenuController = Config.uiMenuController;
+let actionController = Config.actionController;
+
 export {Config};
+export {actionController};
+export {uiMenuController};

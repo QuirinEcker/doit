@@ -1,5 +1,5 @@
 import {Animations} from "./Animations.js";
-import {Config} from "./Config.js";
+import {uiMenuController} from "./Config.js";
 
 class ActionController {
     openHome() {
@@ -20,7 +20,7 @@ class ActionController {
 }
 
 function openMenu(uiName, animation) {
-    Config.uiMenuController.switchUiTo(Config.uiMenuController.get(uiName), animation);
+    uiMenuController.switchUiTo(uiMenuController.get(uiName), animation);
 }
 
 export {ActionController}
