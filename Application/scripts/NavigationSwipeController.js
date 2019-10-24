@@ -1,5 +1,3 @@
-
-
 class NavigationSwipeController {
     static addSwipe(element) {
         let position = {x: 0, y: 0};

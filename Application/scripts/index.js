@@ -1,4 +1,3 @@
-import {Animations} from "./Animations.js";
 import {Config} from "./Config.js";
 import {NavigationSwipeController} from './NavigationSwipeController.js'
 
