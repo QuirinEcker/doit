@@ -29,4 +29,8 @@ class User {
     get id() {
         return this._id;
     }
+
+    addTaskList(taskList) {
+        this.taskLists.push(taskList);
+    }
 }
