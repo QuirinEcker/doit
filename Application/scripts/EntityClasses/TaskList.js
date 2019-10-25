@@ -6,6 +6,7 @@ class TaskList {
         this._name = name;
         this._tags = new Array();
         this._taskList = new Array();
+        TaskList.idNumber++;
     }
 
     get name() {

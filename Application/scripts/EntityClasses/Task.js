@@ -1,3 +1,5 @@
+Task.idNumber = 0;
+
 class Task {
     constructor(name, dueDate, parentTaskListID, [tagList]) {
         this.tagList = new Array();
@@ -6,6 +8,7 @@ class Task {
         this._dueDate = dueDate;
         this._parentTaskListID = parentTaskListID;
         this._tagList = tagList;
+        Task.idNumber++;
     }
 
     get name() {

@@ -7,6 +7,7 @@ class User {
         this._username = username;
         this._password = new EncryptedPassword(password);
         this._email = email;
+        User.idNumber++;
     }
 
     get username() {
