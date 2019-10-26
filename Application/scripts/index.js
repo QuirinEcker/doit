@@ -1,10 +1,14 @@
 import {Config} from "./Config.js";
 import {actionController} from "./Config.js";
 import {NavigationSwipeController} from './NavigationSwipeController.js'
+import {dataBase} from "./Config.js";
+
+let users;
 
 window.addEventListener('load', () => {
     Config.load();
     initialEventListener();
+    users = dataBase.loadUsers()
 });
 
 function initialEventListener() {

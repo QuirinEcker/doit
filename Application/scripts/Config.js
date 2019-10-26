@@ -1,6 +1,7 @@
 import {UiMenu} from "./UiMenu.js";
 import {UiMenuController} from "./UiMenuController.js";
 import {ActionController} from "./ActionController.js";
+import {DataBase} from "./DataBase.js"
 
 class Config {
     static load() {
@@ -19,10 +20,13 @@ class Config {
 
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
+Config.dataBase = new DataBase("omsdoifm");
 
 let uiMenuController = Config.uiMenuController;
 let actionController = Config.actionController;
+let dataBase = Config.dataBase;
 
 export {Config};
 export {actionController};
 export {uiMenuController};
+export {dataBase};

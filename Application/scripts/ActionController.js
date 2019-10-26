@@ -17,6 +17,11 @@ class ActionController {
     openSettings() {
         openMenu('settings', Animations.circleAnimation);
     }
+
+    login(userNameOEmail) {
+
+        this.openHome();
+    }
 }
 
 function openMenu(uiName, animation) {
