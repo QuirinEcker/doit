@@ -1,3 +1,5 @@
+import {EncryptedPassword} from "../EncryptedPassword.js";
+
 class User {
     constructor(username, password, email) {
         this._taskLists = new Array();

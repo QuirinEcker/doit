@@ -8,3 +8,5 @@ class EncryptedPassword {
         return password;
     }
 }
+
+export {EncryptedPassword}
