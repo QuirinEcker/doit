@@ -1,7 +1,7 @@
 Task.idNumber = 0;
 
 class Task {
-    constructor(name, dueDate, parentTaskListID, [tagList]) {
+    constructor(name, dueDate, parentTaskListID) {
         this.tagList = new Array();
         this.tagList.push(tagList == null ? console.log() : tagList);
         this._name = name;
@@ -27,3 +27,5 @@ class Task {
         return this._tagList;
     }
 }
+
+export {Task}

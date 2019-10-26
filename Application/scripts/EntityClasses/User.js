@@ -34,3 +34,5 @@ class User {
         this.taskLists.push(taskList);
     }
 }
+
+export {User}

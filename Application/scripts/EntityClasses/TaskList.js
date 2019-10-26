@@ -25,3 +25,5 @@ class TaskList {
         return this._taskList;
     }
 }
+
+export {TaskList}

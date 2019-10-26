@@ -12,3 +12,5 @@ class Tag {
         return this._name;
     }
 }
+
+export {Tag}
