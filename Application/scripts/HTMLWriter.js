@@ -1,7 +1,11 @@
 class HTMLWriter {
-    static overWriteElement(elementSelector, text) {
-        let element = document.querySelector(elementSelector);
-        element.textContent = text;
+    static overWriteElement(elementOrSelector, text) {
+        if (elementOrSelector === typeof String) {
+            let element = document.querySelector(elementOrSelector);
+            element.textContent = text;
+        } else {
+            elementOrSelector.textContent = text;
+        }
     }
 
     static addElement(type, parentElementSelector) {
@@ -11,15 +15,23 @@ class HTMLWriter {
         return element;
     }
 
-    static changeId(elementSelector, id){
-        let element = document.querySelector(elementSelector);
-        element.id = id;
+    static changeId(elementOrSelector, id){
+        if (elementOrSelector === typeof String) {
+            let element = document.querySelector(elementOrSelector);
+            element.id = id;
+        } else {
+            elementOrSelector.id = id;
+        }
     }
 
-    static addClass(elementSelector, className) {
-        let element = document.querySelector(elementSelector);
-        element.classList.add(className);
+    static addClass(elementOrSelector, className) {
+        if (elementOrSelector === typeof String) {
+            let element = document.querySelector(elementOrSelector);
+            element.classList.add(className);
+        } else {
+            elementOrSelector.classList.add(className);
+        }
     }
-
-
 }
+
+export {HTMLWriter}

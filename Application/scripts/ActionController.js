@@ -1,7 +1,7 @@
 import {Animations} from "./Animations.js";
 import {uiMenuController} from "./Config.js";
-import {DataBase} from "./DataBase";
-import {dataBase} from "./Config";
+import {dataBase} from "./Config.js";
+import {HTMLWriter} from "./HTMLWriter.js";
 
 class ActionController {
     static openHome() {
@@ -21,15 +21,20 @@ class ActionController {
     }
 
     static login() {
-        let userNameOrEmail = "user2@gmail.com"
+        let userNameOrEmail = "user2@gmail.com";
         let password = "psadflamsw1"
 
 
-        let requestLogin = new Promise(() => {
-            dataBase.login(userNameOrEmail, password);
+        let requestLogin = new Promise((resolve, reject) => {
+            dataBase.login(userNameOrEmail, password, resolve, reject);
+            resolve();
         })
-            .then(() => ActionController.openHome())
-            .catch(() => new loginError)
+            .then(ActionController.openHome)
+            .catch(() => {
+                let element = HTMLWriter.addElement('div', '#login-errors');
+                HTMLWriter.addClass(element, 'error')
+                HTMLWriter.overWriteElement(element, "Wrong Username or Password")
+            })
 
     }
 }
