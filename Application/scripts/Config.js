@@ -21,12 +21,16 @@ class Config {
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
 Config.dataBase = new DataBase("omsdoifm");
+Config.users = Config.dataBase.loadUsers();
+
 
 let uiMenuController = Config.uiMenuController;
 let actionController = Config.actionController;
 let dataBase = Config.dataBase;
+let users = Config.users;
 
 export {Config};
 export {actionController};
 export {uiMenuController};
 export {dataBase};
+export {users}

@@ -1,5 +1,6 @@
 import {Animations} from "./Animations.js";
 import {uiMenuController} from "./Config.js";
+import {LoginController} from "./LoginController.js";
 
 class ActionController {
     openHome() {
@@ -18,8 +19,11 @@ class ActionController {
         openMenu('settings', Animations.circleAnimation);
     }
 
-    login(userNameOEmail) {
+    login() {
+        let userNameOrEmail = "user1@gmail.com"
+        let password = "psadflamsw1"
 
+        LoginController.login(userNameOrEmail, password);
         this.openHome();
     }
 }

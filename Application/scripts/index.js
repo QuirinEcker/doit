@@ -3,12 +3,9 @@ import {actionController} from "./Config.js";
 import {NavigationSwipeController} from './NavigationSwipeController.js'
 import {dataBase} from "./Config.js";
 
-let users;
-
 window.addEventListener('load', () => {
     Config.load();
     initialEventListener();
-    users = dataBase.loadUsers()
 });
 
 function initialEventListener() {
@@ -21,7 +18,7 @@ function initialEventListener() {
     const settingsBackButton = document.querySelector('#settings-back-button');
 
     homeButton.addEventListener('click', actionController.openHome);
-    loginButton.addEventListener('click', actionController.openHome);
+    loginButton.addEventListener('click', actionController.login);
     logoutButton.addEventListener('click', actionController.openLogin);
     settingsButton.addEventListener('click', actionController.openSettings);
     settingsSubmitButton.addEventListener('click', actionController.openHome);
