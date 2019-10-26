@@ -1,6 +1,7 @@
 import {Animations} from "./Animations.js";
 import {uiMenuController} from "./Config.js";
-import {LoginController} from "./LoginController.js";
+import {DataBase} from "./DataBase";
+import {dataBase} from "./Config";
 
 class ActionController {
     static openHome() {
@@ -20,11 +21,16 @@ class ActionController {
     }
 
     static login() {
-        let userNameOrEmail = "user1@gmail.com"
+        let userNameOrEmail = "user2@gmail.com"
         let password = "psadflamsw1"
 
-        LoginController.login(userNameOrEmail, password);
-        ActionController.openHome();
+
+        let requestLogin = new Promise(() => {
+            dataBase.login(userNameOrEmail, password);
+        })
+            .then(() => ActionController.openHome())
+            .catch(() => new loginError)
+
     }
 }
 
