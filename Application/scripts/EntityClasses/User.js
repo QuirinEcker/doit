@@ -1,5 +1,3 @@
-User.idNumber = 0;
-
 class User {
     constructor(username, password, email) {
         this._taskLists = new Array();
@@ -34,5 +32,7 @@ class User {
         this.taskLists.push(taskList);
     }
 }
+
+User.idNumber = 0;
 
 export {User}

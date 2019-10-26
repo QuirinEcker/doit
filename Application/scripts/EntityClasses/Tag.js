@@ -1,5 +1,3 @@
-Tag.idNumber = 0;
-
 class Tag {
 
     constructor(name) {
@@ -12,5 +10,7 @@ class Tag {
         return this._name;
     }
 }
+
+Tag.idNumber = 0;
 
 export {Tag}

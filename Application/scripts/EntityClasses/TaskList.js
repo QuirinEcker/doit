@@ -1,5 +1,3 @@
-TaskList.idNumber = 0;
-
 class TaskList {
     constructor(name) {
         this._id = `tl${TaskList.idNumber}`;
@@ -25,5 +23,7 @@ class TaskList {
         return this._taskList;
     }
 }
+
+TaskList.idNumber = 0;
 
 export {TaskList}

@@ -1,5 +1,3 @@
-Task.idNumber = 0;
-
 class Task {
     constructor(name, dueDate, parentTaskListID) {
         this.tagList = new Array();
@@ -27,5 +25,7 @@ class Task {
         return this._tagList;
     }
 }
+
+Task.idNumber = 0;
 
 export {Task}
