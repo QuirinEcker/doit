@@ -3,28 +3,28 @@ import {uiMenuController} from "./Config.js";
 import {LoginController} from "./LoginController.js";
 
 class ActionController {
-    openHome() {
+    static openHome() {
         openMenu('home', Animations.circleAnimation);
     }
 
-    openList() {
+    static openList() {
         openMenu('main', Animations.circleAnimation);
     }
 
-    openLogin() {
+    static openLogin() {
         openMenu('login', Animations.circleAnimation);
     }
 
-    openSettings() {
+    static openSettings() {
         openMenu('settings', Animations.circleAnimation);
     }
 
-    login() {
+    static login() {
         let userNameOrEmail = "user1@gmail.com"
         let password = "psadflamsw1"
 
         LoginController.login(userNameOrEmail, password);
-        this.openHome();
+        ActionController.openHome();
     }
 }
 

@@ -25,12 +25,11 @@ Config.users = Config.dataBase.loadUsers();
 
 
 let uiMenuController = Config.uiMenuController;
-let actionController = Config.actionController;
 let dataBase = Config.dataBase;
 let users = Config.users;
 
 export {Config};
-export {actionController};
+export {ActionController};
 export {uiMenuController};
 export {dataBase};
 export {users}

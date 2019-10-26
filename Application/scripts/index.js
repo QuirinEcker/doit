@@ -1,5 +1,5 @@
 import {Config} from "./Config.js";
-import {actionController} from "./Config.js";
+import {ActionController} from "./Config.js";
 import {NavigationSwipeController} from './NavigationSwipeController.js'
 import {dataBase} from "./Config.js";
 
@@ -17,16 +17,16 @@ function initialEventListener() {
     const settingsSubmitButton = document.querySelector('#settings-submit-button');
     const settingsBackButton = document.querySelector('#settings-back-button');
 
-    homeButton.addEventListener('click', actionController.openHome);
-    loginButton.addEventListener('click', actionController.login);
-    logoutButton.addEventListener('click', actionController.openLogin);
-    settingsButton.addEventListener('click', actionController.openSettings);
-    settingsSubmitButton.addEventListener('click', actionController.openHome);
-    settingsBackButton.addEventListener('click', actionController.openHome);
+    homeButton.addEventListener('click', ActionController.openHome);
+    loginButton.addEventListener('click', ActionController.login);
+    logoutButton.addEventListener('click', ActionController.openLogin);
+    settingsButton.addEventListener('click', ActionController.openSettings);
+    settingsSubmitButton.addEventListener('click', ActionController.openHome);
+    settingsBackButton.addEventListener('click', ActionController.openHome);
 
     lists.forEach((list) => {
         let listShape = list.children[0];
         NavigationSwipeController.addSwipe(list.children[0]);
-        listShape.addEventListener('click', actionController.openList);
+        listShape.addEventListener('click', ActionController.openList);
     })
 }
