@@ -26,8 +26,6 @@ class ActionController {
 
 
         let requestLogin = new Promise((resolve, reject) => {
-            console.log(userNameOrEmail);
-            console.log(password);
             if (userNameOrEmail === 'admin' && password === 'admin') {
                 console.log("Welcome admin");
                 resolve()

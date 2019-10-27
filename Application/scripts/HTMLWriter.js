@@ -49,7 +49,7 @@ class HTMLWriter {
     static writeLoginError(reason) {
         HTMLWriter.clearAllElementIn('#login-errors');
         let element = HTMLWriter.addElement('div', '#login-errors');
-        HTMLWriter.addClass(element, 'error')
+        HTMLWriter.addClass(element, 'login-error');
         HTMLWriter.overWriteElement(element, reason)
     }
 
