@@ -1,5 +1,18 @@
 class HTMLWriter {
-    static overWriteElement(elementOrSelector, text) {
+    static changeValueOf(elementOrSelector, value) {
+        if (typeof elementOrSelector === "string") {
+            let element = document.querySelector(elementOrSelector);
+            element.value = value;
+        } else {
+            elementOrSelector.value = value;
+        }
+    }
+
+    static clearValueOf(elementOrSelector) {
+        HTMLWriter.changeValueOf(elementOrSelector, '');
+    }
+
+    static overWriteElementTextContent(elementOrSelector, text) {
         if (typeof elementOrSelector === "string") {
             let element = document.querySelector(elementOrSelector);
             element.textContent = text;
@@ -50,7 +63,12 @@ class HTMLWriter {
         HTMLWriter.clearAllElementIn('#login-errors');
         let element = HTMLWriter.addElement('div', '#login-errors');
         HTMLWriter.addClass(element, 'login-error');
-        HTMLWriter.overWriteElement(element, reason)
+        HTMLWriter.overWriteElementTextContent(element, reason)
+    }
+
+    static clearLoginInputs() {
+        HTMLWriter.clearValueOf('#login-username-email-field');
+        HTMLWriter.clearValueOf('#login-password-field');
     }
 
 }

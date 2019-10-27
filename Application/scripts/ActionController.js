@@ -32,8 +32,14 @@ class ActionController {
             } else reject("wrong username or password");
             dataBase.login(userNameOrEmail, password, resolve, reject);
         })
-            .then(ActionController.openHome)
+            .then(ActionController.loadUserHome)
             .catch(HTMLWriter.writeLoginError)
+    }
+
+    static loadUserHome() {
+        HTMLWriter.clearAllElementIn('#login-errors');
+        ActionController.openHome();
+        HTMLWriter.clearLoginInputs();
     }
 }
 
