@@ -2,11 +2,17 @@ import {Animations} from "./Animations.js";
 import {uiMenuController} from "./Config.js";
 import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
+import {Searcher} from "./Searcher.js";
 
 class ActionController {
+    static searchTask() {
+        Searcher.search(this.value);
+    }
+
     static openSignUp() {
         openMenu('signup', Animations.circleAnimation);
     }
+
     static openHome() {
         openMenu('home', Animations.circleAnimation);
     }
