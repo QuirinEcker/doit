@@ -21,21 +21,21 @@ class ActionController {
     }
 
     static login() {
-        let userNameOrEmail = "user2@gmail.com";
-        let password = "psadflamsw1"
+        let userNameOrEmail = document.querySelector('#login-username-email-field').value;
+        let password = document.querySelector('#login-password-field').value;
 
 
         let requestLogin = new Promise((resolve, reject) => {
+            console.log(userNameOrEmail);
+            console.log(password);
+            if (userNameOrEmail === 'admin' && password === 'admin') {
+                console.log("Welcome admin");
+                resolve()
+            } else reject("wrong username or password");
             dataBase.login(userNameOrEmail, password, resolve, reject);
-            resolve();
         })
             .then(ActionController.openHome)
-            .catch(() => {
-                let element = HTMLWriter.addElement('div', '#login-errors');
-                HTMLWriter.addClass(element, 'error')
-                HTMLWriter.overWriteElement(element, "Wrong Username or Password")
-            })
-
+            .catch(HTMLWriter.writeLoginError)
     }
 }
 
