@@ -4,6 +4,9 @@ import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 
 class ActionController {
+    static openSignUp() {
+        openMenu('signup', Animations.circleAnimation);
+    }
     static openHome() {
         openMenu('home', Animations.circleAnimation);
     }

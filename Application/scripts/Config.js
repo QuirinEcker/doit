@@ -13,6 +13,7 @@ class Config {
         this.uiMenuController.push(new UiMenu('home', document.querySelector('#home')));
         this.uiMenuController.push(new UiMenu('login', document.querySelector('#login')));
         this.uiMenuController.push(new UiMenu('settings', document.querySelector('#settings')));
+        this.uiMenuController.push(new UiMenu('signup', document.querySelector('#signup-menu')));
 
         this.uiMenuController.initiateCurrentMenu('login');
     }

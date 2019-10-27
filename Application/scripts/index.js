@@ -16,6 +16,9 @@ function initialEventListener() {
     const settingsButton = document.querySelector('#home-navigation-entry-settings');
     const settingsSubmitButton = document.querySelector('#settings-submit-button');
     const settingsBackButton = document.querySelector('#settings-back-button');
+    const signUpButton = document.querySelector('#signup-button');
+    const signUpSubmitButton = document.querySelector('#signup-submit-button');
+    const signUpCancelButton = document.querySelector('#signup-back-button');
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
@@ -23,6 +26,9 @@ function initialEventListener() {
     settingsButton.addEventListener('click', ActionController.openSettings);
     settingsSubmitButton.addEventListener('click', ActionController.openHome);
     settingsBackButton.addEventListener('click', ActionController.openHome);
+    signUpButton.addEventListener('click', ActionController.openSignUp);
+    signUpCancelButton.addEventListener('click', ActionController.openLogin);
+    signUpSubmitButton.addEventListener('click', ActionController.openLogin);
 
     lists.forEach((list) => {
         let listShape = list.children[0];
