@@ -2,8 +2,8 @@ class Searcher {
 
     static search(searchString) {
         let openTasks = document.querySelector('#open-tasks').children;
-        let completedTasks = document.querySelector('#completed-tasks').children;
-        let tasks = new Array().concat(Array.from(openTasks), Array.from(completedTasks));
+        let closedTasks = document.querySelector('#closed-tasks').children;
+        let tasks = new Array().concat(Array.from(openTasks), Array.from(closedTasks));
 
         tasks.forEach((task) => {
             let title = document.querySelector(`#${task.id} .title`).textContent;
