@@ -1,3 +1,5 @@
+import {HTMLWriter} from "./HTMLWriter.js";
+
 class TaskFilter {
 
     static search(searchString) {
@@ -9,13 +11,23 @@ class TaskFilter {
         let searchTask = document.querySelector('#search-task');
         let searchTaskTitle = document.querySelector(`#${searchTask.id} .title`);
         let weekDayBox = document.querySelector(`#${searchTask.id} .big-display span`);
+        let tagContainer = document.querySelector(`#${searchTask.id} .tags`);
+        let words = searchString.split(' ');
+        let separatedSearchString = TaskFilter.separateSignatures(words);
 
         let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
             return charAt !== ' ';
         });
         if (allLettersNotEmpty.length !== 0) weekDayBox.textContent = allLettersNotEmpty[0].toUpperCase();
         else weekDayBox.textContent = ' ';
-        searchTaskTitle.textContent = searchString;
+        HTMLWriter.printArrayInto(searchTaskTitle, separatedSearchString.remainingWords, ' ');
+        HTMLWriter.clearAllElementIn(tagContainer);
+
+        separatedSearchString.tags.forEach((tag) => {
+            let tagElement = HTMLWriter.addElement('div', tagContainer);
+            HTMLWriter.addClass(tagElement, 'tag');
+            HTMLWriter.overWriteElementTextContent(tagElement, tag);
+        });
 
         if (searchString.length !== 0) {
             searchTask.style.display = 'flex';
@@ -39,6 +51,19 @@ class TaskFilter {
                 task.style.display = 'none';
             }
         });
+    }
+
+    static separateSignatures(wordArray) {
+        let separatedSearchString = {
+            tags: wordArray.filter((word) => {
+                return word.charAt(0) === '#';
+            }),
+            remainingWords: wordArray.filter((word) => {
+                return word.charAt(0) !== '#';
+            })
+        }
+
+        return separatedSearchString;
     }
 }
 
