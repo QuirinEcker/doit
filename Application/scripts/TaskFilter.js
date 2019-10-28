@@ -12,8 +12,7 @@ class TaskFilter {
     static displaySearchTask(searchString) {
         let searchTask = document.querySelector('#search-task');
         let searchTaskTitle = document.querySelector(`#${searchTask.id} .title`);
-        let words = searchString.split(' ');
-        let separatedSearchString = TaskFilter.separateSignatures(words, keyWordCategories);
+        let separatedSearchString = TaskFilter.separateSignatures(searchString.split(' '), keyWordCategories);
         let dueDate = DateKeyWordAnalyzer.analyze(separatedSearchString.at);
 
         HTMLWriter.printArrayInto(searchTaskTitle, separatedSearchString.remaining, ' ');
