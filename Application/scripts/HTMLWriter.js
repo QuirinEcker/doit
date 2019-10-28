@@ -1,11 +1,14 @@
 class HTMLWriter {
-    static changeValueOf(elementOrSelector, value) {
+    static getElement(elementOrSelector) {
         if (typeof elementOrSelector === "string") {
-            let element = document.querySelector(elementOrSelector);
-            element.value = value;
+            return document.querySelector(elementOrSelector);
         } else {
-            elementOrSelector.value = value;
+            return elementOrSelector;
         }
+    }
+
+    static changeValueOf(elementOrSelector, value) {
+        HTMLWriter.getElement(elementOrSelector).value = value;
     }
 
     static clearValueOf(elementOrSelector) {
@@ -13,49 +16,27 @@ class HTMLWriter {
     }
 
     static overWriteElementTextContent(elementOrSelector, text) {
-        if (typeof elementOrSelector === "string") {
-            let element = document.querySelector(elementOrSelector);
-            element.textContent = text;
-        } else {
-            elementOrSelector.textContent = text;
-        }
+        HTMLWriter.getElement(elementOrSelector).textContent = text;
     }
 
-    static addElement(type, parentElementSelector) {
+    static addElement(type, parentElementOrSelector) {
         let element = document.createElement(type);
-        let parentElement = document.querySelector(parentElementSelector);
+        let parentElement = HTMLWriter.getElement(parentElementOrSelector);
         parentElement.appendChild(element);
         return element;
     }
 
     static changeId(elementOrSelector, id){
-        if (typeof elementOrSelector === "string") {
-            let element = document.querySelector(elementOrSelector);
-            element.id = id;
-        } else {
-            elementOrSelector.id = id;
-        }
+        HTMLWriter.getElement(elementOrSelector).id = id;
     }
 
     static addClass(elementOrSelector, className) {
-        if (typeof elementOrSelector === "string") {
-            let element = document.querySelector(elementOrSelector);
-            element.classList.add(className);
-        } else {
-            elementOrSelector.classList.add(className);
-        }
+        HTMLWriter.getElement(elementOrSelector).classList.add(className);
     }
 
     static clearAllElementIn(elementOrSelector) {
-        if (typeof elementOrSelector == "string") {
-            let element = document.querySelector(elementOrSelector);
-            while (element.children.length != 0) {
-                element.removeChild(element.lastChild);
-            }
-        } else {
-            while (elementOrSelector.children.length != 0) {
-                elementOrSelector.removeChild(elementOrSelector.lastChild);
-            }
+        while (HTMLWriter.getElement(elementOrSelector).children.length != 0) {
+            HTMLWriter.getElement(elementOrSelector).removeChild(HTMLWriter.getElement(elementOrSelector).lastChild);
         }
     }
 
@@ -71,6 +52,22 @@ class HTMLWriter {
         HTMLWriter.clearValueOf('#login-password-field');
     }
 
+    static printArrayInto(elementOrSelector, elements, seperator) {
+        let endString = '';
+
+        if (seperator === null) {
+            elements.forEach((element) => {
+                endString += element;
+            });
+        } else {
+            elements.forEach((element) => {
+                endString += element;
+                endString += ' ';
+            });
+        }
+
+        HTMLWriter.getElement(elementOrSelector).textContent = endString;
+    }
 }
 
 export {HTMLWriter}
