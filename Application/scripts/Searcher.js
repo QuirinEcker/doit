@@ -8,7 +8,6 @@ class Searcher {
         let searchTask = document.querySelector('#search-task');
         let searchTaskTitle = document.querySelector(`#${searchTask.id} .title`);
         let weekDayBox = document.querySelector(`#${searchTask.id} .big-display span`);
-        let firstLetter;
 
         let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
             return charAt != ' ';
@@ -19,12 +18,9 @@ class Searcher {
 
 
         searchTaskTitle.textContent = searchString;
-        console.log(searchString.length);
         if (searchString.length != 0) {
             searchTask.style.display = 'flex';
         } else if (searchString.length == 0) {
-            console.log("closed")
-            console.log(searchTask)
             searchTask.style.display = 'none';
         }
 
