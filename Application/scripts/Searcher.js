@@ -22,7 +22,6 @@ class Searcher {
 
         tasks.forEach((task) => {
             let title = document.querySelector(`#${task.id} .title`).textContent;
-            console.log(title);
 
             if (title.includes(searchString)) {
                 task.style.display = 'flex';
