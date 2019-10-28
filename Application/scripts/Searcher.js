@@ -11,7 +11,7 @@ class Searcher {
 
         weekDayBox.textContent = Array.from(searchString).filter((charAt) => {
             return charAt != ' ';
-        })[0];
+        })[0].toUpperCase();
 
         searchTaskTitle.textContent = searchString;
         if (searchString !== '') {
