@@ -1,5 +1,6 @@
 import {HTMLWriter} from "./HTMLWriter.js";
 import {keyWordCategories} from "./Config.js";
+import {DateKeyWordAnalyzer} from "./DateKeyWordAnalyzer.js";
 
 class TaskFilter {
 
@@ -15,7 +16,7 @@ class TaskFilter {
         let tagContainer = document.querySelector(`#${searchTask.id} .tags`);
         let words = searchString.split(' ');
         let separatedSearchString = TaskFilter.separateSignatures(words, keyWordCategories);
-        console.log(separatedSearchString);
+        let dueDate = DateKeyWordAnalyzer.analyze(separatedSearchString.at);
 
         let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
             return charAt !== ' ';
