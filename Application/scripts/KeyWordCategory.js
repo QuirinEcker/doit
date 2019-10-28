@@ -4,3 +4,5 @@ class KeyWordCategory {
         this.prefix = prefix;
     }
 }
+
+export {KeyWordCategory};

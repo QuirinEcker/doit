@@ -1,4 +1,5 @@
 import {HTMLWriter} from "./HTMLWriter.js";
+import {keyWordCategories} from "./Config.js";
 
 class TaskFilter {
 
@@ -13,17 +14,18 @@ class TaskFilter {
         let weekDayBox = document.querySelector(`#${searchTask.id} .big-display span`);
         let tagContainer = document.querySelector(`#${searchTask.id} .tags`);
         let words = searchString.split(' ');
-        let separatedSearchString = TaskFilter.separateSignatures(words);
+        let separatedSearchString = TaskFilter.separateSignatures(words, keyWordCategories);
+        console.log(separatedSearchString);
 
         let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
             return charAt !== ' ';
         });
         if (allLettersNotEmpty.length !== 0) weekDayBox.textContent = allLettersNotEmpty[0].toUpperCase();
         else weekDayBox.textContent = ' ';
-        HTMLWriter.printArrayInto(searchTaskTitle, separatedSearchString.remainingWords, ' ');
+        HTMLWriter.printArrayInto(searchTaskTitle, separatedSearchString.remaining, ' ');
         HTMLWriter.clearAllElementIn(tagContainer);
 
-        separatedSearchString.tags.forEach((tag) => {
+        separatedSearchString.tag.forEach((tag) => {
             let tagElement = HTMLWriter.addElement('div', tagContainer);
             HTMLWriter.addClass(tagElement, 'tag');
             HTMLWriter.overWriteElementTextContent(tagElement, tag);
@@ -53,15 +55,26 @@ class TaskFilter {
         });
     }
 
-    static separateSignatures(wordArray) {
-        let separatedSearchString = {
-            tags: wordArray.filter((word) => {
-                return word.charAt(0) === '#';
-            }),
-            remainingWords: wordArray.filter((word) => {
-                return word.charAt(0) !== '#';
+    static separateSignatures(wordArray, keyWordCategories) {
+        let separatedSearchString = {};
+
+        keyWordCategories.forEach((keyWordCategory) => {
+            separatedSearchString[keyWordCategory.name] = wordArray.filter((word) => {
+                return word.charAt(0) === keyWordCategory.prefix;
             })
-        }
+        });
+
+        separatedSearchString.remaining = wordArray.filter((word) => {
+            let isNormalCount = 0;
+
+            keyWordCategories.forEach((keyWordCategory) => {
+                if (word.charAt(0) === keyWordCategory.prefix) {
+                    isNormalCount++;
+                }
+            });
+
+            return isNormalCount === 0;
+        })
 
         return separatedSearchString;
     }

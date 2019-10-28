@@ -2,10 +2,12 @@ import {UiMenu} from "./UiMenu.js";
 import {UiMenuController} from "./UiMenuController.js";
 import {ActionController} from "./ActionController.js";
 import {DataBase} from "./DataBase.js"
+import {KeyWordCategory} from "./KeyWordCategory.js";
 
 class Config {
     static load() {
         this.initialUiMenus();
+        this.initialKeyWordCategories()
     }
 
     static initialUiMenus() {
