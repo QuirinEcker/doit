@@ -17,17 +17,24 @@ class Config {
 
         this.uiMenuController.initiateCurrentMenu('login');
     }
+
+    static initialKeyWordCategories() {
+        this.keyWordCategories.push(new KeyWordCategory('tag', '#'));
+        this.keyWordCategories.push(new KeyWordCategory('at', '@'));
+    }
 }
 
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
+Config.keyWordCategories = [];
 Config.dataBase = new DataBase("omsdoifm");
-
 
 let uiMenuController = Config.uiMenuController;
 let dataBase = Config.dataBase;
+let keyWordCategories = Config.keyWordCategories;
 
 export {Config};
 export {ActionController};
 export {uiMenuController};
 export {dataBase};
+export {keyWordCategories};
