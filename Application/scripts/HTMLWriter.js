@@ -52,7 +52,7 @@ class HTMLWriter {
         HTMLWriter.clearValueOf('#login-password-field');
     }
 
-    static printArrayInto(elementOrSelector, elements, seperator) {
+    static printArrayInto(elementOrSelector, elements, separator) {
         let endString = '';
 
         if (seperator === null) {
@@ -62,7 +62,7 @@ class HTMLWriter {
         } else {
             elements.forEach((element) => {
                 endString += element;
-                endString += ' ';
+                endString += separator;
             });
         }
 
