@@ -55,7 +55,7 @@ class HTMLWriter {
     static printArrayInto(elementOrSelector, elements, separator) {
         let endString = '';
 
-        if (seperator === null) {
+        if (separator === undefined) {
             elements.forEach((element) => {
                 endString += element;
             });
