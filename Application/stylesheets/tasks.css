@@ -36,3 +36,11 @@ main {
 #open-tasks > div {
     background-color: #cd5f5b;
 }
+
+#suggested-tasks > div {
+    background-color: #727272;
+}
+
+#search-task {
+    display: none;
+}
