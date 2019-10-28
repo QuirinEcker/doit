@@ -12,31 +12,32 @@ class TaskFilter {
     static displaySearchTask(searchString) {
         let searchTask = document.querySelector('#search-task');
         let searchTaskTitle = document.querySelector(`#${searchTask.id} .title`);
-        let weekDayBox = document.querySelector(`#${searchTask.id} .big-display span`);
-        let tagContainer = document.querySelector(`#${searchTask.id} .tags`);
         let words = searchString.split(' ');
         let separatedSearchString = TaskFilter.separateSignatures(words, keyWordCategories);
         let dueDate = DateKeyWordAnalyzer.analyze(separatedSearchString.at);
 
-        let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
-            return charAt !== ' ';
-        });
-        if (allLettersNotEmpty.length !== 0) weekDayBox.textContent = allLettersNotEmpty[0].toUpperCase();
-        else weekDayBox.textContent = ' ';
         HTMLWriter.printArrayInto(searchTaskTitle, separatedSearchString.remaining, ' ');
-        HTMLWriter.clearAllElementIn(tagContainer);
+        TaskFilter.displayTags(separatedSearchString.tag, searchTask);
+        TaskFilter.displayDate(dueDate);
+        TaskFilter.checkIfSearching(searchString, searchTask);
+    }
 
-        separatedSearchString.tag.forEach((tag) => {
-            let tagElement = HTMLWriter.addElement('div', tagContainer);
-            HTMLWriter.addClass(tagElement, 'tag');
-            HTMLWriter.overWriteElementTextContent(tagElement, tag);
-        });
-
+    static checkIfSearching(searchString, searchTask) {
         if (searchString.length !== 0) {
             searchTask.style.display = 'flex';
         } else if (searchString.length === 0) {
             searchTask.style.display = 'none';
         }
+    }
+
+    static displayTags(tags, searchTask) {
+        let tagContainer = document.querySelector(`#${searchTask.id} .tags`);
+        HTMLWriter.clearAllElementIn(tagContainer);
+        tags.forEach((tag) => {
+            let tagElement = HTMLWriter.addElement('div', tagContainer);
+            HTMLWriter.addClass(tagElement, 'tag');
+            HTMLWriter.overWriteElementTextContent(tagElement, tag);
+        });
     }
 
     static filterTasks(searchString) {
@@ -78,6 +79,10 @@ class TaskFilter {
         })
 
         return separatedSearchString;
+    }
+
+    static displayDate(dueDate) {
+
     }
 }
 
