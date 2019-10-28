@@ -8,24 +8,32 @@ class Searcher {
         let searchTask = document.querySelector('#search-task');
         let searchTaskTitle = document.querySelector(`#${searchTask.id} .title`);
         let weekDayBox = document.querySelector(`#${searchTask.id} .big-display span`);
+        let firstLetter;
 
-        weekDayBox.textContent = Array.from(searchString).filter((charAt) => {
+        let allLettersNotEmpty = Array.from(searchString).filter((charAt) => {
             return charAt != ' ';
-        })[0].toUpperCase();
+        });
+
+        if (allLettersNotEmpty.length != 0) weekDayBox.textContent = allLettersNotEmpty[0].toUpperCase();
+        else weekDayBox.textContent = ' ';
+
 
         searchTaskTitle.textContent = searchString;
-        if (searchString !== '') {
+        console.log(searchString.length);
+        if (searchString.length != 0) {
             searchTask.style.display = 'flex';
-        } else {
+        } else if (searchString.length == 0) {
+            console.log("closed")
+            console.log(searchTask)
             searchTask.style.display = 'none';
         }
 
         tasks.forEach((task) => {
             let title = document.querySelector(`#${task.id} .title`).textContent;
 
-            if (title.includes(searchString)) {
+            if (title.includes(searchString) && task.id !== 'search-task') {
                 task.style.display = 'flex';
-            } else {
+            } else if (task.id !== 'search-task') {
                 task.style.display = 'none';
             }
         });
