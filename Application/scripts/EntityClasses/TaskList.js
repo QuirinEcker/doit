@@ -1,5 +1,3 @@
-import {getCurrentUser} from "../Config";
-
 class TaskList {
     constructor(id, name) {
         this._id = id;

@@ -3,6 +3,7 @@ import {TaskList} from "./EntityClasses/TaskList.js";
 import {Task} from "./EntityClasses/Task.js";
 import {Tag} from "./EntityClasses/Tag.js";
 import {getCurrentUser, setCurrentUser} from "./Config.js";
+import {HTMLWriter} from "./HTMLWriter.js";
 
 class DataBase {
     constructor(address) {
@@ -16,9 +17,8 @@ class DataBase {
         user.addTaskList(taskList.id, taskList);
         taskList.addTask(task.id, task);
 
-        console.log('current User is')
         setCurrentUser(user);
-        console.log(getCurrentUser());
+        HTMLWriter.buildHTMLFor(getCurrentUser());
     }
 }
 

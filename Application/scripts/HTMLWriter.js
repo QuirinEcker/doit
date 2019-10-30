@@ -68,6 +68,12 @@ class HTMLWriter {
 
         HTMLWriter.getElement(elementOrSelector).textContent = endString;
     }
+
+    static buildHTMLFor(currentUser) {
+        currentUser.taskLists.forEach((item) => {
+            console.log(item.name);
+        })
+    }
 }
 
 export {HTMLWriter}

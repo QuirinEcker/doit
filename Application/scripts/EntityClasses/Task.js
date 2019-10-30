@@ -1,5 +1,3 @@
-import {TaskList} from "./TaskList";
-
 class Task {
     constructor(id, name, dueDate, parentTaskListID) {
         this._id = id;

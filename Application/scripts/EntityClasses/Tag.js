@@ -1,5 +1,3 @@
-import {TaskList} from "./TaskList";
-
 class Tag {
 
     constructor(id, name, parentTaskListID, parentTaskID) {
