@@ -1,10 +1,16 @@
+import {getCurrentUser} from "../Config";
+
 class Task {
-    constructor(id, name, dueDate, parentTaskListID) {
+    get state() {
+        return this._state;
+    }
+    constructor(id, name, dueDate, parentTaskListID, state) {
         this._id = id;
         this._tags = new Array();
         this._name = name;
         this._dueDate = dueDate;
         this._parentTaskListID = parentTaskListID;
+        this._state = state;
     }
 
     get id() {
@@ -33,6 +39,7 @@ class Task {
 
     addTag(id, tag) {
         this._tags[id] = tag;
+        getCurrentUser.getTaskList(this._parentTaskListID).addTag(id, tag);
     }
 
 
