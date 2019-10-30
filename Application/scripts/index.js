@@ -10,7 +10,6 @@ window.addEventListener('load', () => {
 
 function initialEventListener() {
     const homeButton = document.querySelector('footer');
-    const lists = Array.from(document.querySelectorAll('.list'));
     const loginButton = document.querySelector('#login-button');
     const logoutButton = document.querySelector('#home-navigation-entry-logout');
     const settingsButton = document.querySelector('#home-navigation-entry-settings');
@@ -31,10 +30,4 @@ function initialEventListener() {
     signUpCancelButton.addEventListener('click', ActionController.openLogin);
     signUpSubmitButton.addEventListener('click', ActionController.openLogin);
     taskSearchBar.addEventListener('input', ActionController.searchTask);
-
-    lists.forEach((list) => {
-        let listShape = list.children[0];
-        NavigationSwipeController.addSwipe(list.children[0]);
-        listShape.addEventListener('click', ActionController.openList);
-    })
 }

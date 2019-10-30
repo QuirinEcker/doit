@@ -12,7 +12,7 @@ main {
     transition-delay: 0s;
 }
 
-.task-list {
+.task-list-container {
     width: 100vw;
 
     display: flex;
@@ -21,7 +21,7 @@ main {
     flex-direction: column;
 }
 
-.task-list .task {
+.task-list-container .task {
     width: 90%;
     height: 12vh;
     margin-bottom: 2vh;
