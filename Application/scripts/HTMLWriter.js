@@ -73,8 +73,12 @@ class HTMLWriter {
     }
 
     static buildHTMLFor(currentUser) {
-        HTMLWriter.getValuesOf(currentUser.taskLists).forEach((item) => {
-            HTMLWriter.addTaskList(item)
+        HTMLWriter.getValuesOf(currentUser.taskLists).forEach((taskList) => {
+            HTMLWriter.addTaskList(taskList)
+
+            taskList.tasks.forEach((task) => {
+                HTMLWriter.addTask(taskList, task);
+            })
         });
     }
 
@@ -82,6 +86,7 @@ class HTMLWriter {
         let taskListContainer = document.querySelector('#home #task-lists #task-lists-container');
         let taskListElement = HTMLWriter.addElement('div', taskListContainer);
         HTMLWriter.addClass(taskListElement, 'task-list');
+        HTMLWriter.changeId(taskListElement, taskList.id);
         let taskListShapeElement = HTMLWriter.addElement('div', taskListElement);
         HTMLWriter.addClass(taskListShapeElement, 'list-shape')
         let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
@@ -93,6 +98,10 @@ class HTMLWriter {
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
         taskListShapeElement.addEventListener('click', ActionController.openList);
+    }
+
+    static addTask(taskList, task) {
+
     }
 
     static getValuesOf(hashArray) {

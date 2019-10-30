@@ -12,10 +12,12 @@ class DataBase {
 
     login(userNameOrEmail, passWord) {
         let user = new User('u0', 'admin', 'admin@email.com');
-        let taskList = new TaskList('tl0', 'Admin Task List');
+        let taskList0 = new TaskList('tl0', 'list0');
+        let taskList1 = new TaskList('tl1', 'list1');
         let task = new Task('t0', 'admin Task', Date.now(), 'tl0');
-        user.addTaskList(taskList.id, taskList);
-        taskList.addTask(task.id, task);
+        user.addTaskList(taskList0.id, taskList0);
+        user.addTaskList(taskList1.id, taskList1);
+        taskList0.addTask(task.id, task);
 
         setCurrentUser(user);
     }

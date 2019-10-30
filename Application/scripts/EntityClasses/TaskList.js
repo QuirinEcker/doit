@@ -18,7 +18,7 @@ class TaskList {
         return this._tags;
     }
 
-    get taskList() {
+    get tasks() {
         return this._tasks;
     }
 
