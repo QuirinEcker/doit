@@ -9,6 +9,14 @@ class Task {
         this._parentTaskListID = parentTaskListID;
     }
 
+    get id() {
+        return this._id;
+    }
+
+    get tags() {
+        return this._tags;
+    }
+
     get name() {
         return this._name;
     }
