@@ -37,9 +37,9 @@ class ActionController {
         let requestLogin = new Promise((resolve, reject) => {
             if (userNameOrEmail === 'admin' && password === 'admin') {
                 console.log("Welcome admin");
+                dataBase.login(userNameOrEmail, password, resolve, reject);
                 resolve()
             } else reject("wrong username or password");
-            dataBase.login(userNameOrEmail, password, resolve, reject);
         })
             .then(ActionController.loadUserHome)
             .catch(HTMLWriter.writeLoginError)

@@ -1,5 +1,3 @@
-import {EncryptedPassword} from "../EncryptedPassword.js";
-
 class User {
     constructor(id, username, email) {
         this._id = id;

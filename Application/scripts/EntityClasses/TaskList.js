@@ -3,7 +3,7 @@ class TaskList {
         this._id = id;
         this._name = name;
         this._tags = new Array();
-        this._taskList = new Array();
+        this._tasks = new Array();
     }
 
     get name() {
@@ -19,7 +19,11 @@ class TaskList {
     }
 
     get taskList() {
-        return this._taskList;
+        return this._tasks;
+    }
+
+    addTask(task) {
+        this._tasks.push(task);
     }
 }
 

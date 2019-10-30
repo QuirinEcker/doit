@@ -24,19 +24,32 @@ class Config {
         this.keyWordCategories.push(new KeyWordCategory('tag', '#'));
         this.keyWordCategories.push(new KeyWordCategory('at', '@'));
     }
+
+    static setCurrentUser(user) {
+        Config._currentUser = user;
+    }
+
+    static getCurrentUser() {
+        return Config._currentUser;
+    }
 }
 
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
 Config.keyWordCategories = [];
 Config.dataBase = new DataBase("omsdoifm");
+Config._currentUser = undefined;
 
 let uiMenuController = Config.uiMenuController;
 let dataBase = Config.dataBase;
 let keyWordCategories = Config.keyWordCategories;
+let getCurrentUser = Config.getCurrentUser;
+let setCurrentUser = Config.setCurrentUser;
 
 export {Config};
 export {ActionController};
 export {uiMenuController};
 export {dataBase};
 export {keyWordCategories};
+export {getCurrentUser};
+export {setCurrentUser};
