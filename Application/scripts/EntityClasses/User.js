@@ -1,21 +1,15 @@
 import {EncryptedPassword} from "../EncryptedPassword.js";
 
 class User {
-    constructor(username, password, email) {
+    constructor(id, username, email) {
+        this._id = id;
         this._taskLists = new Array();
-        this._id = `u${User.idNumber}`;
         this._username = username;
-        this._password = new EncryptedPassword(password);
         this._email = email;
-        User.idNumber++;
     }
 
     get username() {
         return this._username;
-    }
-
-    get password() {
-        return this._password;
     }
 
     get email() {
@@ -34,7 +28,5 @@ class User {
         this.taskLists.push(taskList);
     }
 }
-
-User.idNumber = 0;
 
 export {User}

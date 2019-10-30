@@ -1,10 +1,9 @@
 class TaskList {
-    constructor(name) {
-        this._id = `tl${TaskList.idNumber}`;
+    constructor(id, name) {
+        this._id = id;
         this._name = name;
         this._tags = new Array();
         this._taskList = new Array();
-        TaskList.idNumber++;
     }
 
     get name() {
@@ -23,7 +22,5 @@ class TaskList {
         return this._taskList;
     }
 }
-
-TaskList.idNumber = 0;
 
 export {TaskList}
