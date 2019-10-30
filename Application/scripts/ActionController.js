@@ -3,6 +3,7 @@ import {uiMenuController} from "./Config.js";
 import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 import {TaskFilter} from "./TaskFilter.js";
+import {getCurrentUser} from "./Config.js";
 
 class ActionController {
     static searchTask() {
@@ -49,6 +50,7 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#login-errors');
         ActionController.openHome();
         HTMLWriter.clearLoginInputs();
+        HTMLWriter.buildHTMLFor(getCurrentUser());
     }
 }
 

@@ -18,7 +18,6 @@ class DataBase {
         taskList.addTask(task.id, task);
 
         setCurrentUser(user);
-        HTMLWriter.buildHTMLFor(getCurrentUser());
     }
 }
 

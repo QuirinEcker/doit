@@ -70,9 +70,35 @@ class HTMLWriter {
     }
 
     static buildHTMLFor(currentUser) {
-        currentUser.taskLists.forEach((item) => {
-            console.log(item.name);
+        HTMLWriter.getValuesOf(currentUser.taskLists).forEach((item) => {
+            HTMLWriter.addTaskList(item)
         })
+    }
+
+    static addTaskList(taskList) {
+        // let taskListContainer = document.querySelector('#home #task-lists #task-lists-container');
+        // let taskListElement = HTMLWriter.addElement('div', taskListContainer);
+        // HTMLWriter.addClass(taskListElement, 'task-list');
+        // let taskListShapeElement = HTMLWriter.addElement('div', taskListElement);
+        // HTMLWriter.addClass(taskListShapeElement, 'list-shape')
+        // let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
+        // HTMLWriter.addClass(taskListNavElement, 'list-nav')
+        // let navElement = HTMLWriter.addElement('i', taskListNavElement);
+        // HTMLWriter.addClass(navElement, 'fas');
+        // HTMLWriter.addClass(navElement, 'fa-trash');
+        //
+        // HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
+
+    }
+
+    static getValuesOf(hashArray) {
+        let array = [];
+
+        for (let item in hashArray) {
+            array.push(hashArray[item]);
+        }
+
+        return array;
     }
 }
 
