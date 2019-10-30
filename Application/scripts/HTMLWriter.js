@@ -48,6 +48,7 @@ class HTMLWriter {
         let element = HTMLWriter.addElement('div', '#login-errors');
         HTMLWriter.addClass(element, 'login-error');
         HTMLWriter.overWriteElementTextContent(element, reason)
+        console.log(reason)
     }
 
     static clearLoginInputs() {
@@ -76,7 +77,7 @@ class HTMLWriter {
         HTMLWriter.getValuesOf(currentUser.taskLists).forEach((taskList) => {
             HTMLWriter.addTaskList(taskList)
 
-            taskList.tasks.forEach((task) => {
+            HTMLWriter.getValuesOf(taskList.tasks).forEach((task) => {
                 HTMLWriter.addTask(taskList, task);
             })
         });
@@ -101,7 +102,41 @@ class HTMLWriter {
     }
 
     static addTask(taskList, task) {
+        let taskListContainer = document.querySelector(`#${task.state}-tasks`);
+        let taskElement = HTMLWriter.addElement('div', taskListContainer);
+        HTMLWriter.addClass(taskElement, 'task');
+        HTMLWriter.changeId(taskElement, task.id);
 
+        let bigDisplay = HTMLWriter.addElement('div', taskElement);
+        HTMLWriter.addClass(bigDisplay, 'big-display');
+        let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
+        HTMLWriter.overWriteElementTextContent(bigDisplaySpan, 'n');
+
+        let informationElement = HTMLWriter.addElement('div', taskElement);
+        HTMLWriter.addClass(informationElement, 'information');
+
+        let title = HTMLWriter.addElement('div', informationElement);
+        HTMLWriter.addClass(title, 'title');
+        HTMLWriter.overWriteElementTextContent(title, task.name);
+
+        let dateTime = HTMLWriter.addElement('div', informationElement);
+        HTMLWriter.addClass(dateTime, 'date-time');
+        let date = HTMLWriter.addElement('div', dateTime);
+        HTMLWriter.addClass(date, 'date');
+        HTMLWriter.overWriteElementTextContent(date, task.dueDate.toLocaleString())
+        let time = HTMLWriter.addElement('div', dateTime);
+        HTMLWriter.addClass(time, 'time');
+        HTMLWriter.overWriteElementTextContent(time, '16:00')
+
+        let tags = HTMLWriter.addElement('div', informationElement);
+        HTMLWriter.addClass(tags, 'tags');
+
+        HTMLWriter.getValuesOf(task.tags).forEach((tag) => {
+            let tagElement = HTMLWriter.addElement('div', tags);
+            HTMLWriter.addClass(tagElement, 'tag')
+            HTMLWriter.changeId(tagElement, tag.id)
+            HTMLWriter.overWriteElementTextContent(tagElement, tag.name);
+        })
     }
 
     static getValuesOf(hashArray) {

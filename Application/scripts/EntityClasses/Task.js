@@ -1,4 +1,4 @@
-import {getCurrentUser} from "../Config";
+import {getCurrentUser} from "../Config.js";
 
 class Task {
     get state() {
@@ -39,7 +39,8 @@ class Task {
 
     addTag(id, tag) {
         this._tags[id] = tag;
-        getCurrentUser.getTaskList(this._parentTaskListID).addTag(id, tag);
+        console.log(getCurrentUser())
+        getCurrentUser().getTaskList(this._parentTaskListID).addTag(id, tag);
     }
 
 

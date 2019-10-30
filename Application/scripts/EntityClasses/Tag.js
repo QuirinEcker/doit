@@ -10,6 +10,18 @@ class Tag {
     get name() {
         return this._name;
     }
+
+    get id() {
+        return this._id;
+    }
+
+    get parentTaskListID() {
+        return this._parentTaskListID;
+    }
+
+    get parentTaskID() {
+        return this._parentTaskID;
+    }
 }
 
 export {Tag}

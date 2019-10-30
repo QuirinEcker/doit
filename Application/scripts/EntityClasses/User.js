@@ -27,6 +27,7 @@ class User {
     }
 
     getTaskList(id) {
+        console.log('test');
         return this._taskLists[id]
     }
 }
