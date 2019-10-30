@@ -24,8 +24,12 @@ class TaskList {
         return this._tasks;
     }
 
-    addTask(task) {
-        this._tasks.push(task);
+    addTask(id, task) {
+        this._tasks[id] = task;
+    }
+
+    addTag(id, tag) {
+        this._tags[id] = tag;
     }
 
     getTask(id) {

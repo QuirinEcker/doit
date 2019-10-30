@@ -22,8 +22,8 @@ class User {
         return this._id;
     }
 
-    addTaskList(taskList) {
-        this.taskLists.push(taskList);
+    addTaskList(id, taskList) {
+        this.taskLists[id] = taskList;
     }
 
     getTaskList(id) {

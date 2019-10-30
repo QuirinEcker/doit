@@ -25,6 +25,11 @@ class Task {
         return this._tags;
     }
 
+    addTag(id, tag) {
+        this._tags[id] = tag;
+    }
+
+
     getTag(id) {
         return this._tags[id];
     }
