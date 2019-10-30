@@ -1,7 +1,9 @@
+import {TaskList} from "./TaskList";
+
 class Task {
     constructor(id, name, dueDate, parentTaskListID) {
         this._id = id;
-        this._tagList = new Array();
+        this._tags = new Array();
         this._name = name;
         this._dueDate = dueDate;
         this._parentTaskListID = parentTaskListID;
@@ -20,7 +22,11 @@ class Task {
     }
 
     get tagList() {
-        return this._tagList;
+        return this._tags;
+    }
+
+    getTag(id) {
+        return this._tags[id];
     }
 }
 

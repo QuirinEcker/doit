@@ -25,6 +25,10 @@ class User {
     addTaskList(taskList) {
         this.taskLists.push(taskList);
     }
+
+    getTaskList(id) {
+        return this._taskLists[id]
+    }
 }
 
 export {User}

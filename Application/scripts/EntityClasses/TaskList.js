@@ -1,3 +1,5 @@
+import {getCurrentUser} from "../Config";
+
 class TaskList {
     constructor(id, name) {
         this._id = id;
@@ -24,6 +26,14 @@ class TaskList {
 
     addTask(task) {
         this._tasks.push(task);
+    }
+
+    getTask(id) {
+        return this._tasks[id];
+    }
+
+    getTag(id) {
+        return this._tags[id];
     }
 }
 
