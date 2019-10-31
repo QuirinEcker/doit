@@ -110,7 +110,7 @@ class HTMLWriter {
         let bigDisplay = HTMLWriter.addElement('div', taskElement);
         HTMLWriter.addClass(bigDisplay, 'big-display');
         let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
-        HTMLWriter.overWriteElementTextContent(bigDisplaySpan, 'n');
+        HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(task.dueDate));
 
         let informationElement = HTMLWriter.addElement('div', taskElement);
         HTMLWriter.addClass(informationElement, 'information');
@@ -147,6 +147,19 @@ class HTMLWriter {
         }
 
         return array;
+    }
+
+    static getWeakDay(dueDate) {
+        console.log(dueDate.getDay())
+        switch (dueDate.getDay()) {
+            case 0: return 'So';
+            case 1: return 'Mo';
+            case 2: return 'Di';
+            case 3: return 'Mi';
+            case 4: return 'Do';
+            case 5: return 'Fr';
+            case 6: return 'Sa';
+        }
     }
 }
 
