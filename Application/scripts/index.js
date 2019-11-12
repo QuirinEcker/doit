@@ -19,6 +19,7 @@ function initialEventListener() {
     const signUpSubmitButton = document.querySelector('#signup-submit-button');
     const signUpCancelButton = document.querySelector('#signup-back-button');
     const taskSearchBar = document.querySelector('#search-bar input');
+    const infoButton = document.querySelector('#home-navigation-entry-info')
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
@@ -30,4 +31,6 @@ function initialEventListener() {
     signUpCancelButton.addEventListener('click', ActionController.openLogin);
     signUpSubmitButton.addEventListener('click', ActionController.openLogin);
     taskSearchBar.addEventListener('input', ActionController.searchTask);
+    infoButton.addEventListener('click', ActionController.openInfo);
+
 }

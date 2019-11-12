@@ -30,6 +30,10 @@ class ActionController {
         openMenu('settings', Animations.circleAnimation);
     }
 
+    static openInfo() {
+        openMenu('info', Animations.circleAnimation);
+    }
+
     static login() {
         let userNameOrEmail = document.querySelector('#login-username-email-field').value;
         let password = document.querySelector('#login-password-field').value;
