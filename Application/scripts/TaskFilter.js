@@ -22,10 +22,14 @@ class TaskFilter {
     }
 
     static checkIfSearching(searchString, searchTask) {
+        let addTaskElement = document.querySelector('#add-task');
+
         if (searchString.length !== 0) {
             searchTask.style.display = 'flex';
+            addTaskElement.style.display = 'none'
         } else if (searchString.length === 0) {
             searchTask.style.display = 'none';
+            addTaskElement.style.display = 'flex'
         }
     }
 
