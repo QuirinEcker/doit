@@ -30,3 +30,8 @@
     font-size: 5vh;
     text-transform: uppercase;
 }
+
+#info-img {
+    width: 70%;
+    padding-top: 4vh;
+}
