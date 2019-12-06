@@ -38,7 +38,7 @@ class Config {
 Config.uiMenuController = new UiMenuController();
 Config.actionController = new ActionController();
 Config.keyWordCategories = [];
-Config.dataBase = new DataBase("omsdoifm");
+Config.dataBase = new DataBase("...");
 Config._currentUser = undefined;
 
 let uiMenuController = Config.uiMenuController;
