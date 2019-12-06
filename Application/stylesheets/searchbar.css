@@ -1,5 +1,5 @@
 #search-bar {
-    width: 100vw;
+    width: 90vw;
     height: 10vh;
 
     display: flex;
@@ -15,4 +15,15 @@
     border: 1px solid #727272;font-family: myriad-pro, sans-serif;
     padding: 0 3vmin;
 
+}
+
+#home-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+}
+
+#home-button {
+    font-size: 3vh;
 }

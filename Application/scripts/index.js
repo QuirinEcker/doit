@@ -9,7 +9,8 @@ window.addEventListener('load', () => {
 });
 
 function initialEventListener() {
-    const homeButton = document.querySelector('footer');
+    const homeButton = document.querySelector('#home-button');
+    const createTaskButton = document.querySelector('#home-button');
     const loginButton = document.querySelector('#login-button');
     const logoutButton = document.querySelector('#home-navigation-entry-logout');
     const settingsButton = document.querySelector('#home-navigation-entry-settings');
