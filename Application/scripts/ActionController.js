@@ -59,6 +59,8 @@ class ActionController {
 
     static loadUserList() {
         ActionController.openList();
+        const taskListContainer = document.querySelectorAll(".task-list-container");
+        taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
         HTMLWriter.buildHTMLForList(getCurrentUser().getTaskList(this.parentElement.id));
     }
 }

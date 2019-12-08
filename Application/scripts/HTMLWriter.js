@@ -97,7 +97,7 @@ class HTMLWriter {
         taskListShapeElement.addEventListener('click', ActionController.loadUserList);
     }
 
-    static addTask(taskList, task) {
+    static addTask(task) {
         let taskListContainer = document.querySelector(`#${task.state}-tasks`);
         let taskElement = HTMLWriter.addElement('div', taskListContainer);
         HTMLWriter.addClass(taskElement, 'task');
@@ -162,7 +162,7 @@ class HTMLWriter {
         for (let index in list.tasks) {
             let item = list.tasks[index];
             console.log(item)
-            HTMLWriter.addTask("pokfopgs", item);
+            HTMLWriter.addTask(item);
         }
     }
 }
