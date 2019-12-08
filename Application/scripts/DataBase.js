@@ -10,28 +10,36 @@ class DataBase {
         this.adress = address
     }
 
-    login(userNameOrEmail, passWord) {
-        fetch("../loadTaskLists.php",)
+    login(userNam43eOrEmail, passWord, resolve, reject) {
+        fetch("./loadTaskLists.php", {
+            mode: "cors",
+            method: 'GET',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
             .then(data => {
                 return data.text();
             })
             .then(text => {
-                console.log(text);
-            });
+                let date = new Date();
+                let user = new User('u0', 'admin', 'admin@email.com');
+                setCurrentUser(user)
+                text.split("\n").forEach(line => {
+                    let tasklist = new TaskList(line.split(";")[0], line.split(";")[1]);
+                    getCurrentUser().addTaskList(tasklist.id, tasklist);
+                });
 
-        let date = new Date();
-        console.log(date);
-        let user = new User('u0', 'admin', 'admin@email.com');
-        setCurrentUser(user);
-        let taskList0 = new TaskList('tl0', 'list0');
-        let taskList1 = new TaskList('tl1', 'list1');
-        let task = new Task('t0', 'admin Task', new Date(), 'tl0', 'open');
-        let tag = new Tag('tg0', '#school', 'tl0', 't0');
-        user.addTaskList(taskList0.id, taskList0);
-        user.addTaskList(taskList1.id, taskList1);
-        taskList0.addTask(task.id, task);
-
-        task.addTag(tag.id, tag);
+                fetch("./loadTasks.php")
+                    .then(data => data.text())
+                    .then(text => {
+                        text.split("\n").forEach(line => {
+                            let lineFragments = line.split(";");
+                            let task = new Task(lineFragments[0], lineFragments[1], date, lineFragments[2], lineFragments[3]);
+                            getCurrentUser().getTaskList(lineFragments[2]).addTask(task.id, task);
+                        });
+                    });
+                resolve();
+            })
+            .catch(reason => console.log(reason))
     }
 }
 

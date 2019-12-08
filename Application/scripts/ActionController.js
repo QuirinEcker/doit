@@ -43,7 +43,6 @@ class ActionController {
             if (userNameOrEmail === 'admin' && password === 'admin') {
                 console.log("Welcome admin");
                 dataBase.login(userNameOrEmail, password, resolve, reject);
-                resolve()
             } else reject("wrong username or password");
         })
             .then(ActionController.loadUserHome)
