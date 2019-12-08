@@ -52,6 +52,7 @@ class ActionController {
 
     static loadUserHome() {
         HTMLWriter.clearAllElementIn('#login-errors');
+        HTMLWriter.clearAllElementIn('#task-lists-container');
         ActionController.openHome();
         HTMLWriter.clearLoginInputs();
         HTMLWriter.buildHTMLForUser(getCurrentUser());

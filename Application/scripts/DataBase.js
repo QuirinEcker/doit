@@ -11,6 +11,14 @@ class DataBase {
     }
 
     login(userNameOrEmail, passWord) {
+        fetch("../loadTaskLists.php",)
+            .then(data => {
+                return data.text();
+            })
+            .then(text => {
+                console.log(text);
+            });
+
         let date = new Date();
         console.log(date);
         let user = new User('u0', 'admin', 'admin@email.com');
