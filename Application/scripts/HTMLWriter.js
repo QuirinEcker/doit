@@ -76,10 +76,6 @@ class HTMLWriter {
     static buildHTMLForUser(currentUser) {
         HTMLWriter.getValuesOf(currentUser.taskLists).forEach((taskList) => {
             HTMLWriter.addTaskList(taskList)
-
-            HTMLWriter.getValuesOf(taskList.tasks).forEach((task) => {
-                HTMLWriter.addTask(taskList, task);
-            })
         });
     }
 
