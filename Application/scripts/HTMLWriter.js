@@ -73,7 +73,7 @@ class HTMLWriter {
         HTMLWriter.getElement(elementOrSelector).textContent = endString;
     }
 
-    static buildHTMLFor(currentUser) {
+    static buildHTMLForUser(currentUser) {
         HTMLWriter.getValuesOf(currentUser.taskLists).forEach((taskList) => {
             HTMLWriter.addTaskList(taskList)
 
@@ -98,7 +98,7 @@ class HTMLWriter {
 
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
-        taskListShapeElement.addEventListener('click', ActionController.openList);
+        taskListShapeElement.addEventListener('click', ActionController.loadUserList);
     }
 
     static addTask(taskList, task) {
@@ -159,6 +159,14 @@ class HTMLWriter {
             case 4: return 'Do';
             case 5: return 'Fr';
             case 6: return 'Sa';
+        }
+    }
+
+    static buildHTMLForList(list) {
+        for (let index in list.tasks) {
+            let item = list.tasks[index];
+            console.log(item)
+            HTMLWriter.addTask("pokfopgs", item);
         }
     }
 }

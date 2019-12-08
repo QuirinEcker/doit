@@ -54,7 +54,12 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#login-errors');
         ActionController.openHome();
         HTMLWriter.clearLoginInputs();
-        HTMLWriter.buildHTMLFor(getCurrentUser());
+        HTMLWriter.buildHTMLForUser(getCurrentUser());
+    }
+
+    static loadUserList() {
+        ActionController.openList();
+        HTMLWriter.buildHTMLForList(getCurrentUser().getTaskList(this.parentElement.id));
     }
 }
 
