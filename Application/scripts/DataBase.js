@@ -1,7 +1,7 @@
-import {User} from "./EntityClasses/User.js";
-import {TaskList} from "./EntityClasses/TaskList.js";
-import {Task} from "./EntityClasses/Task.js";
-import {Tag} from "./EntityClasses/Tag.js";
+import {User} from "./js_classes/User.js";
+import {TaskList} from "./js_classes/TaskList.js";
+import {Task} from "./js_classes/Task.js";
+import {Tag} from "./js_classes/Tag.js";
 import {getCurrentUser, setCurrentUser} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 
