@@ -49,7 +49,7 @@ class DataBase {
         })
             .then(response =>  response.text())
             .then(data => {
-                console.log(data)
+                console.log(data);
                 resolve()
             })
     }
