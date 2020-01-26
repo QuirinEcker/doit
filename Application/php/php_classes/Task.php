@@ -53,7 +53,9 @@ class Task implements JsonSerializable
 
     public function jsonSerialize()
     {
-        return get_object_vars($this);
+        $returnValue = get_object_vars($this);
+        $returnValue["type"] = "Task";
+        return $returnValue;
     }
 
 }
