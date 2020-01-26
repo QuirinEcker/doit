@@ -1,7 +1,7 @@
 <?php
 
 
-class Tag
+class Tag implements JsonSerializable
 {
     private $id;
     private $name;
@@ -36,5 +36,8 @@ class Tag
         return $this->parentTaskID;
     }
 
-
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

@@ -2,7 +2,7 @@
 
 
 
-class Task
+class Task implements JsonSerializable
 {
     private $id;
     private $tags;
@@ -51,7 +51,9 @@ class Task
         return $this->state;
     }
 
-
-
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 
 }

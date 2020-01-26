@@ -1,10 +1,10 @@
 <?php
 
 
-class User
+class User implements JsonSerializable
 {
     private $id;
-    private $taskLists = array();
+    public $taskLists = array();
     private $username;
     private $email;
     private $password;
@@ -16,5 +16,51 @@ class User
         $this->email = $email;
         $this->password = $password;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getTaskLists()
+    {
+        return $this->taskLists;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function convertIntoObjectIntoArray()
+    {
+        return (array) $this->taskLists;
+    }
+
+    public function getJSON()
+    {
+        return array(
+            'id' => $this->id,
+            'username' => $this->username,
+            'email' => $this->email,
+            'taskLists' => $this->getTaskListsInJson()
+        );
+    }
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
+
 
 }
