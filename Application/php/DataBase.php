@@ -42,6 +42,7 @@ class DataBase
         for ($i = 0; $i < count($users); $i++) {
             if ($users[$i]->username == $username) {
                 if ($users[$i]->password == $password) {
+                    unset($users[$i]->password);
                     return $users[$i];
                 }
             }

@@ -19,6 +19,7 @@ class DataBase {
                     reject("Wrong Username or Password");
                 } else {
                     setCurrentUser(jsonData);
+                    console.log(jsonData);
                     resolve()
                 }
             })
