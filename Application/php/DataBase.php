@@ -3,7 +3,7 @@
 
 class DataBase
 {
-
+    static private $instance;
     private $address;
     private $user;
     private $pw;
@@ -48,6 +48,16 @@ class DataBase
                 }
             }
         }
-
     }
+
+    public static function getInstance()
+    {
+        if (self::$instance == null) {
+            self::$instance = new DataBase("../db/db.txt", "", "", "");
+        }
+
+        return self::$instance;
+    }
+
+
 }
