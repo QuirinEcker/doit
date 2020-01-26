@@ -32,7 +32,6 @@ class DataBase
         $address = $this->address;
         $file = fopen($this->address, "r") or die("Unable to open file");
         $users = json_decode(fread($file,filesize($this->address)));
-        var_dump($users);
         fclose($file);
 
         return $users;
@@ -48,6 +47,8 @@ class DataBase
                 }
             }
         }
+
+        return "err";
     }
 
     public static function getInstance()
