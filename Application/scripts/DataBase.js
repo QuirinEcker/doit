@@ -1,9 +1,4 @@
-import {User} from "./js_classes/User.js";
-import {TaskList} from "./js_classes/TaskList.js";
-import {Task} from "./js_classes/Task.js";
-import {Tag} from "./js_classes/Tag.js";
 import {getCurrentUser, setCurrentUser} from "./Config.js";
-import {HTMLWriter} from "./HTMLWriter.js";
 
 class DataBase {
     constructor(address) {
@@ -19,10 +14,13 @@ class DataBase {
         })
             .then(response =>  response.text())
             .then(data => {
-                console.log("hello");
-                console.log(data);
-                console.log("hello");
-                resolve()
+                let jsonData = JSON.parse(data);
+                if (jsonData.status === "err") {
+                    reject("Wrong Username or Password");
+                } else {
+                    setCurrentUser(jsonData);
+                    resolve()
+                }
             })
             .catch((err) => {
                 console.log(err.message)

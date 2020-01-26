@@ -29,7 +29,6 @@ class DataBase
     }
 
     public function getUsers() {
-        $address = $this->address;
         $file = fopen($this->address, "r") or die("Unable to open file");
         $users = json_decode(fread($file,filesize($this->address)));
         fclose($file);
@@ -48,7 +47,7 @@ class DataBase
             }
         }
 
-        return "err";
+        return array("status" => "err");
     }
 
     public static function getInstance()
