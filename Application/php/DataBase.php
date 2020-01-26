@@ -37,4 +37,17 @@ class DataBase
 
         return $users;
     }
+
+    public function login($username, $password) {
+        $users = $this->getUsers();
+
+        for ($i = 0; $i < count($users); $i++) {
+            if ($users[$i]->username == $username) {
+                if ($users[$i]->password == $password) {
+                    return $users[$i];
+                }
+            }
+        }
+
+    }
 }
