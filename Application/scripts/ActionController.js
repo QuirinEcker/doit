@@ -41,7 +41,7 @@ class ActionController {
 
 
         new Promise((resolve, reject) => {
-            dataBase.login(userNameOrEmail, password);
+            dataBase.login(userNameOrEmail, password, resolve, reject);
         })
             .then(ActionController.loadUserHome)
             .catch(HTMLWriter.writeLoginError)
@@ -63,21 +63,18 @@ class ActionController {
     }
 
     static loadUserIfLoggedIn() {
-        if (sessionStorage.getItem("token") == 'undefined') {
-            fetch('./php/getSeassionUser.php', {
-                mode: "cors",
-                method: "POST",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                body: `val=${getCurrentUser().sessionId}`
+        fetch('./php/getSessionUser.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(response =>  response.text())
+            .then(data => {
+                console.log(data);
             })
-                .then(response =>  response.text())
-                .then(data => {
-                    console.log(data);
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                });
-        }
+            .catch((err) => {
+                console.log(err.message);
+            });
     }
 }
 

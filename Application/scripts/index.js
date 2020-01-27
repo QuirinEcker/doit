@@ -6,6 +6,7 @@ import {dataBase} from "./Config.js";
 window.addEventListener('load', () => {
     Config.load();
     initialEventListener();
+    ActionController.loadUserIfLoggedIn();
 });
 
 function initialEventListener() {
