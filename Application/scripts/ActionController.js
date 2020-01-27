@@ -35,6 +35,17 @@ class ActionController {
         openMenu('info', Animations.circleAnimation);
     }
 
+    static logout() {
+        ActionController.openLogin();
+
+        fetch('./php/logout.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .catch(console.log)
+    }
+
     static login() {
         let userNameOrEmail = document.querySelector('#login-username-email-field').value;
         let password = document.querySelector('#login-password-field').value;

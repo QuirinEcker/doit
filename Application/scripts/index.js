@@ -26,7 +26,7 @@ function initialEventListener() {
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
-    logoutButton.addEventListener('click', ActionController.openLogin);
+    logoutButton.addEventListener('click', ActionController.logout);
     settingsButton.addEventListener('click', ActionController.openSettings);
     settingsSubmitButton.addEventListener('click', ActionController.openHome);
     settingsBackButton.addEventListener('click', ActionController.openHome);
