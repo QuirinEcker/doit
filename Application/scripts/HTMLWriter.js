@@ -74,9 +74,7 @@ class HTMLWriter {
     }
 
     static buildHTMLForUser(currentUser) {
-        console.log(currentUser.taskLists);
         currentUser.taskLists.forEach((taskList) => {
-            console.log(taskList)
             HTMLWriter.addTaskList(taskList)
         });
     }

@@ -58,7 +58,7 @@ class ActionController {
             .catch(HTMLWriter.writeLoginError)
     }
 
-    static loadUserHome() {
+    static  loadUserHome() {
         HTMLWriter.clearAllElementIn('#login-errors');
         HTMLWriter.clearAllElementIn('#task-lists-container');
         ActionController.openHome();
@@ -83,11 +83,8 @@ class ActionController {
             .then(data => {
                 if (data !== "noSession") {
                     let obj = JSON.parse(data);
-                    console.log(obj);
                     setCurrentUser(obj);
                     ActionController.loadUserHome();
-                } else {
-                    console.log(data)
                 }
             })
             .catch((err) => {
