@@ -1,2 +1,3 @@
 <?php
-echo "hello world";
+echo session_start();
+echo session_destroy();

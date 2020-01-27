@@ -42,7 +42,7 @@ class DataBase
         for ($i = 0; $i < count($users); $i++) {
             if ($users[$i]->username == $username) {
                 if ($users[$i]->password == $password) {
-                    session_cache_expire(30);
+                    session_cache_expire(15);
                     session_start();
                     $_SESSION["id"] = $users[$i]->id;
                     unset($users[$i]->password);

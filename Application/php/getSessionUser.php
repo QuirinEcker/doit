@@ -2,9 +2,7 @@
 include "./DataBase.php";
 
 session_start();
-echo var_dump($_SESSION);
-
-if (session_id() == '') {
+if (!isset($_SESSION["id"])) {
     echo "noSession";
 } else {
     $obj = DataBase::getInstance()->getUser($_SESSION["id"]);

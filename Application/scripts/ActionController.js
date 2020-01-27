@@ -70,7 +70,14 @@ class ActionController {
         })
             .then(response =>  response.text())
             .then(data => {
-                console.log(data);
+                if (data !== "noSession") {
+                    let obj = JSON.parse(data);
+                    console.log(obj);
+                    setCurrentUser(obj);
+                    ActionController.loadUserHome();
+                } else {
+                    console.log(data)
+                }
             })
             .catch((err) => {
                 console.log(err.message);
