@@ -21,3 +21,5 @@
 - Tasks Erstellen
 - Listen erstellen
 
+## Datenbank Daten verändern
+Möglich unter `/db/db.txt`
