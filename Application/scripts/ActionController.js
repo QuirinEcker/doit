@@ -4,6 +4,7 @@ import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 import {TaskFilter} from "./TaskFilter.js";
 import {getCurrentUser} from "./Config.js";
+import {setCurrentUser} from "./Config.js";
 
 class ActionController {
     static searchTask() {
@@ -39,11 +40,8 @@ class ActionController {
         let password = document.querySelector('#login-password-field').value;
 
 
-        let requestLogin = new Promise((resolve, reject) => {
-            if (userNameOrEmail === 'admin' && password === 'admin' || true) {
-                console.log("Welcome admin");
-                dataBase.login(userNameOrEmail, password, resolve, reject);
-            } else reject("wrong username or password");
+        new Promise((resolve, reject) => {
+            dataBase.login(userNameOrEmail, password);
         })
             .then(ActionController.loadUserHome)
             .catch(HTMLWriter.writeLoginError)
@@ -62,6 +60,24 @@ class ActionController {
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
         HTMLWriter.buildHTMLForList(getCurrentUser().getTaskList(this.parentElement.id));
+    }
+
+    static loadUserIfLoggedIn() {
+        if (sessionStorage.getItem("token") == 'undefined') {
+            fetch('./php/getSeassionUser.php', {
+                mode: "cors",
+                method: "POST",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: `val=${getCurrentUser().sessionId}`
+            })
+                .then(response =>  response.text())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        }
     }
 }
 
