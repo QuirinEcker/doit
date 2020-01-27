@@ -4,6 +4,7 @@ import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 import {TaskFilter} from "./TaskFilter.js";
 import {getCurrentUser} from "./Config.js";
+import {setCurrentUser} from "./Config.js";
 
 class ActionController {
     static searchTask() {
@@ -34,22 +35,30 @@ class ActionController {
         openMenu('info', Animations.circleAnimation);
     }
 
+    static logout() {
+        ActionController.openLogin();
+
+        fetch('./php/logout.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .catch(console.log)
+    }
+
     static login() {
         let userNameOrEmail = document.querySelector('#login-username-email-field').value;
         let password = document.querySelector('#login-password-field').value;
 
 
-        let requestLogin = new Promise((resolve, reject) => {
-            if (userNameOrEmail === 'admin' && password === 'admin' || true) {
-                console.log("Welcome admin");
-                dataBase.login(userNameOrEmail, password, resolve, reject);
-            } else reject("wrong username or password");
+        new Promise((resolve, reject) => {
+            dataBase.login(userNameOrEmail, password, resolve, reject);
         })
             .then(ActionController.loadUserHome)
             .catch(HTMLWriter.writeLoginError)
     }
 
-    static loadUserHome() {
+    static  loadUserHome() {
         HTMLWriter.clearAllElementIn('#login-errors');
         HTMLWriter.clearAllElementIn('#task-lists-container');
         ActionController.openHome();
@@ -62,6 +71,25 @@ class ActionController {
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
         HTMLWriter.buildHTMLForList(getCurrentUser().getTaskList(this.parentElement.id));
+    }
+
+    static loadUserIfLoggedIn() {
+        fetch('./php/getSessionUser.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(response =>  response.text())
+            .then(data => {
+                if (data !== "noSession") {
+                    let obj = JSON.parse(data);
+                    setCurrentUser(obj);
+                    ActionController.loadUserHome();
+                }
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
     }
 }
 

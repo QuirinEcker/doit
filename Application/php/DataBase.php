@@ -42,13 +42,33 @@ class DataBase
         for ($i = 0; $i < count($users); $i++) {
             if ($users[$i]->username == $username) {
                 if ($users[$i]->password == $password) {
+                    session_cache_expire(15);
+                    session_start();
+                    $_SESSION["id"] = $users[$i]->id;
                     unset($users[$i]->password);
+                    $users[$i]->token = session_id();
                     return $users[$i];
                 }
             }
         }
 
         return array("status" => "err");
+    }
+
+    public function getUser($id) {
+        $users = $this->getUsers();
+
+        for ($i = 0; $i < count($users); $i++) {
+            if ($users[$i]->id == $id) {
+                return $users[$i];
+            }
+        }
+    }
+
+    public function getUserFrom($token) {
+        if (session_id() === $token) {
+            return $this->getUser($_SESSION["id"]);
+        }
     }
 
     public static function getInstance()
