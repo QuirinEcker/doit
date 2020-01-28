@@ -5,6 +5,7 @@ import {HTMLWriter} from "./HTMLWriter.js";
 import {TaskFilter} from "./TaskFilter.js";
 import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
+import {UserObjectUtil} from "./UserObjectUtil.js";
 
 class ActionController {
     static searchTask() {
@@ -63,14 +64,14 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#task-lists-container');
         ActionController.openHome();
         HTMLWriter.clearLoginInputs();
-        HTMLWriter.buildHTMLForUser(getCurrentUser());
+        HTMLWriter.writeTaskListsForUser(getCurrentUser());
     }
 
     static loadUserList() {
         ActionController.openList();
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
-        HTMLWriter.buildHTMLForList(getCurrentUser().getTaskList(this.parentElement.id));
+        HTMLWriter.writeTasksForTaskList(UserObjectUtil.getTaskListByID(this.parentElement.id));
     }
 
     static loadUserIfLoggedIn() {

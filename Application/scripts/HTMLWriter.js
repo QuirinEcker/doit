@@ -73,7 +73,7 @@ class HTMLWriter {
         HTMLWriter.getElement(elementOrSelector).textContent = endString;
     }
 
-    static buildHTMLForUser(currentUser) {
+    static writeTaskListsForUser(currentUser) {
         currentUser.taskLists.forEach((taskList) => {
             HTMLWriter.addTaskList(taskList)
         });
@@ -158,12 +158,10 @@ class HTMLWriter {
         }
     }
 
-    static buildHTMLForList(list) {
-        for (let index in list.tasks) {
-            let item = list.tasks[index];
-            console.log(item)
-            HTMLWriter.addTask(item);
-        }
+    static writeTasksForTaskList(list) {
+        console.log(list);
+
+        list.tasks.forEach(task => console.log(task));
     }
 }
 
