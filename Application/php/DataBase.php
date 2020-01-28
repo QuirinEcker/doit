@@ -74,7 +74,7 @@ class DataBase
     public static function getInstance()
     {
         if (self::$instance == null) {
-            self::$instance = new DataBase("../db/db.txt", "", "", "");
+            self::$instance = new DataBase("../db/db.json", "", "", "");
         }
 
         return self::$instance;
