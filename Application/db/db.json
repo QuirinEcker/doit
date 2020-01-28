@@ -5,7 +5,8 @@
         {
           "id":0,
           "name":"taskList0",
-          "tags":[
+          "tags":[],
+          "tasks":[
             {
               "id": 0,
               "tags": [],
@@ -14,7 +15,6 @@
               "state": "closed"
             }
           ],
-          "tasks":[],
           "type":"TaskList"
         },
         {
