@@ -161,7 +161,7 @@ class HTMLWriter {
     static writeTasksForTaskList(list) {
         console.log(list);
 
-        list.tasks.forEach(task => console.log(task));
+        list.tasks.forEach(task => HTMLWriter.addTask(task));
     }
 }
 
