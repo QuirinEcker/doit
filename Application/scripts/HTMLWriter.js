@@ -106,6 +106,11 @@ class HTMLWriter {
         let bigDisplay = HTMLWriter.addElement('div', taskElement);
         HTMLWriter.addClass(bigDisplay, 'big-display');
         let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
+        if (typeof task.dueDate === "string") {
+            console.log(task.dueDate);
+            task.dueDate = new Date(task.dueDate);
+            console.log(task.dueDate);
+        }
         HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(task.dueDate));
 
         let informationElement = HTMLWriter.addElement('div', taskElement);

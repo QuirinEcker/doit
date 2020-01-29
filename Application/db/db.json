@@ -11,7 +11,7 @@
               "id": 0,
               "tags": [],
               "name": "task0",
-              "dueDate": "28-01-2020",
+              "dueDate": "2020-01-29",
               "state": "closed"
             }
           ],
@@ -37,7 +37,15 @@
           "id":0,
           "name":"taskList0",
           "tags":[],
-          "tasks":[],
+          "tasks":[
+            {
+              "id": 1,
+              "tags": [],
+              "name": "test",
+              "dueDate": "2020-01-29",
+              "state": "closed"
+            }
+          ],
           "type":"TaskList"
         },
         {
