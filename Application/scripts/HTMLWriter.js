@@ -168,7 +168,7 @@ class HTMLWriter {
         list.tasks.forEach(task => HTMLWriter.addTask(task));
     }
 
-    static displayCreateListPrompt() {
+    static toggleTaskListCreatePrompt() {
 
     }
 }
