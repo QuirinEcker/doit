@@ -23,6 +23,7 @@ function initialEventListener() {
     const taskSearchBar = document.querySelector('#search-bar input');
     const infoButton = document.querySelector('#home-navigation-entry-info');
     const infoExitButton = document.querySelector('#info-exit-button');
+    const createListButton = document.querySelector('#add-list');
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
@@ -36,4 +37,5 @@ function initialEventListener() {
     taskSearchBar.addEventListener('input', ActionController.searchTask);
     infoButton.addEventListener('click', ActionController.openInfo);
     infoExitButton.addEventListener('click', ActionController.openHome);
+    createListButton.addEventListener('click', ActionController.addList)
 }

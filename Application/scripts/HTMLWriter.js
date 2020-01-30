@@ -1,5 +1,6 @@
 import {NavigationSwipeController} from "./NavigationSwipeController.js";
 import {ActionController} from "./ActionController.js";
+import {Config} from "./Config.js";
 
 class HTMLWriter {
     static getElement(elementOrSelector) {
@@ -165,6 +166,10 @@ class HTMLWriter {
         console.log(list);
 
         list.tasks.forEach(task => HTMLWriter.addTask(task));
+    }
+
+    static displayCreateListPrompt() {
+
     }
 }
 

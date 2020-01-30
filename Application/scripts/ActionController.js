@@ -92,6 +92,13 @@ class ActionController {
                 console.log(err.message);
             });
     }
+
+    static addList() {
+        console.log("hello world");
+        HTMLWriter.displayCreateListPrompt()
+
+        return undefined;
+    }
 }
 
 function openMenu(uiName, animation) {
