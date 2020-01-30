@@ -132,3 +132,12 @@
     touch-action: none;
     user-select: none;
 }
+
+#create-prompt {
+    display: none;
+}
+
+#create-taskList-prompt-text-field {
+    all:unset;
+    text-align: center;
+}

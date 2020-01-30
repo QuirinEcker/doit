@@ -169,6 +169,7 @@ class HTMLWriter {
     }
 
     static toggleTaskListCreatePrompt() {
+        let taskListCreatePrompt = document.querySelector('create-prompt');
 
     }
 }
