@@ -94,8 +94,7 @@ class ActionController {
     }
 
     static addList() {
-        console.log("hello world");
-        HTMLWriter.toggleTaskListCreatePrompt()
+        HTMLWriter.toggleTaskListCreatePrompt();
 
         return undefined;
     }

@@ -1,6 +1,6 @@
 import {NavigationSwipeController} from "./NavigationSwipeController.js";
 import {ActionController} from "./ActionController.js";
-import {Config} from "./Config.js";
+import {CreatePromptController} from "./CreatePromptController.js";
 
 class HTMLWriter {
     static getElement(elementOrSelector) {
@@ -170,7 +170,7 @@ class HTMLWriter {
 
     static toggleTaskListCreatePrompt() {
         let taskListCreatePrompt = document.querySelector('create-prompt');
-
+        CreatePromptController.instance.toggle();
     }
 }
 

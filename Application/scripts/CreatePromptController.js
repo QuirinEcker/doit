@@ -1,32 +1,30 @@
 class CreatePromptController {
     constructor() {
         this.visible = false;
+        this.createPrompt = document.querySelector('#create-prompt');
     }
 
 
     toggle() {
-        let createPrompt = document.querySelector('create-prompt');
-
         if (this.visible === true) {
-            this.visible = false;
-            createPrompt.children[0].children[0].textContent = '';
-            createPrompt.style.display = 'none'
+            this.turnOff()
         } else if (this.visible === false) {
-            this.visible = true;
-            createPrompt.style.display = 'flex'
+            this.turnOn()
         }
     }
 
-    turnOff(createPrompt) {
+    turnOff() {
         this.visible = false;
-        createPrompt.children[0].children[0].textContent = '';
-        createPrompt.style.display = 'none'
+        this.createPrompt.children[0].children[0].textContent = '';
+        this.createPrompt.style.display = 'none'
     }
 
-    turnOn(createPrompt) {
+    turnOn() {
         this.visible = true;
-        createPrompt.style.display = 'flex'
+        this.createPrompt.style.display = 'flex'
     }
 }
 
 CreatePromptController.instance = new CreatePromptController();
+
+export {CreatePromptController}
