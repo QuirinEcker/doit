@@ -135,9 +135,27 @@
 
 #create-prompt {
     display: none;
+    flex-direction: column;
+    height: 24vh;
 }
 
 #create-taskList-prompt-text-field {
     all:unset;
     text-align: center;
+}
+
+#list-create-confirm-navigation {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 10vh;
+}
+
+#nav-button-container {
+    background-color: white;
+    border-radius: 20px;
+}
+
+#nav-button-container div {
+    float: right;
 }
