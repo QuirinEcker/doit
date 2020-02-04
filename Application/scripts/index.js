@@ -24,6 +24,8 @@ function initialEventListener() {
     const infoButton = document.querySelector('#home-navigation-entry-info');
     const infoExitButton = document.querySelector('#info-exit-button');
     const createListButton = document.querySelector('#add-list');
+    const listCreateConfirmButton = document.querySelector('#create-prompt #list-create-confirm-navigation #nav-button-container #confirm');
+    const listCreateCancelButton = document.querySelector('#create-prompt #list-create-confirm-navigation #nav-button-container #cancel');
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
@@ -38,4 +40,6 @@ function initialEventListener() {
     infoButton.addEventListener('click', ActionController.openInfo);
     infoExitButton.addEventListener('click', ActionController.openHome);
     createListButton.addEventListener('click', ActionController.addList)
+    listCreateConfirmButton.addEventListener('click', ActionController.confirmList);
+    listCreateCancelButton.addEventListener('click', ActionController.cancelList);
 }

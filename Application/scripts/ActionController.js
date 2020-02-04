@@ -8,6 +8,14 @@ import {setCurrentUser} from "./Config.js";
 import {UserObjectUtil} from "./UserObjectUtil.js";
 
 class ActionController {
+    static cancelList() {
+
+    }
+
+    static confirmList() {
+
+    }
+
     static searchTask() {
         TaskFilter.search(this.value);
     }
