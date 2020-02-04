@@ -63,6 +63,8 @@ class DataBase
                 return $users[$i];
             }
         }
+
+        return "null";
     }
 
     public function getUserFrom($token) {
