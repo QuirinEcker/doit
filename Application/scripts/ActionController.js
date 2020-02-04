@@ -6,14 +6,18 @@ import {TaskFilter} from "./TaskFilter.js";
 import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
 import {UserObjectUtil} from "./UserObjectUtil.js";
+import {TaskListFactory} from "./TaskListFactory.js";
 
 class ActionController {
     static cancelList() {
-
+        HTMLWriter.toggleTaskListCreatePrompt()
     }
 
     static confirmList() {
-
+        let textField = document.querySelector("#create-prompt #create-taskList-prompt-text-field");
+        if (textField.value !== "") {
+            TaskListFactory.instace.createList(textField.value);
+        }
     }
 
     static searchTask() {

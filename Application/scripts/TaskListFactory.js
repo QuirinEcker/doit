@@ -1,7 +1,7 @@
 
 class TaskListFactory {
     createList(listName) {
-
+        console.log(listName)
     }
 }
 
