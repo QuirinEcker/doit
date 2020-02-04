@@ -19,7 +19,7 @@ class DataBase
 
     public function save($object) {
         $currentUsers = $this->getUsers();
-        $currentUsers[] = $object;
+        $currentUsers = $this->updateUsers($currentUsers, $object);
 
         $file = fopen($this->address, "w") or die("Unable to open file");
 
@@ -80,6 +80,18 @@ class DataBase
         }
 
         return self::$instance;
+    }
+
+    private function updateUsers($currentUsers, $object)
+    {
+        for ($i = 0; $i < count($currentUsers); $i++) {
+            if ($currentUsers[$i]->id === $object->id) {
+                $currentUsers[$i] = $object;
+            }
+        }
+
+        $currentUsers[] = $object;
+        return $currentUsers;
     }
 
 
