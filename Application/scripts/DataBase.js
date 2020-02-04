@@ -29,6 +29,17 @@ class DataBase {
                 reject();
             });
     }
+
+    save() {
+        fetch('./php/save.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `val=${JSON.stringify(getCurrentUser())}`
+        })
+            .then(data => data.text())
+            .then(console.log);
+    }
 }
 
 export {DataBase}

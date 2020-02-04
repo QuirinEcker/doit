@@ -84,7 +84,7 @@ class HTMLWriter {
         let taskListContainer = document.querySelector('#home #task-lists #task-lists-container');
         let taskListElement = HTMLWriter.addElement('div', taskListContainer);
         HTMLWriter.addClass(taskListElement, 'task-list');
-        HTMLWriter.changeId(taskListElement, taskList.id);
+        HTMLWriter.changeId(taskListElement, taskList._id);
         let taskListShapeElement = HTMLWriter.addElement('div', taskListElement);
         HTMLWriter.addClass(taskListShapeElement, 'list-shape')
         let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
@@ -93,7 +93,7 @@ class HTMLWriter {
         HTMLWriter.addClass(navElement, 'fas');
         HTMLWriter.addClass(navElement, 'fa-trash');
 
-        HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
+        HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList._name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
         taskListShapeElement.addEventListener('click', ActionController.loadUserList);
     }

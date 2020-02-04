@@ -7,6 +7,7 @@ class TaskList implements JsonSerializable
     private $name;
     private $tags = array();
     private $tasks = array();
+    private static $idMax = 10;
 
     public function __construct($id, $name)
     {
@@ -41,5 +42,13 @@ class TaskList implements JsonSerializable
         return $returnValue;
     }
 
+    public static function idUp()
+    {
+        self::$idMax++;
+    }
+
+    public static function getIdMax() {
+        return self::$idMax;
+    }
 
 }

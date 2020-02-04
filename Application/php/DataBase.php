@@ -19,7 +19,7 @@ class DataBase
 
     public function save($object) {
         $currentUsers = $this->getUsers();
-        $currentUsers[] = $object;
+        $currentUsers = $this->updateUsers($currentUsers, $object);
 
         $file = fopen($this->address, "w") or die("Unable to open file");
 
@@ -63,6 +63,8 @@ class DataBase
                 return $users[$i];
             }
         }
+
+        return "null";
     }
 
     public function getUserFrom($token) {
@@ -78,6 +80,25 @@ class DataBase
         }
 
         return self::$instance;
+    }
+
+    private function updateUsers($currentUsers, $object)
+    {
+        $found = false;
+        for ($i = 0; $i < count($currentUsers); $i++) {
+            if ($currentUsers[$i]->id === $object->id) {
+                $found = true;
+                $object->password = $currentUsers[$i]->password;
+                unset($object->token);
+                $currentUsers[$i] = $object;
+            }
+        }
+
+        if ($found === false) {
+            $currentUsers[] = $object;
+        }
+
+        return $currentUsers;
     }
 
 
