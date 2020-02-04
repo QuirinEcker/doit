@@ -1,64 +1,64 @@
 [
-    {
-      "id":0,
-      "taskLists":[
-        {
-          "id":0,
-          "name":"taskList0",
-          "tags":[],
-          "tasks":[
-            {
-              "id": 0,
-              "tags": [],
-              "name": "task0",
-              "dueDate": "2020-01-29",
-              "state": "closed"
-            }
-          ],
-          "type":"TaskList"
-        },
-        {
-          "id":1,
-          "name":"taskList1",
-          "tags":[],
-          "tasks":[],
-          "type":"TaskList"
-        }
-      ],
-      "username":"user",
-      "email":"user@gmail.com",
-      "password":"pw0",
-      "type":"User"
-    },
-    {
-      "id":1,
-      "taskLists":[
-        {
-          "id":0,
-          "name":"taskList0",
-          "tags":[],
-          "tasks":[
-            {
-              "id": 1,
-              "tags": [],
-              "name": "test",
-              "dueDate": "2020-01-29",
-              "state": "closed"
-            }
-          ],
-          "type":"TaskList"
-        },
-        {
-          "id":1,
-          "name":"taskList1",
-          "tags":[],
-          "tasks":[],
-          "type":"TaskList"
-        }
-      ],
-      "username":"user1",
-      "email":"user@gmail.com",
-      "password":"pw1",
-      "type":"User"
-    }
+  {
+    "id": 0,
+    "taskLists": [
+      {
+        "id": 0,
+        "name": "taskList0",
+        "tags": [],
+        "tasks": [
+          {
+            "id": 0,
+            "tags": [],
+            "name": "task0",
+            "dueDate": "2020-01-29",
+            "state": "closed"
+          }
+        ],
+        "type": "TaskList"
+      },
+      {
+        "id": 1,
+        "name": "taskList1",
+        "tags": [],
+        "tasks": [],
+        "type": "TaskList"
+      }
+    ],
+    "username": "user",
+    "email": "user@gmail.com",
+    "password": "pw0",
+    "type": "User"
+  },
+  {
+    "id": 1,
+    "taskLists": [
+      {
+        "id": 0,
+        "name": "taskList0",
+        "tags": [],
+        "tasks": [
+          {
+            "id": 1,
+            "tags": [],
+            "name": "test",
+            "dueDate": "2020-01-29",
+            "state": "closed"
+          }
+        ],
+        "type": "TaskList"
+      },
+      {
+        "id": 1,
+        "name": "taskList1",
+        "tags": [],
+        "tasks": [],
+        "type": "TaskList"
+      }
+    ],
+    "username": "user1",
+    "email": "user@gmail.com",
+    "password": "pw1",
+    "type": "User"
+  }
 ]

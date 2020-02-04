@@ -1,21 +1,31 @@
 import {TaskList} from "./js_classes/TaskList.js";
+import {dataBase} from "./Config.js";
+import {HTMLWriter} from "./HTMLWriter.js";
 
 class TaskListFactory {
 
 
     createList(listName) {
-        let taskList = new TaskList(this.getRandomizedUniqueID(), listName);
+        let id;
+        this.getRandomizedUniqueID()
+            .then(number => {
+                id = number;
+                console.log(id);
+                let taskList = new TaskList(id, listName);
+                console.log(taskList);
+                dataBase.save();
+                HTMLWriter.addTaskList(taskList);
+            });
     }
 
     getRandomizedUniqueID() {
-        console.log("here");
-        fetch('./php/getRandomizedUniqueID.php', {
+        return fetch('./php/getRandomizedUniqueID.php', {
             mode: "cors",
             method: "POST",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         })
             .then(data => data.text())
-            .then(console.log)
+            .then(data => {return data})
     }
 }
 
