@@ -1,6 +1,7 @@
 import {TaskList} from "./js_classes/TaskList.js";
 import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
+import {getCurrentUser} from "./Config.js";
 
 class TaskListFactory {
 
@@ -12,6 +13,8 @@ class TaskListFactory {
                 id = number;
                 console.log(id);
                 let taskList = new TaskList(id, listName);
+                console.log(getCurrentUser());
+                getCurrentUser().taskLists.push(taskList);
                 console.log(taskList);
                 dataBase.save();
                 HTMLWriter.addTaskList(taskList);

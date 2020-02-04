@@ -84,13 +84,20 @@ class DataBase
 
     private function updateUsers($currentUsers, $object)
     {
+        $found = false;
         for ($i = 0; $i < count($currentUsers); $i++) {
             if ($currentUsers[$i]->id === $object->id) {
+                $found = true;
+                $object->password = $currentUsers[$i]->password;
+                unset($object->token);
                 $currentUsers[$i] = $object;
             }
         }
 
-        $currentUsers[] = $object;
+        if ($found === false) {
+            $currentUsers[] = $object;
+        }
+
         return $currentUsers;
     }
 

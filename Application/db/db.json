@@ -3,39 +3,8 @@
     "id": 0,
     "taskLists": [
       {
-        "id": 0,
-        "name": "taskList0",
-        "tags": [],
-        "tasks": [
-          {
-            "id": 0,
-            "tags": [],
-            "name": "task0",
-            "dueDate": "2020-01-29",
-            "state": "closed"
-          }
-        ],
-        "type": "TaskList"
-      },
-      {
-        "id": 1,
-        "name": "taskList1",
-        "tags": [],
-        "tasks": [],
-        "type": "TaskList"
-      }
-    ],
-    "username": "user",
-    "email": "user@gmail.com",
-    "type": "User",
-    "token": "fc4eb4bbded79c5025599bfffb53c83d"
-  },
-  {
-    "id": 1,
-    "taskLists": [
-      {
-        "id": 0,
-        "name": "taskList0",
+        "_id": 0,
+        "_name": "taskList0",
         "tags": [],
         "tasks": [
           {
@@ -49,47 +18,29 @@
         "type": "TaskList"
       },
       {
-        "id": 1,
-        "name": "taskList1",
-        "tags": [],
-        "tasks": [],
-        "type": "TaskList"
-      }
-    ],
-    "username": "user1",
-    "email": "user@gmail.com",
-    "password": "pw1",
-    "type": "User"
-  },
-  {
-    "id": 0,
-    "taskLists": [
-      {
-        "id": 0,
-        "name": "taskList0",
-        "tags": [],
-        "tasks": [
-          {
-            "id": 0,
-            "tags": [],
-            "name": "task0",
-            "dueDate": "2020-01-29",
-            "state": "closed"
-          }
-        ],
-        "type": "TaskList"
+        "_tags": [],
+        "_tasks": [],
+        "_id": "2",
+        "_name": "taskList1"
       },
       {
-        "id": 1,
-        "name": "taskList1",
-        "tags": [],
-        "tasks": [],
-        "type": "TaskList"
+        "_tags": [],
+        "_tasks": [],
+        "_id": "3",
+        "_name": "taskList2"
       }
     ],
     "username": "user",
     "email": "user@gmail.com",
     "type": "User",
-    "token": "fc4eb4bbded79c5025599bfffb53c83d"
+    "password": "pw0"
+  },
+  {
+    "id": 1,
+    "taskLists": [],
+    "username": "user1",
+    "email": "user@gmail.com",
+    "password": "pw1",
+    "type": "User"
   }
 ]
