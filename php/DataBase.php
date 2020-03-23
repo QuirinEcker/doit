@@ -37,22 +37,15 @@ class DataBase
     }
 
     public function login($username, $password) {
-        $users = $this->getUsers();
+        echo $this->address . " " . $this->user . " " . $this->pw . " " . $this->db;
+        $conn = new mysqli($this->address, $this->user, $this->pw, $this->db);
 
-        for ($i = 0; $i < count($users); $i++) {
-            if ($users[$i]->username == $username) {
-                if ($users[$i]->password == $password) {
-                    session_cache_expire(15);
-                    session_start();
-                    $_SESSION["id"] = $users[$i]->id;
-                    unset($users[$i]->password);
-                    $users[$i]->token = session_id();
-                    return $users[$i];
-                }
-            }
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
 
-        return array("status" => "err");
+        $sql = "SELECT * FROM USER WHERE EMAIL = $username AND PASSWORD = $password";
+
     }
 
     public function getUser($id) {
@@ -76,7 +69,7 @@ class DataBase
     public static function getInstance()
     {
         if (self::$instance == null) {
-            self::$instance = new DataBase("../db/db.json", "", "", "");
+            self::$instance = new DataBase("127.0.0.1:3306", "doit_db", "app", "doit_db");
         }
 
         return self::$instance;
