@@ -47,16 +47,6 @@ class User implements JsonSerializable
         return (array) $this->taskLists;
     }
 
-    public function getJSON()
-    {
-        return array(
-            'id' => $this->id,
-            'username' => $this->username,
-            'email' => $this->email,
-            'taskLists' => $this->getTaskListsInJson()
-        );
-    }
-
     public function jsonSerialize()
     {
         $returnValue = get_object_vars($this);
