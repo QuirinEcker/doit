@@ -1,0 +1,50 @@
+main {
+    z-index: 0;
+    width: 100vw;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s all;
+    background-color: white;
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.task-list-container {
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.task-list-container .task {
+    width: 90%;
+    height: 12vh;
+    margin-bottom: 2vh;
+    border-radius: 25px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+#closed-tasks > div {
+    background-color: #72cca7;
+}
+
+#open-tasks > div {
+    background-color: #cd5f5b;
+}
+
+#suggested-tasks > div {
+    background-color: #727272;
+}
+
+#search-task {
+    display: none;
+}
+
+#add-task {
+    font-size: 2.5vh;
+}

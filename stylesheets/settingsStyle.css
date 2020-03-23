@@ -1,0 +1,122 @@
+#settings {
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    transition: 0.5s all;
+    opacity: 0;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#settings #settings-wrapper {
+    width: 80vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#settings-wrapper #settings-profile-picture-container {
+    width: 100%;
+    height: 30vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10vh;
+}
+
+#settings-wrapper #settings-profile-picture-container #settings-profile-picture {
+    width: 20vh;
+    height: 20vh;
+
+    border-radius: 100%;
+    background-color: #cd5f5b;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings input {
+    all:unset;
+    width: 70%;
+    height: 3vh;
+    font-size: 2vh;
+    padding: 1vh 1vh 1vh 2vh;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    margin-bottom: 2vh;
+}
+
+#settings-change-password-button {
+    background-color: #72cca7;
+    width: 70%;
+    height: 3vh;
+    font-size: 2vh;
+    padding: 1vh 1vh 1vh 1vh;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    margin-bottom: 2vh;
+    text-transform: uppercase;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings-control {
+    position: fixed;
+    width: 100vw;
+    height: 7vh;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+#settings-control #button-container {
+    width: 63%;
+    height: 70%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5vw;
+}
+
+#settings-control #button-container div {
+    width: 30vw;
+    height: 100%;
+
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings-control #button-container #settings-submit-button {
+    background-color: #72cca7;
+}
+
+#settings-control #button-container #settings-back-button {
+    background-color: #cd5f5b;
+}
+
+#settings-control-placeholder {
+    height: 7vh;
+    width: 100vw;
+}

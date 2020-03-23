@@ -1,0 +1,186 @@
+#home-open-animation {
+    z-index: 2;
+    border-radius: 100%;
+    width: 1vh;
+    height: 1vh;
+    position: fixed;
+    bottom: 0;
+    left: 49.5%;
+    background-color: #cd5f5b;
+    transition: 1s all ease-in-out;
+    transition-delay: 0s;
+    opacity: 0;
+}
+
+#home-open-animation-container {
+    transition: 0.5s all ease-in-out;
+}
+
+#home {
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: #cd5f5b;
+    transition: 0.5s all;
+    opacity: 0;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-navigation-bar {
+    width: 80%;
+    height: 7vh;
+    margin: 3vh 0;
+    background-color: transparent;
+    border-radius: 100px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#home-navigation-bar .home-navigation-entry {
+    height: 7vh;
+    width: 7vh;
+    background-color: white;
+    border-radius: 100%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(39, 50, 57, 0.85);
+    font-size: 3vh;
+}
+
+#home-navigation-bar #home-navigation-entry-logout {
+    transform: rotate(180deg);
+}
+
+#task-lists {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task-list {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-bottom: 2vh;
+
+    font-size: 5vh;
+    color: rgba(39, 50, 57, 0.85);
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-shape {
+    width: 100%;
+    height: 12vh;
+    border-radius: 20px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+
+    color: rgba(39, 50, 57, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    touch-action: none;
+    user-select: none;
+}
+
+.list-nav {
+    width: 0;
+    height: 12vh;
+    border-radius: 20px;
+    background-color: white;
+    margin-left: 0;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    color: rgba(39, 50, 57, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+#add-list {
+    font-size: 2.5vh;
+    width: 100%;
+    height: 12vh;
+    border-radius: 20px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+
+    color: rgba(39, 50, 57, 0.85);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    touch-action: none;
+    user-select: none;
+}
+
+#create-prompt {
+    display: none;
+    flex-direction: column;
+}
+
+#create-prompt .list-shape {
+    margin-bottom: 1vh;
+}
+
+
+
+#create-taskList-prompt-text-field {
+    all:unset;
+    text-align: center;
+}
+
+#list-create-confirm-navigation {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#nav-button-container {
+    background-color: white;
+    border-radius: 20px;
+
+    display: flex;
+
+    padding: 0 0.8vh;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+}
+
+#create-prompt #list-create-confirm-navigation #nav-button-container #confirm:hover {
+    background-color: #72cca7;
+}
+
+#create-prompt #list-create-confirm-navigation #nav-button-container #cancel:hover {
+    background-color: #cd5f5b;
+}
+
+#create-prompt #list-create-confirm-navigation #nav-button-container div {
+    margin: 0.8vh 0.8vh;
+    border-radius: 10px;
+    padding: 0.8vh 0.8vh;
+    cursor: pointer;
+    color: #727272;
+}
+
+#create-prompt #list-create-confirm-navigation #nav-button-container div:hover {
+    color: white;
+}
