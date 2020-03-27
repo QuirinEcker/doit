@@ -76,7 +76,14 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#task-lists-container');
         ActionController.openHome();
         HTMLWriter.clearLoginInputs();
-        HTMLWriter.writeTaskListsForUser(getCurrentUser());
+        //HTMLWriter.writeTaskListsForUser(getCurrentUser());
+        ActionController.fillOutSettings();
+    }
+
+    static fillOutSettings() {
+        alert("logged in as user: " + getCurrentUser()["USERNAME"]);
+        document.querySelector("#settings-property-email").value = getCurrentUser()["EMAIL"];
+        document.querySelector("#settings-property-username").value = getCurrentUser()["USERNAME"]
     }
 
     static loadUserList() {
