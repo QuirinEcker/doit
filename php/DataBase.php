@@ -37,15 +37,23 @@ class DataBase
     }
 
     public function login($username, $password) {
-        echo $this->address . " " . $this->user . " " . $this->pw . " " . $this->db;
         $conn = new mysqli($this->address, $this->user, $this->pw, $this->db);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "SELECT * FROM USER WHERE EMAIL = $username AND PASSWORD = $password";
+        $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
+        $result = $conn->query($sql);
 
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                return $row;
+            }
+        } else {
+            return array("error");
+        }
     }
 
     public function getUser($id) {
@@ -69,7 +77,7 @@ class DataBase
     public static function getInstance()
     {
         if (self::$instance == null) {
-            self::$instance = new DataBase("127.0.0.1:3306", "doit_db", "app", "doit_db");
+            self::$instance = new DataBase("mysql", "doit_db", "app", "doit_db");
         }
 
         return self::$instance;
