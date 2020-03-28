@@ -60,7 +60,10 @@ class Task implements JsonSerializable, Model
 
     public function import($json)
     {
-        // TODO: Implement import() method.
+        $this->id = $json["id"];
+        $this->name = $json["name"];
+        $this->dueDate = DateTime::createFromFormat('Y-m-d H:i:s', $json["dueDate"]);
+        $this->state = $json["state"];
     }
 
     public function export()
