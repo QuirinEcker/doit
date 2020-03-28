@@ -9,7 +9,7 @@ class TaskList implements JsonSerializable
     private $tasks = array();
     private static $idMax = 10;
 
-    public function __construct($id, $name)
+    public function __construct($id = 0, $name = "")
     {
         $this->id = $id;
         $this->name = $name;

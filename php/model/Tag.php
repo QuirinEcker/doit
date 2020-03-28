@@ -8,7 +8,7 @@ class Tag implements JsonSerializable
     private $parentTaskListID;
     private $parentTaskID;
 
-    function __construct($id, $name, $parentTaskListID, $parentTaskID)
+    function __construct($id = 0, $name = "", $parentTaskListID = 0, $parentTaskID = 0)
     {
         $this->id = $id;
         $this->name = $name;

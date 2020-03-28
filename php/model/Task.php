@@ -11,7 +11,7 @@ class Task implements JsonSerializable
     private $parentTaskListID;
     private $state;
 
-    public function __construct($id, $tags, $name, $dueDate, $parentTaskListID, $state)
+    public function __construct($id = 0, $tags = null, $name = "", $dueDate = null, $parentTaskListID = 0, $state = 0)
     {
         $this->id = $id;
         $this->tags = $tags;
