@@ -53,7 +53,8 @@ class TaskList implements JsonSerializable, Model
 
     public function import($json)
     {
-        // TODO: Implement import() method.
+        $this->id = $json["id"];
+        $this->name = $json["name"];
     }
 
     public function export()
