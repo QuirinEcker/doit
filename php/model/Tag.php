@@ -1,7 +1,7 @@
 <?php
 
 
-class Tag implements JsonSerializable
+class Tag implements JsonSerializable, Model
 {
     private $id;
     private $name;
@@ -41,5 +41,15 @@ class Tag implements JsonSerializable
         $returnValue = get_object_vars($this);
         $returnValue["type"] = "Tag";
         return $returnValue;
+    }
+
+    public function import($json)
+    {
+        // TODO: Implement import() method.
+    }
+
+    public function export()
+    {
+        // TODO: Implement export() method.
     }
 }

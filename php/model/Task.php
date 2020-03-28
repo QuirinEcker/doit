@@ -2,7 +2,7 @@
 
 
 
-class Task implements JsonSerializable
+class Task implements JsonSerializable, Model
 {
     private $id;
     private $tags;
@@ -58,4 +58,13 @@ class Task implements JsonSerializable
         return $returnValue;
     }
 
+    public function import($json)
+    {
+        // TODO: Implement import() method.
+    }
+
+    public function export()
+    {
+        // TODO: Implement export() method.
+    }
 }

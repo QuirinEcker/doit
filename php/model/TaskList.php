@@ -1,7 +1,7 @@
 <?php
 
 
-class TaskList implements JsonSerializable
+class TaskList implements JsonSerializable, Model
 {
     private $id;
     private $name;
@@ -51,4 +51,13 @@ class TaskList implements JsonSerializable
         return self::$idMax;
     }
 
+    public function import($json)
+    {
+        // TODO: Implement import() method.
+    }
+
+    public function export()
+    {
+        // TODO: Implement export() method.
+    }
 }
