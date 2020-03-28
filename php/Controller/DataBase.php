@@ -49,11 +49,11 @@ class DataBase
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                $row["PASSWORD"] = "-";
+                $row["PASSWORD"] = "-";∆
                 return $row;
             }
         } else {
-            return array("error");
+            return array("status" => "err");
         }
     }
 
