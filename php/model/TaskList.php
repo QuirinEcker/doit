@@ -1,5 +1,6 @@
 <?php
 
+require_once "Model.php";
 
 class TaskList implements JsonSerializable, Model
 {
