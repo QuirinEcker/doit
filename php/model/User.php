@@ -62,9 +62,9 @@ class User implements JsonSerializable, Model
         $this->email = $json["email"];
         $this->password = $json["password"];
 
-/*        foreach ($json["taskLists"] as $key => $value) {
-            $this->taskLists[] = new TaskList()->import($value)
-        }*/
+        foreach ($json["taskLists"] as $key => $value) {
+            $this->taskLists[] = (new TaskList())->import($value);
+        }
     }
 
     public function export()
