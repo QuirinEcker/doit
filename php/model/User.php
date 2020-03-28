@@ -1,7 +1,7 @@
 <?php
 
 
-class User implements JsonSerializable
+class User implements JsonSerializable, Model
 {
     private $id;
     public $taskLists = array();
@@ -55,4 +55,20 @@ class User implements JsonSerializable
     }
 
 
+    public function import($json)
+    {
+        $this->id = $json["id"];
+        $this->username = $json["username"];
+        $this->email = $json["email"];
+        $this->password = $json["password"];
+
+/*        foreach ($json["taskLists"] as $key => $value) {
+            $this->taskLists[] = new TaskList()->import($value)
+        }*/
+    }
+
+    public function export()
+    {
+        // TODO: Implement export() method.
+    }
 }
