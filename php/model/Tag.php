@@ -52,6 +52,6 @@ class Tag implements JsonSerializable, Model
 
     public function export()
     {
-        // TODO: Implement export() method.
+        return json_encode($this);
     }
 }
