@@ -1,6 +1,7 @@
 <?php
 
 require_once "Model.php";
+require_once "Tag.php";
 
 class Task implements JsonSerializable, Model
 {
@@ -64,6 +65,12 @@ class Task implements JsonSerializable, Model
         $this->name = $json["name"];
         $this->dueDate = DateTime::createFromFormat('Y-m-d H:i:s', $json["dueDate"]);
         $this->state = $json["state"];
+
+        foreach ($json["tags"] as $key => $value) {
+            $tag = new Tag();
+            $tag->import($value);
+            $this->tags[] = $tag;
+        }
     }
 
     public function export()
