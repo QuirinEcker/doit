@@ -1,10 +1,11 @@
 import {getCurrentUser} from "../Config.js";
 
-class Task {
+class Task extends Model{
     get state() {
         return this._state;
     }
     constructor(id, name, dueDate, parentTaskListID, state) {
+        super();
         this._id = id;
         this._tags = new Array();
         this._name = name;

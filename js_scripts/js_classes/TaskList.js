@@ -1,5 +1,6 @@
-class TaskList {
+class TaskList extends Model{
     constructor(id, name) {
+        super();
         this._tags = new Array();
         this._tasks = new Array();
         this._id = id;

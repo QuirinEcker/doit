@@ -1,6 +1,7 @@
-class Tag {
+class Tag extends Model{
 
     constructor(id, name, parentTaskListID, parentTaskID) {
+        super();
         this._id = id;
         this._name = name;
         this._parentTaskListID = parentTaskListID;

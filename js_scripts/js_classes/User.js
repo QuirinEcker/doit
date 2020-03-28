@@ -1,5 +1,6 @@
-class User {
+class User extends Model{
     constructor(id, username, email) {
+        super();
         this._id = id;
         this._taskLists = new Array();
         this._username = username;
