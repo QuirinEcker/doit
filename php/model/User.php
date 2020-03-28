@@ -66,7 +66,7 @@ class User implements JsonSerializable, Model
         foreach ($json["taskLists"] as $key => $value) {
             $taskList = new TaskList();
             $taskList->import($value);
-            $this->taskLists[] = $value;
+            $this->taskLists[] = $taskList;
         }
     }
 

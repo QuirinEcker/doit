@@ -56,6 +56,12 @@ class TaskList implements JsonSerializable, Model
     {
         $this->id = $json["id"];
         $this->name = $json["name"];
+
+        foreach ($json["tasks"] as $key => $value) {
+            $task = new Task();
+            $task->import($value);
+            $this->tasks[] = $task;
+        }
     }
 
     public function export()
