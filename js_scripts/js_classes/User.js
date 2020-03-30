@@ -1,32 +1,18 @@
 class User extends Model{
     constructor(id, username, email) {
         super();
-        this._id = id;
-        this._taskLists = new Array();
-        this._username = username;
-        this._email = email;
+        this.id = id;
+        this.taskLists = new Array();
+        this.username = username;
+        this.email = email;
     }
 
-    get username() {
-        return this._username;
-    }
-
-    get email() {
-        return this._email;
-    }
-
-    get taskLists() {
-        return this._taskLists;
-    }
-
-    get id() {
-        return this._id;
-    }
-
+    // TODO: kinda bad implementation. New Implementation is needed
     addTaskList(id, taskList) {
         this.taskLists[id] = taskList;
     }
 
+    // TODO: kinda bad implementation. New Implementation is needed
     getTaskList(id) {
         return this._taskLists[id]
     }
