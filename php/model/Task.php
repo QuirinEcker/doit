@@ -69,7 +69,7 @@ class Task implements JsonSerializable, Model
         foreach ($json["tags"] as $key => $value) {
             $tag = new Tag();
             $tag->import($value);
-            $this->tags[] = $tag;
+            $this->tags[$tag->getId()] = $tag;
         }
     }
 
