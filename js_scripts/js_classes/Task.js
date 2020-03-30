@@ -6,38 +6,15 @@ class Task extends Model{
     }
     constructor(id, name, dueDate, parentTaskListID, state) {
         super();
-        this._id = id;
-        this._tags = new Array();
-        this._name = name;
-        this._dueDate = dueDate;
-        this._parentTaskListID = parentTaskListID;
-        this._state = state;
+        this.id = id;
+        this.tags = new Array();
+        this.name = name;
+        this.dueDate = dueDate;
+        this.parentTaskListID = parentTaskListID;
+        this.state = state;
     }
 
-    get id() {
-        return this._id;
-    }
-
-    get tags() {
-        return this._tags;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    get dueDate() {
-        return this._dueDate;
-    }
-
-    get parentTaskListID() {
-        return this._parentTaskListID;
-    }
-
-    get tagList() {
-        return this._tags;
-    }
-
+    // TODO: New implementation needed
     addTag(id, tag) {
         this._tags[id] = tag;
         console.log(getCurrentUser())

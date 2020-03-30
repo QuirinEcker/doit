@@ -1,44 +1,13 @@
 class TaskList extends Model{
     constructor(id, name) {
         super();
-        this._tags = new Array();
-        this._tasks = new Array();
-        this._id = id;
-        this._name = name;
+        this.tags = [];
+        this.tasks = [];
+        this.id = id;
+        this.name = name;
     }
 
-    get name() {
-        return this._name;
-    }
-
-    get id() {
-        return this._id;
-    }
-
-    get tags() {
-        return this._tags;
-    }
-
-    get tasks() {
-        return this._tasks;
-    }
-
-    set id(value) {
-        this._id = value;
-    }
-
-    set name(value) {
-        this._name = value;
-    }
-
-    set tags(value) {
-        this._tags = value;
-    }
-
-    set tasks(value) {
-        this._tasks = value;
-    }
-
+    // TODO: new implementation is needed for the add and get Method´
     addTask(id, task) {
         this.tasks[id] = task;
     }
