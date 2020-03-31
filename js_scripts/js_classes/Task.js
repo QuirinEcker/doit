@@ -1,7 +1,7 @@
 import {Model} from "./Model.js";
 
 class Task extends Model{
-    constructor([id, name, dueDate, parentTaskListID, state]) {
+    constructor(id = 0, name = "", dueDate = new Date(), parentTaskListID = 0, state = 0) {
         super();
         this.id = id;
         this.tags = new Array();

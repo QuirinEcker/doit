@@ -3,7 +3,7 @@ import {Task} from "./Task.js";
 import {Tag} from "./Tag.js";
 
 class TaskList extends Model{
-    constructor([id, name]) {
+    constructor(id = 0, name = "") {
         super();
         this.tags = [];
         this.tasks = [];
@@ -18,7 +18,7 @@ class TaskList extends Model{
         if (json.tasks != null) {
             json.tasks.forEach(task => {
                 let taskObject = new Task();
-                taskObject.import(task)
+                taskObject.import(task);
                 this.tasks[taskObject.id] = taskObject;
             })
         }
