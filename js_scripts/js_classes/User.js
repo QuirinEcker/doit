@@ -19,7 +19,7 @@ class User extends Model{
             json.taskLists.forEach(taskList => {
                 let taskListObject = new TaskList();
                 taskListObject.import(taskList);
-                this.taskLists.push(taskListObject);
+                this.taskLists[taskList.id] = taskListObject;
             })
         }
     }
