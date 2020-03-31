@@ -1,3 +1,5 @@
+import {Model} from "./Model.js";
+
 class TaskList extends Model{
     constructor(id, name) {
         super();

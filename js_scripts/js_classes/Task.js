@@ -1,4 +1,5 @@
 import {getCurrentUser} from "../Config.js";
+import {Model} from "./Model.js";
 
 class Task extends Model{
     constructor(id, name, dueDate, parentTaskListID, state) {

@@ -1,3 +1,5 @@
+import {Model} from "./Model.js";
+
 class Tag extends Model{
 
     constructor([id, name]) {

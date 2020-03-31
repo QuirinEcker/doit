@@ -1,4 +1,5 @@
 import {TaskList} from "./TaskList.js";
+import {Model} from "./Model.js";
 
 class User extends Model{
     constructor(id, username, email) {
