@@ -1,4 +1,4 @@
-class Model {
-    export();
-    import(json);
+export class Model {
+    export() {};
+    import(json) {};
 }
