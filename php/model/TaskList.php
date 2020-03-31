@@ -59,16 +59,20 @@ class TaskList implements JsonSerializable, Model
         $this->id = $json["id"];
         $this->name = $json["name"];
 
-        foreach ($json["tasks"] as $key => $value) {
-            $task = new Task();
-            $task->import($value);
-            $this->tasks[] = $task;
+        if ($json["tasks"] != null) {
+            foreach ($json["tasks"] as $key => $value) {
+                $task = new Task();
+                $task->import($value);
+                $this->tasks[] = $task;
+            }
         }
 
-        foreach ($json["tags"] as $key => $value) {
-            $tag = new Tag();
-            $tag->import($value);
-            $this->tags[$tag->getId()] = $tag;
+        if ($json["tasks"] != null) {
+            foreach ($json["tags"] as $key => $value) {
+                $tag = new Tag();
+                $tag->import($value);
+                $this->tags[$tag->getId()] = $tag;
+            }
         }
     }
 

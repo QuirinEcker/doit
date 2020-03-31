@@ -66,10 +66,12 @@ class Task implements JsonSerializable, Model
         $this->dueDate = DateTime::createFromFormat('Y-m-d H:i:s', $json["dueDate"]);
         $this->state = $json["state"];
 
-        foreach ($json["tags"] as $key => $value) {
-            $tag = new Tag();
-            $tag->import($value);
-            $this->tags[$tag->getId()] = $tag;
+        if ($json["tags"] != null) {
+            foreach ($json["tags"] as $key => $value) {
+                $tag = new Tag();
+                $tag->import($value);
+                $this->tags[$tag->getId()] = $tag;
+            }
         }
     }
 
