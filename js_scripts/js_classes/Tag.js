@@ -1,4 +1,5 @@
 import {Model} from "./Model.js";
+import {Task} from "./Task.js";
 
 class Tag extends Model{
 
@@ -14,6 +15,14 @@ class Tag extends Model{
         this.id = json.id;
         this.name = json.name;
         this.taskListID = json.taskListID;
+
+        if (json.tasks != null) {
+            json.tasks.forEach(task => {
+                let taskObject = new Task();
+                taskObject.import(task);
+                this.tasks[taskObject.id] = taskObject;
+            })
+        }
     }
 }
 
