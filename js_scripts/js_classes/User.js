@@ -2,7 +2,7 @@ import {TaskList} from "./TaskList.js";
 import {Model} from "./Model.js";
 
 class User extends Model{
-    constructor(id, username, email) {
+    constructor([id, username, email]) {
         super();
         this.id = id;
         this.taskLists = [];

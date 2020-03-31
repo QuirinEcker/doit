@@ -3,7 +3,7 @@ import {Task} from "./Task.js";
 import {Tag} from "./Tag.js";
 
 class TaskList extends Model{
-    constructor(id, name) {
+    constructor([id, name]) {
         super();
         this.tags = [];
         this.tasks = [];
