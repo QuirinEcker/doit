@@ -5,37 +5,6 @@ require_once "ConnectionFactory.php";
 class UserRepository
 {
     static private $instance;
-    private $address;
-    private $user;
-    private $pw;
-    private $db;
-
-    function __construct($address, $user, $pw, $db)
-    {
-        $this->address = $address;
-        $this->user = $user;
-        $this->pw = $pw;
-        $this->db = $db;
-    }
-
-    public function save($object) {
-        $currentUsers = $this->getUsers();
-        $currentUsers = $this->updateUsers($currentUsers, $object);
-
-        $file = fopen($this->address, "w") or die("Unable to open file");
-
-        fwrite($file, json_encode($currentUsers));
-        fclose($file);
-
-    }
-
-    public function getUsers() {
-        $file = fopen($this->address, "r") or die("Unable to open file");
-        $users = json_decode(fread($file,filesize($this->address)));
-        fclose($file);
-
-        return $users;
-    }
 
     public function login($username, $password) {
         $conn = ConnectionFactory::getInstance()->getConnection();
@@ -54,22 +23,8 @@ class UserRepository
         return $result->num_rows == 1 ? array("status" => "acc") : array("status" => "ref");
     }
 
-    public function getUser($id) {
-        $users = $this->getUsers();
-
-        for ($i = 0; $i < count($users); $i++) {
-            if ($users[$i]->id == $id) {
-                return $users[$i];
-            }
-        }
-
-        return "null";
-    }
-
-    public function getUserFrom($token) {
-        if (session_id() === $token) {
-            return $this->getUser($_SESSION["id"]);
-        }
+    public function getUser() {
+        // TODO: Get User (UserId ist in the $_Session)
     }
 
     public static function getInstance()
@@ -80,25 +35,4 @@ class UserRepository
 
         return self::$instance;
     }
-
-    private function updateUsers($currentUsers, $object)
-    {
-        $found = false;
-        for ($i = 0; $i < count($currentUsers); $i++) {
-            if ($currentUsers[$i]->id === $object->id) {
-                $found = true;
-                $object->password = $currentUsers[$i]->password;
-                unset($object->token);
-                $currentUsers[$i] = $object;
-            }
-        }
-
-        if ($found === false) {
-            $currentUsers[] = $object;
-        }
-
-        return $currentUsers;
-    }
-
-
 }
