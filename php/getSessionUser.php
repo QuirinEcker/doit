@@ -1,11 +1,11 @@
 <?php
-include "./DataBase.php";
+include "./UserRepository.php";
 
 session_start();
 if (!isset($_SESSION["id"])) {
     echo "noSession";
 } else {
-    $obj = DataBase::getInstance()->getUser($_SESSION["id"]);
+    $obj = UserRepository::getInstance()->getUser($_SESSION["id"]);
     unset($obj->password);
     echo json_encode($obj);
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-class DataBase
+class UserRepository
 {
     static private $instance;
     private $address;
@@ -75,7 +75,7 @@ class DataBase
     public static function getInstance()
     {
         if (self::$instance == null) {
-            self::$instance = new DataBase("mysql", "doit_db", "app", "doit_db");
+            self::$instance = new UserRepository("mysql", "doit_db", "app", "doit_db");
         }
 
         return self::$instance;
