@@ -46,8 +46,9 @@ class DataBase
         $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
         $result = $conn->query($sql);
         $respond = array();
+        $result->num_rows == 1 ? $respond["status"] = "success" : $respond["status"] = "error";
 
-        return $result->num_rows == 1 ? $respond["status"] = "success" : $respond["status"] = "error";
+        return $respond;
     }
 
     public function getUser($id) {
