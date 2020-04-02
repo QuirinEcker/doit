@@ -20,6 +20,7 @@ class UserRepository
             }
         }
 
+        $conn->close();
         return $result->num_rows == 1 ? array("status" => "acc") : array("status" => "ref");
     }
 
