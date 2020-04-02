@@ -18,7 +18,7 @@ class ConnectionFactory
     }
 
     static function getInstance() {
-        if (self::$instance) {
+        if (self::$instance == null) {
             self::$instance = new ConnectionFactory(
                 "mysql",
                 "doit_db",
@@ -26,6 +26,8 @@ class ConnectionFactory
                 "doit_db"
             );
         }
+
+        return self::$instance;
     }
 
     function getConnection() {
