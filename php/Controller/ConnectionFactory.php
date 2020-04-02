@@ -3,7 +3,7 @@
 
 class ConnectionFactory
 {
-    public static $instance;
+    private static $instance;
     private $host;
     private $user;
     private $password;
