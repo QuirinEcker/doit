@@ -38,17 +38,20 @@ class DataBase
 
     public function login($username, $password) {
         $conn = new mysqli($this->address, $this->user, $this->pw, $this->db);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 
         $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
         $result = $conn->query($sql);
-        $respond = array();
-        $result->num_rows == 1 ? $respond["status"] = "success" : $respond["status"] = "error";
+        session_cache_expire(15);
 
-        return $respond;
+        if ($result->num_rows == 1) {
+            if ($row = $result->fetch_assoc()) {
+                session_start();
+                $_SESSION["email"] = $row["EMAIL"];
+            }
+        }
+
+        return $result->num_rows == 1 ? array("status" => "acc") : array("status" => "ref");
     }
 
     public function getUser($id) {
