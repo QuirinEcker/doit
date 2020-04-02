@@ -1,6 +1,7 @@
 <?php
 
 require_once "ConnectionFactory.php";
+require "../model/User.php";
 
 class UserRepository
 {
@@ -25,8 +26,30 @@ class UserRepository
     }
 
     public function getUser() {
-        // TODO: Get User (UserId ist in the $_Session)
-        return "not implemented jet";
+        session_cache_expire(15);
+        session_start();
+        if (isset($_SESSION["email"])) {
+            $email = $_SESSION["email"];
+            $conn = ConnectionFactory::getInstance()->getConnection();
+            $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$email'";
+            $result = $conn->query($sql);
+
+            if ($row = $result->fetch_assoc()) {
+                $userObject = new User($row["id"], $row["username"], $row["email"]);
+                return $userObject->export();
+            } else {
+                return array(
+                    "status" => "err",
+                    "reason" => "user not found"
+                );
+            }
+        } else {
+            return array(
+                "status" => "err",
+                "reason" => "session expired"
+            );
+        }
+
     }
 
     public static function getInstance()

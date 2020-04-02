@@ -4,7 +4,7 @@ require_once "../Controller/UserRepository.php";
 
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-        echo UserRepository::getInstance()->getUser();
+        echo json_encode(UserRepository::getInstance()->getUser());
         break;
     case "POST":
         echo "creating User";
