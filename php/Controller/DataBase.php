@@ -45,16 +45,9 @@ class DataBase
 
         $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
         $result = $conn->query($sql);
+        $respond = array();
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                $row["PASSWORD"] = "-";
-                return $row;
-            }
-        } else {
-            return array("status" => "err");
-        }
+        return $result->num_rows == 1 ? $respond["status"] = "success" : $respond["status"] = "error";
     }
 
     public function getUser($id) {
