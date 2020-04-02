@@ -25,6 +25,7 @@ class UserRepository
 
     public function getUser() {
         // TODO: Get User (UserId ist in the $_Session)
+        return "not implemented jet";
     }
 
     public static function getInstance()

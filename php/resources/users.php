@@ -1,8 +1,10 @@
 <?php
 
+require_once "../Controller/UserRepository.php";
+
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
-        echo "getting User";
+        echo UserRepository::getInstance()->getUser();
         break;
     case "POST":
         echo "creating User";
