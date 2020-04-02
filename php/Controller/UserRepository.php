@@ -1,5 +1,6 @@
 <?php
 
+require_once "ConnectionFactory.php";
 
 class UserRepository
 {
@@ -37,8 +38,7 @@ class UserRepository
     }
 
     public function login($username, $password) {
-        $conn = new mysqli($this->address, $this->user, $this->pw, $this->db);
-        if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+        $conn = ConnectionFactory::getInstance()->getConnection();
 
         $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
         $result = $conn->query($sql);
