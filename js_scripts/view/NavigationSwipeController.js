@@ -9,7 +9,7 @@ class NavigationSwipeController {
 
                     Array.from(event.target.parentElement.children).forEach((child) => {
                         child.style.transitionDuration = `0s`;
-                    })
+                    });
                 },
                 move(event) {
                     position.x = event.dx;
@@ -23,9 +23,9 @@ class NavigationSwipeController {
                     }
                 },
                 end(event) {
-                    Array.from(event.target.parentElement.children).forEach((child, index) => {
+                    Array.from(event.target.parentElement.children).forEach((child) => {
                         child.style.transitionDuration = `0.5s`;
-                    })
+                    });
 
                     if (event.target.clientWidth > event.target.parentElement.clientWidth / 100 * 90) {
                         event.target.style.width = `100%`;

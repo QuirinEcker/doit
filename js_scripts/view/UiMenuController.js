@@ -1,7 +1,7 @@
 class UiMenuController {
 
     constructor() {
-        this.uiMenus = new Array();
+        this.uiMenus = [];
     }
 
     get(name) {

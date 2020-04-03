@@ -2,10 +2,8 @@ import {Animations} from "./Animations.js";
 import {uiMenuController} from "./Config.js";
 import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
-import {TaskFilter} from "./TaskFilter.js";
 import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
-import {UserObjectUtil} from "./UserObjectUtil.js";
 import {TaskListFactory} from "./TaskListFactory.js";
 
 class ActionController {
@@ -21,7 +19,8 @@ class ActionController {
     }
 
     static searchTask() {
-        TaskFilter.search(this.value);
+        // TODO: Not working jet
+        //TaskFilter.search(this.value);
     }
 
     static openSignUp() {
@@ -90,7 +89,7 @@ class ActionController {
         ActionController.openList();
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
-        HTMLWriter.writeTasksForTaskList(UserObjectUtil.getTaskListByID(this.parentElement.id));
+        // noinspection JSUnresolvedVariable
     }
 
     static loadUserIfLoggedIn() {

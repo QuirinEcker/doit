@@ -39,7 +39,7 @@ class HTMLWriter {
     }
 
     static clearAllElementIn(elementOrSelector) {
-        while (HTMLWriter.getElement(elementOrSelector).children.length != 0) {
+        while (HTMLWriter.getElement(elementOrSelector).children.length !== 0) {
             HTMLWriter.getElement(elementOrSelector).removeChild(HTMLWriter.getElement(elementOrSelector).lastChild);
         }
     }
@@ -48,7 +48,7 @@ class HTMLWriter {
         HTMLWriter.clearAllElementIn('#login-errors');
         let element = HTMLWriter.addElement('div', '#login-errors');
         HTMLWriter.addClass(element, 'login-error');
-        HTMLWriter.overWriteElementTextContent(element, reason)
+        HTMLWriter.overWriteElementTextContent(element, reason);
         console.log(reason)
     }
 
@@ -86,14 +86,14 @@ class HTMLWriter {
         HTMLWriter.addClass(taskListElement, 'task-list');
         HTMLWriter.changeId(taskListElement, taskList._id);
         let taskListShapeElement = HTMLWriter.addElement('div', taskListElement);
-        HTMLWriter.addClass(taskListShapeElement, 'list-shape')
+        HTMLWriter.addClass(taskListShapeElement, 'list-shape');
         let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
-        HTMLWriter.addClass(taskListNavElement, 'list-nav')
+        HTMLWriter.addClass(taskListNavElement, 'list-nav');
         let navElement = HTMLWriter.addElement('i', taskListNavElement);
         HTMLWriter.addClass(navElement, 'fas');
         HTMLWriter.addClass(navElement, 'fa-trash');
 
-        HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList._name);
+        HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
         taskListShapeElement.addEventListener('click', ActionController.loadUserList);
     }
@@ -123,18 +123,18 @@ class HTMLWriter {
         HTMLWriter.addClass(dateTime, 'date-time');
         let date = HTMLWriter.addElement('div', dateTime);
         HTMLWriter.addClass(date, 'date');
-        HTMLWriter.overWriteElementTextContent(date, task.dueDate.toLocaleString())
+        HTMLWriter.overWriteElementTextContent(date, task.dueDate.toLocaleString());
         let time = HTMLWriter.addElement('div', dateTime);
         HTMLWriter.addClass(time, 'time');
-        HTMLWriter.overWriteElementTextContent(time, '16:00')
+        HTMLWriter.overWriteElementTextContent(time, '16:00');
 
         let tags = HTMLWriter.addElement('div', informationElement);
         HTMLWriter.addClass(tags, 'tags');
 
         HTMLWriter.getValuesOf(task.tags).forEach((tag) => {
             let tagElement = HTMLWriter.addElement('div', tags);
-            HTMLWriter.addClass(tagElement, 'tag')
-            HTMLWriter.changeId(tagElement, tag.id)
+            HTMLWriter.addClass(tagElement, 'tag');
+            HTMLWriter.changeId(tagElement, tag.id);
             HTMLWriter.overWriteElementTextContent(tagElement, tag.name);
         })
     }
@@ -143,14 +143,16 @@ class HTMLWriter {
         let array = [];
 
         for (let item in hashArray) {
-            array.push(hashArray[item]);
+            if (hashArray.hasOwnProperty(item)) {
+                array.push(hashArray[item]);
+            }
         }
 
         return array;
     }
 
     static getWeakDay(dueDate) {
-        console.log(dueDate.getDay())
+        console.log(dueDate.getDay());
         switch (dueDate.getDay()) {
             case 0: return 'So';
             case 1: return 'Mo';
@@ -169,7 +171,6 @@ class HTMLWriter {
     }
 
     static toggleTaskListCreatePrompt() {
-        let taskListCreatePrompt = document.querySelector('create-prompt');
         CreatePromptController.instance.toggle();
     }
 }
