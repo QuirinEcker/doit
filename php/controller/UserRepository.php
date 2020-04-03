@@ -10,7 +10,7 @@ class UserRepository
     public function login($username, $password) {
         $conn = ConnectionFactory::getInstance()->getConnection();
 
-        $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$username' AND u.PASSWORD = '$password'";
+        $sql = "SELECT * FROM USER WHERE EMAIL = '$username' AND PASSWORD = '$password'";
         $result = $conn->query($sql);
         session_cache_expire(15);
 
