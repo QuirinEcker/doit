@@ -1,7 +1,7 @@
 <?php
 
-require_once "ConnectionFactory.php";
-require "../model/User.php";
+require_once __DIR__ . "/ConnectionFactory.php";
+require_once __DIR__ . "/../model/User.php";
 
 class UserRepository
 {
