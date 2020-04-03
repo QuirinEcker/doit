@@ -1,4 +1,4 @@
-import {getCurrentUser, setCurrentUser} from "../Config.js";
+import {getCurrentUser, setCurrentUser} from "../view/Config.js";
 
 class DataBase {
     constructor(address) {

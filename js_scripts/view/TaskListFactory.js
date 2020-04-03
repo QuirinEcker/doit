@@ -1,4 +1,4 @@
-import {TaskList} from "./model/TaskList.js";
+import {TaskList} from "../model/TaskList.js";
 import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 import {getCurrentUser} from "./Config.js";
