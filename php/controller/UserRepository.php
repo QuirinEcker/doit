@@ -39,7 +39,7 @@ class UserRepository
                 return array(
                     "status" => "ok",
                     "code" => "user_got" ,
-                    "data" => $userObject->export()
+                    "data" => $userObject
                 );
             } else {
                 return array(
