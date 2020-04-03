@@ -1,7 +1,7 @@
-import {Config} from "./Config.js";
-import {ActionController} from "./Config.js";
-import {NavigationSwipeController} from './NavigationSwipeController.js'
-import {dataBase} from "./Config.js";
+import {Config} from "./view/Config.js";
+import {ActionController} from "./view/Config.js";
+import {NavigationSwipeController} from './view/NavigationSwipeController.js'
+import {dataBase} from "./view/Config.js";
 
 window.addEventListener('load', () => {
     Config.load();
