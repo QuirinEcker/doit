@@ -1,6 +1,6 @@
 <?php
 
-require_once "../Controller/UserRepository.php";
+require_once "../controller/UserRepository.php";
 
 switch ($_SERVER["REQUEST_METHOD"]) {
     case "GET":
