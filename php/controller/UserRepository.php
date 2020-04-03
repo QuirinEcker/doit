@@ -36,17 +36,21 @@ class UserRepository
 
             if ($row = $result->fetch_assoc()) {
                 $userObject = new User($row["ID"], $row["USERNAME"], $row["EMAIL"]);
-                return $userObject->export();
+                return array(
+                    "status" => "ok",
+                    "code" => "user_got" ,
+                    "data" => $userObject->export()
+                );
             } else {
                 return array(
                     "status" => "err",
-                    "reason" => "user not found"
+                    "code" => "user_not_found"
                 );
             }
         } else {
             return array(
                 "status" => "err",
-                "reason" => "session expired"
+                "code" => "session_expired"
             );
         }
 
