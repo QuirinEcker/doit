@@ -35,7 +35,7 @@ class UserRepository
             $result = $conn->query($sql);
 
             if ($row = $result->fetch_assoc()) {
-                $userObject = new User($row["id"], $row["username"], $row["email"]);
+                $userObject = new User($row["ID"], $row["USERNAME"], $row["EMAIL"]);
                 return $userObject->export();
             } else {
                 return array(
