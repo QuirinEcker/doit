@@ -1,4 +1,4 @@
-import {getCurrentUser, setCurrentUser} from "./Config.js";
+import {getCurrentUser, setCurrentUser} from "../Config.js";
 
 class DataBase {
     constructor(address) {
@@ -25,7 +25,7 @@ class DataBase {
                 }
             })
             .catch((err) => {
-                console.log(err.message)
+                console.log(err.message);
                 reject();
             });
     }

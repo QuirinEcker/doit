@@ -1,7 +1,7 @@
 import {UiMenu} from "./UiMenu.js";
 import {UiMenuController} from "./UiMenuController.js";
 import {ActionController} from "./ActionController.js";
-import {DataBase} from "./DataBase.js"
+import {DataBase} from "./controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
 
 class Config {
