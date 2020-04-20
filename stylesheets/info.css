@@ -29,9 +29,34 @@
     align-items: center;
     font-size: 5vh;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 #info-img {
     width: 70%;
     padding-top: 4vh;
+}
+
+#contact-container {
+    width:80vw;
+}
+
+#contact-container textarea {
+    width: 80%;
+    height: 15vh;
+}
+
+#contact-container #send-button {
+    top: 20px;
+    width: 10vw;
+    height: 3vh;
+    border-radius: 20px;
+    color: white;
+    background-color: #72cca7;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
 }
