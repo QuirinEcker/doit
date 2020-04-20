@@ -10,7 +10,7 @@ class DataBase {
             mode: "cors",
             method: "POST",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `val=${userNameOrEmail};${passWord}`
+            body: `email=${userNameOrEmail}&password=${passWord}`
         })
             .then(response =>  response.text())
             .then(data => {
