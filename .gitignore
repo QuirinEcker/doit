@@ -376,4 +376,4 @@ package-lock.json
 Application/db/
 
 .idea/*
-package-lock.json
+vendor/*
