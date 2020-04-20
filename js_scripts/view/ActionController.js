@@ -89,7 +89,6 @@ class ActionController {
         ActionController.openList();
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
-        // noinspection JSUnresolvedVariable
     }
 
     static loadUserIfLoggedIn() {
