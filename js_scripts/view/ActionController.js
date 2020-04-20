@@ -118,6 +118,19 @@ class ActionController {
 
         return undefined;
     }
+
+    static sendEmail() {
+        const content = document.querySelector("#contact-message").value;
+
+        fetch('./php/sendEmail.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `message=${content}`
+        })
+            .then(data => data.text())
+            .then(console.log)
+    }
 }
 
 function openMenu(uiName, animation) {
