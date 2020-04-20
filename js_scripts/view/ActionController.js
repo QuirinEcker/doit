@@ -70,19 +70,23 @@ class ActionController {
             .catch(HTMLWriter.writeLoginError)
     }
 
-    static  loadUserHome() {
+    static async loadUserHome() {
         HTMLWriter.clearAllElementIn('#login-errors');
         HTMLWriter.clearAllElementIn('#task-lists-container');
         HTMLWriter.clearLoginInputs();
-        //HTMLWriter.writeTaskListsForUser(getCurrentUser());
-        ActionController.fillOutSettings();
-        ActionController.openHome();
+        dataBase.getUser()
+            .then(user => {
+                setCurrentUser(user.data);
+                console.log(getCurrentUser());
+                ActionController.fillOutSettings();
+                ActionController.openHome();
+            })
     }
 
     static fillOutSettings() {
-        alert("logged in as user: " + getCurrentUser()["USERNAME"]);
-        document.querySelector("#settings-property-email").value = getCurrentUser()["EMAIL"];
-        document.querySelector("#settings-property-username").value = getCurrentUser()["USERNAME"]
+        alert("logged in as user: " + getCurrentUser()["username"]);
+        document.querySelector("#settings-property-email").value = getCurrentUser()["email"];
+        document.querySelector("#settings-property-username").value = getCurrentUser()["username"]
     }
 
     static loadUserList() {

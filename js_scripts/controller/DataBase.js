@@ -40,6 +40,15 @@ class DataBase {
             .then(data => data.text())
             .then(console.log);
     }
+
+    getUser() {
+        return fetch('./php/resources/users.php', {
+            mode: "cors",
+            method: "GET",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(data => data.json())
+    }
 }
 
 export {DataBase}
