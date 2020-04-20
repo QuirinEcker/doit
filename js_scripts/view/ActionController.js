@@ -77,7 +77,6 @@ class ActionController {
         dataBase.getUser()
             .then(user => {
                 setCurrentUser(user.data);
-                console.log(getCurrentUser());
                 ActionController.fillOutSettings();
                 ActionController.openHome();
             })
