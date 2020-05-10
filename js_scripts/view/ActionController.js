@@ -86,7 +86,6 @@ class ActionController {
                     return true;
                 } else return false
             })
-            .catch(error => false)
     }
 
     static fillOutSettings() {
