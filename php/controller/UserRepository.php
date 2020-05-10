@@ -50,7 +50,7 @@ class UserRepository
         } else {
             return array(
                 "status" => "err",
-                "code" => "session_expired"
+                "code" => "no_session"
             );
         }
 
