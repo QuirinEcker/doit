@@ -6,7 +6,6 @@ export class TaskListRepository {
             method: "GET",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-            .then(data => data.json())
     }
 
     save(user) {
