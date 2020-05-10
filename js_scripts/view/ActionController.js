@@ -77,7 +77,7 @@ class ActionController {
         HTMLWriter.clearLoginInputs();
         return UserRepository.instance.get()
             .then(async user => {
-                const taskLists = await UserRepository.instance.loadTaskLists();
+                const taskLists = await UserRepository.instance.getTaskLists();
                 if (taskLists.status !== 'err' && user.status !== 'err') {
                     user.data.taskLists = taskLists.data;
                     setCurrentUser(user.data);

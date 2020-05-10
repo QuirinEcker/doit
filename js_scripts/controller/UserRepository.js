@@ -19,7 +19,7 @@ export class UserRepository {
         // TODO: functionality to create User with specific data
     }
 
-    loadTaskLists() {
+    getTaskLists() {
         return TaskListRepository.instance.getAll()
     }
 }
