@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . "/ConnectionFactory.php";
+require_once __DIR__ . "/SessionController.php";
+require_once __DIR__ . "/SqlRunner.php";
 require_once __DIR__ . "/../model/User.php";
 
 class UserRepository
@@ -26,34 +28,23 @@ class UserRepository
     }
 
     public function getUser() {
-        session_cache_expire(15);
-        session_start();
-        if (isset($_SESSION["email"])) {
-            $email = $_SESSION["email"];
-            $conn = ConnectionFactory::getInstance()->getConnection();
-            $sql = "SELECT * FROM USER u WHERE u.EMAIL = '$email'";
-            $result = $conn->query($sql);
+        SessionController::getInstance()->start();
+        $email = $_SESSION["email"];
+        $result = SqlRunner::getInstance()->run("SELECT * FROM USER u WHERE u.EMAIL = '$email'", true);
 
-            if ($row = $result->fetch_assoc()) {
-                $userObject = new User($row["ID"], $row["USERNAME"], $row["EMAIL"]);
-                return array(
-                    "status" => "ok",
-                    "code" => "user_got" ,
-                    "data" => $userObject
-                );
-            } else {
-                return array(
-                    "status" => "err",
-                    "code" => "user_not_found"
-                );
-            }
+        if ($row = $result->fetch_assoc()) {
+            $userObject = new User($row["ID"], $row["USERNAME"], $row["EMAIL"]);
+            return array(
+                "status" => "ok",
+                "code" => "user_got" ,
+                "data" => $userObject
+            );
         } else {
             return array(
                 "status" => "err",
-                "code" => "no_session"
+                "code" => "user_not_found"
             );
         }
-
     }
 
     public static function getInstance()

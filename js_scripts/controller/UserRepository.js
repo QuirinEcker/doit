@@ -9,6 +9,7 @@ export class UserRepository {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
             .then(data => data.json())
+            .then(console.log)
     }
 
     save(user) {

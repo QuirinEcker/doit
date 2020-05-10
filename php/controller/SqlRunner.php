@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . "/SessionController.php";
 
 class SqlRunner
 {
@@ -9,10 +10,12 @@ class SqlRunner
         if (self::$instance == null) {
             self::$instance = new SqlRunner();
         }
+
+        return self::$instance;
     }
 
     public function run($sql, $sessionNeeded) {
-        if ($this->sessionNotExpired() || $sessionNeeded) {
+        if (SessionController::getInstance()->sessionNotExpired() || !$sessionNeeded) {
             $conn = ConnectionFactory::getInstance()->getConnection();
             $result = $conn->query($sql);
             $conn->close();
@@ -22,13 +25,4 @@ class SqlRunner
             "code" => "no_session"
         );
     }
-
-    private function sessionNotExpired() {
-        session_cache_expire(15);
-        session_start();
-
-        return isset($_SESSION["email"]);
-    }
-
-
 }
