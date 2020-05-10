@@ -83,6 +83,7 @@ class ActionController {
                     setCurrentUser(user.data);
                     ActionController.fillOutSettings();
                     ActionController.openHome();
+                    HTMLWriter.writeTaskListsForUser(getCurrentUser());
                     return true;
                 } else return false
             })
