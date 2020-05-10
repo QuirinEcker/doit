@@ -51,4 +51,29 @@ class TaskListRepository
 
         return self::$instance;
     }
+
+    public function create($taskList)
+    {
+        session_cache_expire(15);
+        session_start();
+
+        if (isset($_SESSION["email"])) {
+            $email = $_SESSION["email"];
+            $conn = ConnectionFactory::getInstance()->getConnection();
+
+            $sql = "INSERT INTO doit_db.TASK_LIST(NAME, USER_ID) VALUES ('$taskList->name', '$email')";
+            $conn->query($sql);
+
+            $conn->close();
+            return array(
+                "status" => "ok",
+                "code" => "task_lists_created"
+            );
+        } else {
+            return array(
+                "status" => "err",
+                "code" => "no_session"
+            );
+        }
+    }
 }
