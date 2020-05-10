@@ -97,9 +97,6 @@ class ActionController {
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
     }
 
-    static loadUserIfLoggedIn() {
-    }
-
     static addList() {
         HTMLWriter.toggleTaskListCreatePrompt();
 
