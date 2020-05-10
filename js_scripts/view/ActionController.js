@@ -5,6 +5,7 @@ import {HTMLWriter} from "./HTMLWriter.js";
 import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
 import {TaskListFactory} from "./TaskListFactory.js";
+import {UserRepository} from "../controller/UserRepository";
 
 class ActionController {
     static cancelList() {
@@ -74,7 +75,7 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#login-errors');
         HTMLWriter.clearAllElementIn('#task-lists-container');
         HTMLWriter.clearLoginInputs();
-        dataBase.getUser()
+        UserRepository.instance.get()
             .then(user => {
                 setCurrentUser(user.data);
                 ActionController.fillOutSettings();

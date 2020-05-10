@@ -18,4 +18,4 @@ export class UserRepository {
     }
 }
 
-UserRepository.instace = new UserRepository();
+UserRepository.instance = new UserRepository();
