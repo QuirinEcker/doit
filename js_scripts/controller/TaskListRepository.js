@@ -17,3 +17,5 @@ export class TaskListRepository {
         // TODO: functionality to create User with specific data
     }
 }
+
+TaskListRepository.instance = new TaskListRepository();
