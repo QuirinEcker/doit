@@ -1,3 +1,5 @@
+import {TaskListRepository} from "./TaskListRepository.js";
+
 export class UserRepository {
 
     get() {
@@ -15,6 +17,10 @@ export class UserRepository {
 
     create(user) {
         // TODO: functionality to create User with specific data
+    }
+
+    loadTaskLists() {
+        return TaskListRepository.instance.getAll()
     }
 }
 
