@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/ConnectionFactory.php";
-require_once __DIR__ . "/../model/User.php";
+require_once __DIR__ . "/../model/TaskList.php";
 
 class TaskListRepository
 {
@@ -20,7 +20,7 @@ class TaskListRepository
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $arr[] = $row;
+                    $arr[] = new TaskList($row["ID"], $row["NAME"]);
                 }
             } else {
                 $conn->close();
