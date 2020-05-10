@@ -78,7 +78,7 @@ class ActionController {
         return UserRepository.instance.get()
             .then(async user => {
                 const taskLists = await UserRepository.instance.loadTaskLists();
-                if (taskLists.status !== 'err') {
+                if (taskLists.status !== 'err' && user.status !== 'err') {
                     user.data.taskLists = taskLists.data;
                     setCurrentUser(user.data);
                     ActionController.fillOutSettings();
