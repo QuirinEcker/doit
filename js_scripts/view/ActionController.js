@@ -76,8 +76,10 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#task-lists-container');
         HTMLWriter.clearLoginInputs();
         return UserRepository.instance.get()
-            .then(user => {
+            .then(async user => {
+                user.data.taskLists.push(await UserRepository.instance.loadTaskLists())
                 setCurrentUser(user.data);
+                console.log(getCurrentUser());
                 ActionController.fillOutSettings();
                 ActionController.openHome();
                 return true;
