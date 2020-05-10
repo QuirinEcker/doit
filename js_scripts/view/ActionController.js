@@ -5,7 +5,7 @@ import {HTMLWriter} from "./HTMLWriter.js";
 import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
 import {TaskListFactory} from "./TaskListFactory.js";
-import {UserRepository} from "../controller/UserRepository";
+import {UserRepository} from "../controller/UserRepository.js";
 
 class ActionController {
     static cancelList() {
