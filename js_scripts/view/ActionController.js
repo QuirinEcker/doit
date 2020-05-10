@@ -77,12 +77,14 @@ class ActionController {
         HTMLWriter.clearLoginInputs();
         return UserRepository.instance.get()
             .then(async user => {
-                user.data.taskLists.push(await UserRepository.instance.loadTaskLists())
-                setCurrentUser(user.data);
-                console.log(getCurrentUser());
-                ActionController.fillOutSettings();
-                ActionController.openHome();
-                return true;
+                const taskLists = await UserRepository.instance.loadTaskLists();
+                if (taskLists.status !== 'err') {
+                    user.data.taskLists = taskLists.data;
+                    setCurrentUser(user.data);
+                    ActionController.fillOutSettings();
+                    ActionController.openHome();
+                    return true;
+                } else return false
             })
             .catch(error => false)
     }
