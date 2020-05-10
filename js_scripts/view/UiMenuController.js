@@ -14,19 +14,25 @@ class UiMenuController {
         this.uiMenus.push(uiMenu);
     }
 
-    initiateCurrentMenu(name) {
-        this.currentMenu = this.get(name)
+    initiateCurrentMenu(uiMenu) {
+        this.currentMenu = uiMenu;
+        this.currentMenu.htmlElement.style.opacity = 1;
+        this.currentMenu.htmlElement.style.display = 'flex'
     }
 
     switchUiTo(uiMenu, animation) {
-        uiMenu.htmlElement.style.display = 'flex';
-        setTimeout(() => {
-            this.currentMenu.htmlElement.style.display = 'none';
-            uiMenu.htmlElement.style.opacity = '1';
-            animation();
-            this.currentMenu.htmlElement.style.opacity = '0';
-            this.currentMenu = uiMenu;
-        }, 10)
+        if (this.currentMenu !== undefined) {
+            uiMenu.htmlElement.style.display = 'flex';
+            setTimeout(() => {
+                this.currentMenu.htmlElement.style.display = 'none';
+                uiMenu.htmlElement.style.opacity = '1';
+                animation();
+                this.currentMenu.htmlElement.style.opacity = '0';
+                this.currentMenu = uiMenu;
+            }, 10)
+        } else {
+            this.initiateCurrentMenu(uiMenu)
+        }
     }
 }
 

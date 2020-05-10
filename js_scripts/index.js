@@ -4,8 +4,7 @@ import {ActionController} from "./view/Config.js";
 window.addEventListener('load', () => {
     Config.load();
     initialEventListener();
-    ActionController.loadUserIfLoggedIn();
-    ActionController.openInfo();
+    ActionController.loadApp();
 });
 
 function initialEventListener() {

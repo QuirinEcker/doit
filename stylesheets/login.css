@@ -1,15 +1,14 @@
 #login {
-    z-index: 4;
+    z-index: 3;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    transition: 0.5s all;
-    transition-delay: 0s;
     background-color: #cd5f5b;
-    opacity: 1;
+    transition: 0.5s all;
+    opacity: 0;
 }
 
 #login input {

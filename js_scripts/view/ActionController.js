@@ -75,12 +75,14 @@ class ActionController {
         HTMLWriter.clearAllElementIn('#login-errors');
         HTMLWriter.clearAllElementIn('#task-lists-container');
         HTMLWriter.clearLoginInputs();
-        UserRepository.instance.get()
+        return UserRepository.instance.get()
             .then(user => {
                 setCurrentUser(user.data);
                 ActionController.fillOutSettings();
                 ActionController.openHome();
+                return true;
             })
+            .catch(error => false)
     }
 
     static fillOutSettings() {
@@ -96,22 +98,6 @@ class ActionController {
     }
 
     static loadUserIfLoggedIn() {
-        fetch('./php/getSessionUser.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
-            .then(response =>  response.text())
-            .then(data => {
-                if (data !== "noSession") {
-                    let obj = JSON.parse(data);
-                    setCurrentUser(obj);
-                    ActionController.loadUserHome();
-                }
-            })
-            .catch((err) => {
-                console.log(err.message);
-            });
     }
 
     static addList() {
@@ -131,6 +117,14 @@ class ActionController {
         })
             .then(data => data.text())
             .then(console.log)
+    }
+
+    static async loadApp() {
+        let loggedIn = await this.loadUserHome();
+
+        if (!loggedIn) {
+           this.openLogin()
+        }
     }
 }
 
