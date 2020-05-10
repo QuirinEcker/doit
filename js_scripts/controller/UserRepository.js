@@ -1,9 +1,12 @@
-import {User} from "../model/User.js";
-
 export class UserRepository {
 
     get() {
-        // TODO: functionality to get the User for the current session
+        return fetch('./php/resources/users.php', {
+            mode: "cors",
+            method: "GET",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(data => data.json())
     }
 
     save(user) {
