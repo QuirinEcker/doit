@@ -1,24 +1,16 @@
 import {TaskList} from "../model/TaskList.js";
-import {dataBase} from "./Config.js";
 import {HTMLWriter} from "./HTMLWriter.js";
 import {getCurrentUser} from "./Config.js";
+import {TaskListRepository} from "../controller/TaskListRepository.js";
 
 class TaskListFactory {
 
 
     createList(listName) {
-        let id;
-        this.getRandomizedUniqueID()
-            .then(number => {
-                id = number;
-                console.log(id);
-                let taskList = new TaskList(id, listName);
-                console.log(getCurrentUser());
-                getCurrentUser().taskLists.push(taskList);
-                console.log(taskList);
-                dataBase.save();
-                HTMLWriter.addTaskList(taskList);
-            });
+        let taskList = new TaskList("", listName);
+        getCurrentUser().taskLists.push(taskList);
+        TaskListRepository.instance.create(taskList);
+        HTMLWriter.addTaskList(taskList);
     }
 
     getRandomizedUniqueID() {
