@@ -1,7 +1,7 @@
 export class TaskListRepository {
 
-    getAll(email) {
-        return fetch(`./php/resources/taskLists.php?email=${email}`, {
+    getAll() {
+        return fetch(`./php/resources/taskLists.php`, {
             mode: "cors",
             method: "GET",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
