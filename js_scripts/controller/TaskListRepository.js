@@ -13,7 +13,15 @@ export class TaskListRepository {
         // TODO: functionality to sace the User for the current session
     }
 
-    create(user) {
+    create(taskList) {
+        return fetch('./php/resources/taskLists.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `data=${JSON.stringify(taskList)}`
+        })
+            .then(data => data.json())
+
         // TODO: functionality to create User with specific data
     }
 }
