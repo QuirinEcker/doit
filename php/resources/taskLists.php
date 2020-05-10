@@ -6,7 +6,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         echo json_encode(TaskListRepository::getInstance()->getAll());
         break;
     case "POST":
-        echo "creating User";
+        echo $_REQUEST["data"];
         break;
     default:
         echo "not implemented";
