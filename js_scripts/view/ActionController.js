@@ -148,6 +148,8 @@ class ActionController {
                 signUpPasswordField.value
             )
         }
+
+        ActionController.openLogin();
     }
 }
 
