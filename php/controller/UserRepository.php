@@ -61,4 +61,24 @@ class UserRepository
 
         return self::$instance;
     }
+
+    public function delete()
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION["email"];
+            SqlRunner::getInstance()->run(
+                "UPDATE USER SET DELETED = true WHERE EMAIL = '$email'"
+            );
+
+            return array(
+                "status" => "ok",
+                "code" => "user_deleted"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
 }

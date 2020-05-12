@@ -10,7 +10,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         echo "creating User";
         break;
     case "DELETE":
-        echo "deleting User";
+        echo json_encode(UserRepository::getInstance()->delete());
         break;
     default:
         echo "Request no supported";
