@@ -6,7 +6,6 @@ import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
 import {TaskListFactory} from "./TaskListFactory.js";
 import {UserRepository} from "../controller/UserRepository.js";
-import {TaskListRepository} from "../controller/TaskListRepository.js";
 
 class ActionController {
     static cancelList() {
@@ -133,6 +132,7 @@ class ActionController {
         UserRepository.instance.delete(getCurrentUser().email)
             .then(data => {
                 if (data.status === "err") console.log(data);
+                ActionController.logout();
             });
     }
 }
