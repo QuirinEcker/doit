@@ -14,7 +14,6 @@ class DataBase {
         })
             .then(response =>  response.text())
             .then(data => {
-                console.log(data);
                 let jsonData = JSON.parse(data);
                 if (jsonData.status === "err") {
                     reject("Wrong Username or Password");

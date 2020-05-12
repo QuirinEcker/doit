@@ -49,7 +49,6 @@ class HTMLWriter {
         let element = HTMLWriter.addElement('div', '#login-errors');
         HTMLWriter.addClass(element, 'login-error');
         HTMLWriter.overWriteElementTextContent(element, reason);
-        console.log(reason)
     }
 
     static clearLoginInputs() {
