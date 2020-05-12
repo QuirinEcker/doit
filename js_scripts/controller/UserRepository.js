@@ -15,8 +15,21 @@ export class UserRepository {
         // TODO: functionality to sace the User for the current session
     }
 
-    create(user) {
-        // TODO: functionality to create User with specific data
+    create(username, email, password) {
+        return fetch('./php/resources/users.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: "data=" + JSON.stringify(
+                {
+                    username: username,
+                    email: email,
+                    password: password
+                }
+            )
+        })
+            .then(data => data.text())
+            .then(console.log)
     }
 
     getTaskLists() {

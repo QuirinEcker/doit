@@ -134,6 +134,21 @@ class ActionController {
                 ActionController.logout();
             });
     }
+
+    static createUser() {
+        const signUpEmailField = document.querySelector("#signUp-email-field");
+        const signUpUsernameField = document.querySelector("#signUp-username-field");
+        const signUpPasswordField = document.querySelector("#signUp-password-field");
+        const signUpPasswordConfirmField = document.querySelector("#signUp-password-confirm-field");
+
+        if (signUpPasswordField.value === signUpPasswordConfirmField.value) {
+            UserRepository.instance.create(
+                signUpUsernameField.value,
+                signUpEmailField.value,
+                signUpPasswordField.value
+            )
+        }
+    }
 }
 
 function openMenu(uiName, animation) {
