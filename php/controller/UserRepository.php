@@ -13,7 +13,7 @@ class UserRepository
         SessionController::getInstance()->start();
 
         $result = SqlRunner::getInstance()->run(
-            "SELECT * FROM USER WHERE EMAIL = '$username' AND PASSWORD = '$password'"
+            "SELECT * FROM USER WHERE EMAIL = '$username' AND PASSWORD = '$password' AND DELETED = 0"
         );
 
         if ($result->num_rows == 1) {
