@@ -22,7 +22,7 @@ class UserRepository
             }
         }
 
-        return $result->num_rows == 1 ? array("status" => "acc") : array("status" => "ref");
+        return $result->num_rows == 1 ? array("status" => "ok") : array("status" => "err");
     }
 
     public function getUser() {
