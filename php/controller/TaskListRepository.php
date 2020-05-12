@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . "/ConnectionFactory.php";
+require_once __DIR__ . "/SessionController.php";
+require_once __DIR__ . "/SqlRunner.php";
 require_once __DIR__ . "/../model/TaskList.php";
 
 class TaskListRepository
@@ -8,39 +10,33 @@ class TaskListRepository
     static private $instance;
 
     public function getAll() {
-        session_cache_expire(15);
-        session_start();
-        if (isset($_SESSION["email"])) {
+        SessionController::getInstance()->start();
+        if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION["email"];
-            $conn = ConnectionFactory::getInstance()->getConnection();
-            $arr = array();
+            $taskLists = array();
 
-            $sql = "SELECT * FROM TASK_LIST WHERE USER_ID = '$email'";
-            $result = $conn->query($sql);
+            $result = SqlRunner::getInstance()->run(
+                "SELECT * FROM TASK_LIST WHERE USER_ID = '$email'"
+            );
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $arr[] = new TaskList($row["ID"], $row["NAME"]);
+                    $taskLists[] = new TaskList($row["ID"], $row["NAME"]);
                 }
-            } else {
-                $conn->close();
-                return array(
-                    "status" => "ok",
-                    "code" => "no_task_lists"
-                );
-            }
+            } else return array(
+                "status" => "ok",
+                "code" => "no_task_lists"
+            );
 
-            $conn->close();
             return array(
                 "status" => "ok",
                 "code" => "task_lists_got",
-                "data" => $arr
+                "data" => $taskLists
             );
-        } else {
-            return array(
-                "status" => "err"
-            );
-        }
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
     }
 
     public static function getInstance()
