@@ -24,7 +24,7 @@ function initialEventListener() {
     const listCreateConfirmButton = document.querySelector('#create-prompt #list-create-confirm-navigation #nav-button-container #confirm');
     const listCreateCancelButton = document.querySelector('#create-prompt #list-create-confirm-navigation #nav-button-container #cancel');
     const sendEmailButton = document.querySelector("#send-button");
-    const deleteAccountButton = document.querySelector("#settings account-delete-button");
+    const deleteAccountButton = document.querySelector("#settings #account-delete-button");
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
