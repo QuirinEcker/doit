@@ -65,6 +65,8 @@
     margin-bottom: 2vh;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
+    user-select: none;
 
     display: flex;
     justify-content: center;
@@ -132,6 +134,8 @@
     margin-bottom: 2vh;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
+    user-select: none;
 
     display: flex;
     justify-content: center;
