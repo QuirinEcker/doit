@@ -9,6 +9,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case "POST":
         echo "creating User";
         break;
+    case "DELETE":
+        echo "deleting User";
+        break;
     default:
         echo "not implemented";
         break;
