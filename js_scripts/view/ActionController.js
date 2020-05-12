@@ -90,7 +90,6 @@ class ActionController {
     }
 
     static fillOutSettings() {
-        alert("logged in as user: " + getCurrentUser()["username"]);
         document.querySelector("#settings-property-email").value = getCurrentUser()["email"];
         document.querySelector("#settings-property-username").value = getCurrentUser()["username"]
     }
