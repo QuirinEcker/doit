@@ -1,10 +1,10 @@
 import {Config} from "./view/Config.js";
 import {ActionController} from "./view/Config.js";
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async() => {
     Config.load();
     initialEventListener();
-    ActionController.loadApp();
+    await ActionController.loadApp();
 });
 
 function initialEventListener() {
@@ -33,14 +33,14 @@ function initialEventListener() {
     settingsSubmitButton.addEventListener('click', ActionController.openHome);
     settingsBackButton.addEventListener('click', ActionController.openHome);
     signUpButton.addEventListener('click', ActionController.openSignUp);
-    signUpCancelButton.addEventListener('click', ActionController.openLogin);
-    signUpSubmitButton.addEventListener('click', ActionController.openLogin);
+    signUpSubmitButton.addEventListener('click', ActionController.createUser);
+    signUpCancelButton.addEventListener('click', ActionController.openLogin)
     taskSearchBar.addEventListener('input', ActionController.searchTask);
     infoButton.addEventListener('click', ActionController.openInfo);
     infoExitButton.addEventListener('click', ActionController.openHome);
     createListButton.addEventListener('click', ActionController.addList);
     listCreateConfirmButton.addEventListener('click', ActionController.confirmList);
     listCreateCancelButton.addEventListener('click', ActionController.cancelList);
-    sendEmailButton.addEventListener("click", ActionController.sendEmail)
-    deleteAccountButton.addEventListener("click", ActionController.deleteUser)
+    sendEmailButton.addEventListener("click", ActionController.sendEmail);
+    deleteAccountButton.addEventListener("click", ActionController.deleteUser);
 }
