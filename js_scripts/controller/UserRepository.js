@@ -22,6 +22,15 @@ export class UserRepository {
     getTaskLists() {
         return TaskListRepository.instance.getAll()
     }
+
+    delete(email) {
+        return fetch('./php/resources/users.php', {
+            mode: "cors",
+            method: "DELETE",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .then(data => data.json())
+    }
 }
 
 UserRepository.instance = new UserRepository();
