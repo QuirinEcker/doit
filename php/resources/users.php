@@ -13,6 +13,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         echo "deleting User";
         break;
     default:
-        echo "not implemented";
+        echo "Request no supported";
         break;
 }
