@@ -81,4 +81,17 @@ class UserRepository
             "code" => "no_session"
         );
     }
+
+    public function create($user)
+    {
+        SqlRunner::getInstance()->run(
+            "INSERT INTO USER (USERNAME, EMAIL, PASSWORD)
+                VALUES ('$user->username', '$user->email', '$user->password')"
+        );
+
+        return array(
+            "status" => "ok",
+            "code" => "user_created"
+        );
+    }
 }

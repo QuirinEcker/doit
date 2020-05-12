@@ -7,7 +7,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         echo json_encode(UserRepository::getInstance()->getUser());
         break;
     case "POST":
-        echo "creating User";
+        echo json_encode(UserRepository::getInstance()->create(json_decode($_REQUEST["data"])));
         break;
     case "DELETE":
         echo json_encode(UserRepository::getInstance()->delete());
