@@ -120,3 +120,12 @@
     height: 7vh;
     width: 100vw;
 }
+
+.signup-error {
+    height: 5vh;
+    color: red;
+}
+
+#signup-error-box {
+    width: 100%;
+}
