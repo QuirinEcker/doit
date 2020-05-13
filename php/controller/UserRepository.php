@@ -103,4 +103,22 @@ class UserRepository
             "code" => "user_already_exists"
         );
     }
+
+    public function update($user) {
+        SessionController::getInstance()->start();
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION["email"];
+            SqlRunner::getInstance()->run(
+                "UPDATE USER SET USERNAME = '$user->username' WHERE EMAIL='$email'"
+            );
+
+            return array(
+                "status" => "ok",
+                "code" => "user_updated"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
 }
