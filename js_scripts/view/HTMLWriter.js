@@ -45,10 +45,14 @@ class HTMLWriter {
     }
 
     static writeLoginError(reason) {
-        HTMLWriter.clearAllElementIn('#login-errors');
-        let element = HTMLWriter.addElement('div', '#login-errors');
-        HTMLWriter.addClass(element, 'login-error');
-        HTMLWriter.overWriteElementTextContent(element, reason);
+        HTMLWriter.writeError("#login-errors", reason)
+    }
+
+    static writeError(elementOrSelector, errorMessage) {
+        HTMLWriter.clearAllElementIn(elementOrSelector);
+        let error = HTMLWriter.addElement('div', elementOrSelector);
+        HTMLWriter.addClass(error, 'login-error');
+        HTMLWriter.overWriteElementTextContent(error, errorMessage)
     }
 
     static clearLoginInputs() {
