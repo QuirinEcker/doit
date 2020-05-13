@@ -145,17 +145,12 @@ class ActionController {
 
         if (signUpPasswordField.value !== signUpPasswordConfirmField.value) {
             inputError = true;
-            let error = HTMLWriter.addElement('div', "#signup-error-box");
-            HTMLWriter.overWriteElementTextContent(error, "passwords don't match")
-            error.style.color = "red";
+            HTMLWriter.writeSignUpError("passwords don't match")
         }
 
         if (!signUpEmailField.value.includes("@")) {
             inputError = true;
-            let error = HTMLWriter.addElement('div', "#signup-error-box");
-            HTMLWriter.overWriteElementTextContent(error, "Not a valid email adress")
-            error.style.color = "red";
-
+            HTMLWriter.writeSignUpError("Invalid Email Address")
         }
         if (!inputError) {
             UserRepository.instance.create(
@@ -167,9 +162,7 @@ class ActionController {
                     ActionController.openLogin();
 
                     if (data.status === "err" && data.code === "user_already_exists") {
-                        let error = HTMLWriter.addElement('div', "#signup-error-box");
-                        HTMLWriter.overWriteElementTextContent(error, "There is allready an account with this Email Adress")
-                        error.style.color = "red";
+                        HTMLWriter.writeSignUpError("user with this Email Address already exists")
                     }
                 })
         }
