@@ -50,7 +50,7 @@ class HTMLWriter {
 
     static writeError(elementOrSelector, errorMessage) {
         let error = HTMLWriter.addElement('div', elementOrSelector);
-        HTMLWriter.addClass(error, 'login-error');
+        HTMLWriter.addClass(error, 'error');
         HTMLWriter.overWriteElementTextContent(error, errorMessage)
     }
 
