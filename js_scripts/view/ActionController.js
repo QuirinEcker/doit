@@ -137,7 +137,7 @@ class ActionController {
     }
 
     static createUser() {
-        HTMLWriter.clearAllElementIn("#signup-error-box")
+        this.prepareSignUp();
         const signUpEmailField = document.querySelector("#signUp-email-field");
         const signUpUsernameField = document.querySelector("#signUp-username-field");
         const signUpPasswordField = document.querySelector("#signUp-password-field");
