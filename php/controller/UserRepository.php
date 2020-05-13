@@ -84,14 +84,23 @@ class UserRepository
 
     public function create($user)
     {
-        SqlRunner::getInstance()->run(
-            "INSERT INTO USER (USERNAME, EMAIL, PASSWORD)
-                VALUES ('$user->username', '$user->email', '$user->password')"
+        $userWithSameEmail = SqlRunner::getInstance()->run(
+            "SELECT EMAIL FROM USER WHERE EMAIL = '$user->email'"
         );
 
-        return array(
-            "status" => "ok",
-            "code" => "user_created"
+        if ($userWithSameEmail->num_rows !== 1) {
+            SqlRunner::getInstance()->run(
+                "INSERT INTO USER (USERNAME, EMAIL, PASSWORD)
+                VALUES ('$user->username', '$user->email', '$user->password')"
+            );
+
+            return array(
+                "status" => "ok",
+                "code" => "user_created"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "user_already_exists"
         );
     }
 }

@@ -28,8 +28,7 @@ export class UserRepository {
                 }
             )
         })
-            .then(data => data.text())
-            .then(console.log)
+            .then(data => data.json())
     }
 
     getTaskLists() {

@@ -160,11 +160,9 @@ class ActionController {
                 signUpPasswordFieldContent
             )
                 .then(data => {
-                    ActionController.openLogin();
-
                     if (data.status === "err" && data.code === "user_already_exists") {
                         HTMLWriter.writeSignUpError("user with this Email Address already exists")
-                    }
+                    } else ActionController.openLogin();
                 })
         }
     }
