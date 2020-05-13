@@ -8,6 +8,7 @@ class TaskListFactory {
 
     createList(listName) {
         let taskList = new TaskList("", listName);
+        if (getCurrentUser().taskLists === undefined) getCurrentUser().taskLists = [];
         getCurrentUser().taskLists.push(taskList);
         TaskListRepository.instance.create(taskList);
         HTMLWriter.addTaskList(taskList);
