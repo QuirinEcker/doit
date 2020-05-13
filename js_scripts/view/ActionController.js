@@ -137,27 +137,27 @@ class ActionController {
     }
 
     static createUser() {
-        this.prepareSignUp();
-        const signUpEmailField = document.querySelector("#signUp-email-field");
-        const signUpUsernameField = document.querySelector("#signUp-username-field");
-        const signUpPasswordField = document.querySelector("#signUp-password-field");
-        const signUpPasswordConfirmField = document.querySelector("#signUp-password-confirm-field");
+        const signUpEmailFieldContent = document.querySelector("#signUp-email-field").value;
+        const signUpUsernameFieldContent = document.querySelector("#signUp-username-field").value;
+        const signUpPasswordFieldContent = document.querySelector("#signUp-password-field").value;
+        const signUpPasswordConfirmFieldContent = document.querySelector("#signUp-password-confirm-field").value;
+        ActionController.prepareSignUp();
         let inputError = false;
 
-        if (signUpPasswordField.value !== signUpPasswordConfirmField.value) {
+        if (signUpPasswordFieldContent !== signUpPasswordConfirmFieldContent) {
             inputError = true;
             HTMLWriter.writeSignUpError("passwords don't match")
         }
 
-        if (!signUpEmailField.value.includes("@")) {
+        if (!signUpEmailFieldContent.includes("@")) {
             inputError = true;
             HTMLWriter.writeSignUpError("Invalid Email Address")
         }
         if (!inputError) {
             UserRepository.instance.create(
-                signUpUsernameField.value,
-                signUpEmailField.value,
-                signUpPasswordField.value
+                signUpUsernameFieldContent,
+                signUpEmailFieldContent,
+                signUpPasswordFieldContent
             )
                 .then(data => {
                     ActionController.openLogin();
