@@ -25,6 +25,7 @@ class ActionController {
     }
 
     static openSignUp() {
+        ActionController.prepareSignUp();
         openMenu('signup', Animations.circleAnimation);
     }
 
@@ -135,14 +136,14 @@ class ActionController {
             });
     }
 
-    static createUser() {
+    static async createUser() {
         const signUpEmailField = document.querySelector("#signUp-email-field");
         const signUpUsernameField = document.querySelector("#signUp-username-field");
         const signUpPasswordField = document.querySelector("#signUp-password-field");
         const signUpPasswordConfirmField = document.querySelector("#signUp-password-confirm-field");
 
         if (signUpPasswordField.value === signUpPasswordConfirmField.value) {
-            UserRepository.instance.create(
+            await UserRepository.instance.create(
                 signUpUsernameField.value,
                 signUpEmailField.value,
                 signUpPasswordField.value
@@ -150,6 +151,15 @@ class ActionController {
         }
 
         ActionController.openLogin();
+    }
+
+    static prepareSignUp() {
+        const inputFields = Array.from(document.querySelectorAll("#signup-wrapper input"))
+        inputFields.forEach((element) => {
+            HTMLWriter.clearValueOf(element);
+        })
+
+        HTMLWriter.clearAllElementIn("#signup-error-box");
     }
 }
 
