@@ -7,12 +7,7 @@ class DataBase {
     }
 
     login(userNameOrEmail, passWord, resolve, reject) {
-        fetch('./php/login.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `email=${userNameOrEmail}&password=${passWord}`
-        })
+        this.fetch('./php/login.php', 'POST', `email=${userNameOrEmail}&password=${passWord}`)
             .then(response =>  response.text())
             .then(data => {
                 let jsonData = JSON.parse(data);
