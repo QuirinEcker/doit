@@ -27,13 +27,8 @@ class DataBase {
 
     logout() {
         ActionController.openLogin();
-
-        fetch('./php/logout.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
-            .catch(console.log)
+        this.fetch('./php/logout.php', 'POST')
+            .catch(console.log);
     }
 
     sendMail() {
