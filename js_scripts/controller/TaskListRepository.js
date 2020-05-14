@@ -1,11 +1,9 @@
+import {Config} from "../view/Config.js";
+
 export class TaskListRepository {
 
     getAll() {
-        return fetch(`./php/resources/taskLists.php`, {
-            mode: "cors",
-            method: "GET",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
+        return Config.dataBase.fetch(`./php/resources/taskLists.php`, 'GET')
             .then(data => data.json())
     }
 
@@ -21,8 +19,6 @@ export class TaskListRepository {
             body: `data=${JSON.stringify(taskList)}`
         })
             .then(data => data.json())
-
-        // TODO: functionality to create User with specific data
     }
 }
 

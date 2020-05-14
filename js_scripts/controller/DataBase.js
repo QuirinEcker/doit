@@ -36,13 +36,21 @@ class DataBase {
         this.fetch('./php/sendEmail.php', 'POST', `message=${content}`);
     }
 
-    fetch(url, method, dataToSend = "") {
-        return fetch(url, {
-            mode: "cors",
-            method: method,
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: dataToSend
-        })
+    fetch(url, method, dataToSend) {
+        if (dataToSend) {
+            return fetch(url, {
+                mode: "cors",
+                method: method,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: dataToSend
+            })
+        } else  {
+            return fetch(url, {
+                mode: "cors",
+                method: method,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            })
+        }
     }
 }
 
