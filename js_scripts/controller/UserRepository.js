@@ -1,13 +1,9 @@
 import {TaskListRepository} from "./TaskListRepository.js";
+import {Config} from "../view/Config.js";
 
 export class UserRepository {
-
     get() {
-        return fetch('./php/resources/users.php', {
-            mode: "cors",
-            method: "GET",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
+        return Config.dataBase.fetch('./php/resources/users.php', "GET")
             .then(data => data.json())
     }
 
@@ -16,18 +12,11 @@ export class UserRepository {
     }
 
     create(username, email, password) {
-        return fetch('./php/resources/users.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: "data=" + JSON.stringify(
-                {
-                    username: username,
-                    email: email,
-                    password: password
-                }
-            )
-        })
+        return Config.dataBase.fetch('./php/resources/users.php', 'POST', "data=" + JSON.stringify({
+                username: username,
+                email: email,
+                password: password
+            }))
             .then(data => data.json())
     }
 
@@ -35,13 +24,9 @@ export class UserRepository {
         return TaskListRepository.instance.getAll()
     }
 
-    delete(email) {
-        return fetch('./php/resources/users.php', {
-            mode: "cors",
-            method: "DELETE",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
-            .then(data => data.json())
+    delete() {
+        return Config.dataBase.fetch('./php/resources/users.php', 'DELETE')
+            .then(data => data.json());
     }
 }
 
