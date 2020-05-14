@@ -114,7 +114,7 @@ class ActionController {
     }
 
     static deleteUser() {
-        UserRepository.instance.delete(getCurrentUser().email)
+        UserRepository.instance.delete()
             .then(data => {
                 if (data.status === "err") console.log(data);
                 ActionController.logout();
