@@ -73,6 +73,15 @@ class DataBase {
             .then(data => data.text())
             .then(console.log)
     }
+
+    fetch(url, method, dataToSend = "") {
+        return fetch(url, {
+            mode: "cors",
+            method: method,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: dataToSend
+        })
+    }
 }
 
 export {DataBase}
