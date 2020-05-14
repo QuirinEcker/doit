@@ -1,4 +1,5 @@
 import {getCurrentUser, setCurrentUser} from "../view/Config.js";
+import {ActionController} from "../view/ActionController.js";
 
 class DataBase {
     constructor(address) {
@@ -47,6 +48,30 @@ class DataBase {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
             .then(data => data.json())
+    }
+
+    logout() {
+        ActionController.openLogin();
+
+        fetch('./php/logout.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+            .catch(console.log)
+    }
+
+    sendMail() {
+        const content = document.querySelector("#contact-message").value;
+
+        fetch('./php/sendEmail.php', {
+            mode: "cors",
+            method: "POST",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `message=${content}`
+        })
+            .then(data => data.text())
+            .then(console.log)
     }
 }
 

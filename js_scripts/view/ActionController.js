@@ -6,6 +6,7 @@ import {getCurrentUser} from "./Config.js";
 import {setCurrentUser} from "./Config.js";
 import {TaskListFactory} from "./TaskListFactory.js";
 import {UserRepository} from "../controller/UserRepository.js";
+import {Config} from "./Config.js";
 
 class ActionController {
     static cancelList() {
@@ -50,14 +51,7 @@ class ActionController {
     }
 
     static logout() {
-        ActionController.openLogin();
-
-        fetch('./php/logout.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
-            .catch(console.log)
+        Config.dataBase.logout();
     }
 
     static login() {
@@ -108,16 +102,7 @@ class ActionController {
     }
 
     static sendEmail() {
-        const content = document.querySelector("#contact-message").value;
-
-        fetch('./php/sendEmail.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `message=${content}`
-        })
-            .then(data => data.text())
-            .then(console.log)
+        Config.dataBase.sendMail();
     }
 
     static async loadApp() {
