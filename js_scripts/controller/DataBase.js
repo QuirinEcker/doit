@@ -1,4 +1,4 @@
-import {getCurrentUser, setCurrentUser} from "../view/Config.js";
+import {setCurrentUser} from "../view/Config.js";
 import {ActionController} from "../view/ActionController.js";
 
 class DataBase {
@@ -23,26 +23,6 @@ class DataBase {
                 console.log(err.message);
                 reject();
             });
-    }
-
-    save() {
-        fetch('./php/save.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `val=${JSON.stringify(getCurrentUser())}`
-        })
-            .then(data => data.text())
-            .then(console.log);
-    }
-
-    getUser() {
-        return fetch('./php/resources/users.php', {
-            mode: "cors",
-            method: "GET",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-        })
-            .then(data => data.json())
     }
 
     logout() {
