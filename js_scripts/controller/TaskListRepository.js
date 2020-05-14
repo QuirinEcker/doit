@@ -12,12 +12,7 @@ export class TaskListRepository {
     }
 
     create(taskList) {
-        return fetch('./php/resources/taskLists.php', {
-            mode: "cors",
-            method: "POST",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: `data=${JSON.stringify(taskList)}`
-        })
+        return Config.dataBase.fetch('./php/resources/taskLists.php', 'POST', `data=${JSON.stringify(taskList)}`)
             .then(data => data.json())
     }
 }
