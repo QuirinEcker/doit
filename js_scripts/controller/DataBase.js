@@ -64,6 +64,8 @@ class DataBase {
     sendMail() {
         const content = document.querySelector("#contact-message").value;
 
+        this.fetch('./php/sendEmail.php', 'POST', `message=${content}`);
+
         fetch('./php/sendEmail.php', {
             mode: "cors",
             method: "POST",
