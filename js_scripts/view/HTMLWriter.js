@@ -90,7 +90,7 @@ class HTMLWriter {
         let taskListContainer = document.querySelector('#home #task-lists #task-lists-container');
         let taskListElement = HTMLWriter.addElement('div', taskListContainer);
         HTMLWriter.addClass(taskListElement, 'task-list');
-        HTMLWriter.changeId(taskListElement, taskList.email);
+        HTMLWriter.changeId(taskListElement, taskList.id);
         let taskListShapeElement = HTMLWriter.addElement('div', taskListElement);
         HTMLWriter.addClass(taskListShapeElement, 'list-shape');
         let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
