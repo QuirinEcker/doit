@@ -109,7 +109,7 @@ class UserRepository
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION["email"];
             SqlRunner::getInstance()->run(
-                "UPDATE USER SET USERNAME = '$user->username' WHERE EMAIL='$email'"
+                "UPDATE USER SET USERNAME = '$user->username', PASSWORD= '$user->password' WHERE EMAIL='$email'"
             );
 
             return array(

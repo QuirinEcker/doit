@@ -15,6 +15,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case "DELETE":
         echo json_encode(UserRepository::getInstance()->delete());
         break;
+    case "PUT":
+        echo json_encode(UserRepository::getInstance()->update($body));
+        break;
     default:
         echo "Request no supported";
         break;
