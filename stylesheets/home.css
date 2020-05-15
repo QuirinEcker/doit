@@ -111,7 +111,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: hidden;
+    overflow: hidden;
+}
+
+.nav-list-icon {
+    padding: 0 2vw;
 }
 
 #add-list {

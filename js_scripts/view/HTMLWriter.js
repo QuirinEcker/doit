@@ -95,9 +95,14 @@ class HTMLWriter {
         HTMLWriter.addClass(taskListShapeElement, 'list-shape');
         let taskListNavElement = HTMLWriter.addElement('div', taskListElement);
         HTMLWriter.addClass(taskListNavElement, 'list-nav');
-        let navElement = HTMLWriter.addElement('i', taskListNavElement);
-        HTMLWriter.addClass(navElement, 'fas');
-        HTMLWriter.addClass(navElement, 'fa-trash');
+        let navElementTrash = HTMLWriter.addElement('i', taskListNavElement);
+        HTMLWriter.addClass(navElementTrash, 'fas');
+        HTMLWriter.addClass(navElementTrash, 'fa-trash');
+        HTMLWriter.addClass(navElementTrash, 'nav-list-icon');
+        let navElementEdit = HTMLWriter.addElement('i', taskListNavElement);
+        HTMLWriter.addClass(navElementEdit, 'fas');
+        HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
+        HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
 
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);

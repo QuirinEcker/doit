@@ -31,8 +31,8 @@ class NavigationSwipeController {
                         event.target.style.width = `100%`;
                         event.target.parentElement.children[1].style.width = `0`;
                     } else {
-                        event.target.style.width = `78%`;
-                        event.target.parentElement.children[1].style.width = `20%`;
+                        event.target.style.width = `68%`;
+                        event.target.parentElement.children[1].style.width = `30%`;
                     }
                 }
             }
