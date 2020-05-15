@@ -7,6 +7,7 @@ import {setCurrentUser} from "./Config.js";
 import {TaskListFactory} from "./TaskListFactory.js";
 import {UserRepository} from "../controller/UserRepository.js";
 import {Config} from "./Config.js";
+import {TaskListRepository} from "../controller/TaskListRepository.js";
 
 class ActionController {
     static cancelList() {
@@ -179,11 +180,11 @@ class ActionController {
     }
 
     static deleteTaskList() {
-
+        const taskListId = this.parentElement.parentElement.id;
+        TaskListRepository.instance.delete(taskListId);
     }
 
     static editTaskList() {
-
     }
 }
 
