@@ -177,6 +177,14 @@ class ActionController {
 
         ActionController.updateUser(getCurrentUser());
     }
+
+    static deleteTaskList() {
+
+    }
+
+    static editTaskList() {
+
+    }
 }
 
 function openMenu(uiName, animation) {

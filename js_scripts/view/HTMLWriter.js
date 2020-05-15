@@ -99,10 +99,12 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementTrash, 'fas');
         HTMLWriter.addClass(navElementTrash, 'fa-trash');
         HTMLWriter.addClass(navElementTrash, 'nav-list-icon');
+        HTMLWriter.changeId(navElementTrash, 'edit-tasklist-button')
         let navElementEdit = HTMLWriter.addElement('i', taskListNavElement);
         HTMLWriter.addClass(navElementEdit, 'fas');
         HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
         HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
+        HTMLWriter.changeId(navElementEdit, 'delete-tasklist-button');
 
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
