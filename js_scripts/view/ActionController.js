@@ -160,19 +160,20 @@ class ActionController {
         HTMLWriter.clearAllElementIn("#signup-error-box");
     }
 
-    static updateUser() {
-        getCurrentUser().username = document.querySelector("#settings-property-username").value;
-        UserRepository.instance.update();
+    static updateUser(updateObject) {
+        UserRepository.instance.update(updateObject);
     }
 
-    static updatePassword() {
-        const password = document.querySelector("#settings-property-password").value;
-        const passwordConfirm = document.querySelector("#settings-property-password-confirm").value;
+    static updateUserPassword() {
+        ActionController.updateUser({
+            passwordNew: document.querySelector("#settings-property-password-confirm").value,
+            passwordOld: document.querySelector("#settings-property-password").value
+        })
+    }
 
-        if (password === passwordConfirm) {
-            getCurrentUser().password = document.querySelector("#settings-property-password").value;
-            UserRepository.instance.update();
-        }
+    static updateUserSettings() {
+        getCurrentUser().username = document.querySelector("#settings-property-username").value;
+        ActionController.updateUser(getCurrentUser());
     }
 }
 

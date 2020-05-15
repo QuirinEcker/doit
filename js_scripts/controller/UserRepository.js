@@ -1,6 +1,5 @@
 import {TaskListRepository} from "./TaskListRepository.js";
 import {Config} from "../view/Config.js";
-import {getCurrentUser} from "../view/Config.js";
 
 export class UserRepository {
     get() {
@@ -30,16 +29,8 @@ export class UserRepository {
             .then(data => data.json());
     }
 
-    update() {
-        console.log(JSON.stringify({
-            username: getCurrentUser().username,
-            password: getCurrentUser().password
-        }))
-
-        return Config.dataBase.fetch('./php/resources/users.php', "PUT", JSON.stringify({
-            username: getCurrentUser().username,
-            password: getCurrentUser().password
-        }))
+    update(updateObject) {
+        return Config.dataBase.fetch('./php/resources/users.php', "PUT", JSON.stringify(updateObject))
             .then(response => response.text())
             .then(console.log)
     }

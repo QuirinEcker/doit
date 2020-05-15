@@ -44,5 +44,5 @@ function initialEventListener() {
     listCreateCancelButton.addEventListener('click', ActionController.cancelList);
     sendEmailButton.addEventListener("click", ActionController.sendEmail);
     deleteAccountButton.addEventListener("click", ActionController.deleteUser);
-    passwordChangeButton.addEventListener('click', ActionController.updatePassword);
+    passwordChangeButton.addEventListener('click', ActionController.updateUser);
 }
