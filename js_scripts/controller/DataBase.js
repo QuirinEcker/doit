@@ -7,7 +7,10 @@ class DataBase {
     }
 
     login(userNameOrEmail, passWord, resolve, reject) {
-        this.fetch('./php/login.php', 'POST', `email=${userNameOrEmail}&password=${passWord}`)
+        this.fetch('./php/login.php', 'POST', JSON.stringify({
+            email: userNameOrEmail,
+            password: passWord
+        }))
             .then(response =>  response.text())
             .then(data => {
                 let jsonData = JSON.parse(data);

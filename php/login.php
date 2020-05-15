@@ -1,7 +1,7 @@
 <?php
 include "controller/UserRepository.php";
+require_once "controller/RequestData.php";
 
-$username = $_REQUEST["email"];
-$password = $_REQUEST["password"];
+$body = RequestData::getInstance()->getBody();
 
-echo json_encode(UserRepository::getInstance()->login($username, $password));
+echo json_encode(UserRepository::getInstance()->login($body->email, $body->password));
