@@ -12,11 +12,11 @@ export class UserRepository {
     }
 
     create(username, email, password) {
-        return Config.dataBase.fetch('./php/resources/users.php', 'POST', "data=" + JSON.stringify({
-                username: username,
-                email: email,
-                password: password
-            }))
+        return Config.dataBase.fetch('./php/resources/users.php', 'POST', JSON.stringify({
+            email: email,
+            username: username,
+            password: password
+        }))
             .then(data => data.json())
     }
 
