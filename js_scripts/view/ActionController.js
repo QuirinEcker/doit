@@ -161,7 +161,7 @@ class ActionController {
     }
 
     static updateUser() {
-        getCurrentUser().name = document.querySelector("#settings-property-username").value;
+        getCurrentUser().username = document.querySelector("#settings-property-username").value;
         UserRepository.instance.update();
     }
 

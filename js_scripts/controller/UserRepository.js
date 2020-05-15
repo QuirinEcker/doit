@@ -1,5 +1,6 @@
 import {TaskListRepository} from "./TaskListRepository.js";
 import {Config} from "../view/Config.js";
+import {getCurrentUser} from "../view/Config.js";
 
 export class UserRepository {
     get() {
@@ -27,6 +28,20 @@ export class UserRepository {
     delete() {
         return Config.dataBase.fetch('./php/resources/users.php', 'DELETE')
             .then(data => data.json());
+    }
+
+    update() {
+        console.log(JSON.stringify({
+            username: getCurrentUser().username,
+            password: getCurrentUser().password
+        }))
+
+        return Config.dataBase.fetch('./php/resources/users.php', "PUT", JSON.stringify({
+            username: getCurrentUser().username,
+            password: getCurrentUser().password
+        }))
+            .then(response => response.text())
+            .then(console.log)
     }
 }
 
