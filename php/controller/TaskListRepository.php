@@ -9,7 +9,8 @@ class TaskListRepository
 {
     static private $instance;
 
-    public function getAll() {
+    public function getAll()
+    {
         SessionController::getInstance()->start();
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION["email"];
@@ -61,6 +62,27 @@ class TaskListRepository
             return array(
                 "status" => "ok",
                 "code" => "task_lists_created"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
+
+    public function delete($id)
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION['email'];
+
+            $result = SqlRunner::getInstance()->run(
+                "UPDATE TASK_LIST SET DELETED = 1 WHERE ID = '$id' AND USER_ID = '$email'"
+            );
+
+            return array(
+                "status" => "ok",
+                "code" => "task_list_deleted"
             );
         } else return array(
             "status" => "err",
