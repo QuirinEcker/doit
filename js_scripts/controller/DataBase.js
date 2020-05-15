@@ -41,7 +41,7 @@ class DataBase {
             return fetch(url, {
                 mode: "cors",
                 method: method,
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                headers: {'Content-Type': 'application/json'},
                 body: dataToSend
             })
         } else  {
