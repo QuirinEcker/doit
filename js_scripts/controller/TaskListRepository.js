@@ -12,7 +12,7 @@ export class TaskListRepository {
     }
 
     create(taskList) {
-        return Config.dataBase.fetch('./php/resources/taskLists.php', 'POST', `data=${JSON.stringify(taskList)}`)
+        return Config.dataBase.fetch('./php/resources/taskLists.php', 'POST', JSON.stringify(taskList))
             .then(data => data.json())
     }
 }
