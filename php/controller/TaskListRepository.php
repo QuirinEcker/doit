@@ -17,7 +17,7 @@ class TaskListRepository
             $taskLists = array();
 
             $result = SqlRunner::getInstance()->run(
-                "SELECT * FROM TASK_LIST WHERE USER_ID = '$email'"
+                "SELECT * FROM TASK_LIST WHERE USER_ID = '$email' AND DELETED = 0"
             );
 
             if ($result->num_rows > 0) {
@@ -76,7 +76,7 @@ class TaskListRepository
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION['email'];
 
-            $result = SqlRunner::getInstance()->run(
+            SqlRunner::getInstance()->run(
                 "UPDATE TASK_LIST SET DELETED = 1 WHERE ID = '$id' AND USER_ID = '$email'"
             );
 
