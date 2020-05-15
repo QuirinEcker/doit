@@ -105,7 +105,7 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
         HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
         HTMLWriter.changeId(navElementEdit, 'delete-tasklist-button');
-        navElementEdit.addEventListener('click', ActionController.deleteTaskList);
+        navElementTrash.addEventListener('click', ActionController.deleteTaskList);
         navElementEdit.addEventListener('click', ActionController.editTaskList);
 
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
