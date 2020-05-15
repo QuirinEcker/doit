@@ -31,7 +31,7 @@ function initialEventListener() {
     loginButton.addEventListener('click', ActionController.login);
     logoutButton.addEventListener('click', ActionController.logout);
     settingsButton.addEventListener('click', ActionController.openSettings);
-    settingsSubmitButton.addEventListener('click', ActionController.updateUser);
+    settingsSubmitButton.addEventListener('click', ActionController.updateUserSettings);
     settingsBackButton.addEventListener('click', ActionController.openHome);
     signUpButton.addEventListener('click', ActionController.openSignUp);
     signUpSubmitButton.addEventListener('click', ActionController.createUser);
@@ -44,5 +44,5 @@ function initialEventListener() {
     listCreateCancelButton.addEventListener('click', ActionController.cancelList);
     sendEmailButton.addEventListener("click", ActionController.sendEmail);
     deleteAccountButton.addEventListener("click", ActionController.deleteUser);
-    passwordChangeButton.addEventListener('click', ActionController.updateUser);
+    passwordChangeButton.addEventListener('click', ActionController.updateUserPassword);
 }

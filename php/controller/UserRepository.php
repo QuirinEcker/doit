@@ -108,9 +108,29 @@ class UserRepository
         SessionController::getInstance()->start();
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION["email"];
-            SqlRunner::getInstance()->run(
-                "UPDATE USER SET USERNAME = '$user->username', PASSWORD= '$user->password' WHERE EMAIL='$email'"
-            );
+
+            if ($user->change === "password") {
+                $passwordResponse = SqlRunner::getInstance()->run(
+                    "SELECT PASSWORD FROM USER WHERE EMAIL = '$email'"
+                );
+
+                $password = $passwordResponse->fetch_assoc()["PASSWORD"];
+
+                if ($password === $user->passwordOld) {
+                    SqlRunner::getInstance()->run(
+                        "UPDATE USER SET PASSWORD = '$user->passwordNew' WHERE EMAIL='$email'"
+                    );
+                } else {
+                    return array(
+                        "status" => "err",
+                        "code" => "wrong_password"
+                    );
+                }
+            } else {
+                SqlRunner::getInstance()->run(
+                    "UPDATE USER SET USERNAME = '$user->username' WHERE EMAIL='$email'"
+                );
+            }
 
             return array(
                 "status" => "ok",

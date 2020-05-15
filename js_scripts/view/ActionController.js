@@ -166,6 +166,7 @@ class ActionController {
 
     static updateUserPassword() {
         ActionController.updateUser({
+            change: "password",
             passwordNew: document.querySelector("#settings-property-password-confirm").value,
             passwordOld: document.querySelector("#settings-property-password").value
         })
@@ -173,6 +174,7 @@ class ActionController {
 
     static updateUserSettings() {
         getCurrentUser().username = document.querySelector("#settings-property-username").value;
+
         ActionController.updateUser(getCurrentUser());
     }
 }
