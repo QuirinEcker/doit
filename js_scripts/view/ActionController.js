@@ -160,6 +160,21 @@ class ActionController {
 
         HTMLWriter.clearAllElementIn("#signup-error-box");
     }
+
+    static updateUser() {
+        getCurrentUser().name = document.querySelector("#settings-property-username").value;
+        UserRepository.instance.update();
+    }
+
+    static updatePassword() {
+        const password = document.querySelector("#settings-property-password").value;
+        const passwordConfirm = document.querySelector("#settings-property-password-confirm").value;
+
+        if (password === passwordConfirm) {
+            getCurrentUser().password = document.querySelector("#settings-property-password").value;
+            UserRepository.instance.update();
+        }
+    }
 }
 
 function openMenu(uiName, animation) {

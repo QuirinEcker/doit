@@ -30,7 +30,7 @@ function initialEventListener() {
     loginButton.addEventListener('click', ActionController.login);
     logoutButton.addEventListener('click', ActionController.logout);
     settingsButton.addEventListener('click', ActionController.openSettings);
-    settingsSubmitButton.addEventListener('click', ActionController.openHome);
+    settingsSubmitButton.addEventListener('click', ActionController.updateUser);
     settingsBackButton.addEventListener('click', ActionController.openHome);
     signUpButton.addEventListener('click', ActionController.openSignUp);
     signUpSubmitButton.addEventListener('click', ActionController.createUser);
