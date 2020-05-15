@@ -7,7 +7,7 @@ export class TaskListRepository {
             .then(data => data.json())
     }
 
-    save(user) {
+    save(taskList) {
         // TODO: functionality to sace the User for the current session
     }
 
