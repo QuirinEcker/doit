@@ -1,3 +1,4 @@
+
 export class UiWindow {
     constructor(name, htmlElement, height) {
         this.name = name;
@@ -34,6 +35,8 @@ export class UiWindow {
 
     initiateEventHandler() {
         const windowBackground = this.htmlElement.children[0];
+        const cancelTaskListEditButton = document.querySelector("#cancel-tasklist-button")
         windowBackground.addEventListener('click', () => this.close());
+        cancelTaskListEditButton.addEventListener('click', () => {this.close()})
     }
 }
