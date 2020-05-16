@@ -25,7 +25,8 @@ class Config {
     static initializeWindows() {
         UiWindowController.instance.initiateWindow(new UiWindow(
             'tasklist-edit',
-            document.querySelector('#window-edit-list')
+            document.querySelector('#window-edit-list'),
+            '20vh'
         ));
     }
 
