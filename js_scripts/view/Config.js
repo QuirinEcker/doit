@@ -3,6 +3,8 @@ import {UiMenuController} from "./UiMenuController.js";
 import {ActionController} from "./ActionController.js";
 import {DataBase} from "../controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
+import {UiWindowController} from "./UiWindowController.js";
+import {UiWindow} from "./UiWindow";
 
 class Config {
     static load() {
@@ -21,7 +23,10 @@ class Config {
     }
 
     static initializeWindows() {
-
+        UiWindowController.instance.initiateWindow(new UiWindow(
+            'tasklist-edit',
+            document.querySelector('#window-edit-list')
+        ));
     }
 
     static initialKeyWordCategories() {
