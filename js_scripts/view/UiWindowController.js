@@ -9,7 +9,12 @@ export class UiWindowController {
     }
 
     openWindow(name) {
+        this.currentUiWindow = this.uiWindows[name];
         this.uiWindows[name].open();
+    }
+
+    initiateWindow(uiWindow) {
+        this.uiWindows[uiWindow.name] = uiWindow;
     }
 }
 
