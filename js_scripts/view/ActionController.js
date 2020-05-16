@@ -194,6 +194,7 @@ class ActionController {
         taskListHtmlElement.textContent = newName;
         taskListObject.name = newName;
         TaskListRepository.instance.update(taskListObject);
+        uiWindow.close();
     }
 
     static openTaskListSettings() {
