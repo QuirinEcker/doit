@@ -180,8 +180,9 @@ class ActionController {
     }
 
     static deleteTaskList() {
-        const taskListId = this.parentElement.parentElement.id;
-        TaskListRepository.instance.delete(taskListId);
+        const taskList = this.parentElement.parentElement;
+        TaskListRepository.instance.delete(taskList.id)
+            .then(taskList.remove())
     }
 
     static editTaskList() {
