@@ -106,7 +106,7 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
         HTMLWriter.changeId(navElementEdit, 'delete-tasklist-button');
         navElementTrash.addEventListener('click', ActionController.deleteTaskList);
-        navElementEdit.addEventListener('click', ActionController.editTaskList);
+        navElementEdit.addEventListener('click', ActionController.openTaskListSettings);
 
         HTMLWriter.overWriteElementTextContent(taskListShapeElement, taskList.name);
         NavigationSwipeController.addSwipe(taskListShapeElement);
