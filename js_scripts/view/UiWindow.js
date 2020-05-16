@@ -1,5 +1,5 @@
 export class UiWindow {
-    constructor(window, htmlElement) {
+    constructor(name, htmlElement) {
         this.name = name;
         this.htmlElement = htmlElement;
     }
