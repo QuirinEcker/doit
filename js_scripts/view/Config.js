@@ -8,6 +8,7 @@ class Config {
     static load() {
         this.initialUiMenus();
         this.initialKeyWordCategories()
+        this.initializeWindows()
     }
 
     static initialUiMenus() {
@@ -17,6 +18,10 @@ class Config {
         this.uiMenuController.push(new UiMenu('settings', document.querySelector('#settings')));
         this.uiMenuController.push(new UiMenu('signup', document.querySelector('#signup-menu')));
         this.uiMenuController.push(new UiMenu('info', document.querySelector('#info-menu')));
+    }
+
+    static initializeWindows() {
+
     }
 
     static initialKeyWordCategories() {
