@@ -13,14 +13,12 @@ export class TaskListRepository {
 
     create(taskList) {
         return Config.dataBase.fetch('./php/resources/taskLists.php', 'POST', JSON.stringify(taskList))
-            .then(data => data.json())
+            .then(data => data.json());
     }
 
     delete(taskListId) {
-        console.log("fetch");
         return Config.dataBase.fetch('./php/resources/taskLists.php', 'DELETE', JSON.stringify({id: taskListId}))
             .then(data => data.text())
-            .then(console.log)
     }
 }
 
