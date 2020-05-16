@@ -97,4 +97,25 @@ class TaskListRepository
             "code" => "no_session"
         );
     }
+
+    public function update($body)
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION['email'];
+
+            SqlRunner::getInstance()->run(
+                "UPDATE TASK_LIST SET NAME = '$body->name' WHERE ID = '$body->id' AND USER_ID = '$email'"
+            );
+
+            return array(
+                "status" => "ok",
+                "code" => "task_list_updated"
+            );
+        } else return array(
+            "status" => "err",
+
+        );
+    }
 }

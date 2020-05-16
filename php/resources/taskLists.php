@@ -14,6 +14,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case "DELETE":
         echo json_encode(TaskListRepository::getInstance()->delete($body->id));
         break;
+    case "PUT":
+        echo json_encode(TaskListRepository::getInstance()->update($body));
+        break;
     default:
         echo "not implemented";
         break;
