@@ -33,7 +33,6 @@ export class UiWindow {
     }
 
     initiateEventHandler() {
-        console.log(this.htmlElement);
         const windowBackground = this.htmlElement.children[0];
         windowBackground.addEventListener('click', () => this.close());
     }
