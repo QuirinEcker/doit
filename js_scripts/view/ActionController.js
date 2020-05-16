@@ -187,12 +187,14 @@ class ActionController {
     }
 
     static editTaskList() {
-        TaskListRepository.instance.update();
+        const uiWindow = UiWindowController.instance.uiWindows['tasklist-edit'];
+        TaskListRepository.instance.update(getCurrentUser().taskLists[uiWindow.editedId]);
     }
 
     static openTaskListSettings() {
         UiWindowController.instance.openWindow('tasklist-edit');
         ActionController.prepareTaskListSettings(this.parentElement.parentElement);
+        UiWindowController.instance.uiWindows['tasklist-edit'].editedId = this.parentElement.parentElement.id;
     }
 
     static prepareTaskListSettings(taskList) {

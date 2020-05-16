@@ -20,6 +20,12 @@ export class TaskListRepository {
         return Config.dataBase.fetch('./php/resources/taskLists.php', 'DELETE', JSON.stringify({id: taskListId}))
             .then(data => data.text())
     }
+
+    update(taskList) {
+        return Config.dataBase.fetch('./php/resources/taskLists.php', 'PUT', JSON.stringify(taskList))
+            .then(data => data.text())
+            .then(console.log)
+    }
 }
 
 TaskListRepository.instance = new TaskListRepository();
