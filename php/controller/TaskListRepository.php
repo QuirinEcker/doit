@@ -59,9 +59,14 @@ class TaskListRepository
                 "INSERT INTO doit_db.TASK_LIST(NAME, USER_ID) VALUES ('$taskList->name', '$email')"
             );
 
+            $id = SqlRunner::getInstance()->run(
+                "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'doit_db' AND TABLE_NAME = 'TASK_LIST'"
+            )->fetch_assoc()["AUTO_INCREMENT"] - 1;
+
             return array(
                 "status" => "ok",
-                "code" => "task_lists_created"
+                "code" => "task_lists_created",
+                "id" => $id
             );
         } else return array(
             "status" => "err",
@@ -75,6 +80,9 @@ class TaskListRepository
 
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION['email'];
+
+            echo $email;
+            echo $id;
 
             SqlRunner::getInstance()->run(
                 "UPDATE TASK_LIST SET DELETED = 1 WHERE ID = '$id' AND USER_ID = '$email'"

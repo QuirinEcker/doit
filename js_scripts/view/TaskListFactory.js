@@ -7,11 +7,13 @@ class TaskListFactory {
 
 
     createList(listName) {
-        let taskList = new TaskList("", listName);
-        if (getCurrentUser().taskLists === undefined) getCurrentUser().taskLists = [];
-        getCurrentUser().taskLists.push(taskList);
-        TaskListRepository.instance.create(taskList);
-        HTMLWriter.addTaskList(taskList);
+        TaskListRepository.instance.create({name: listName})
+            .then(data => {
+                let taskList = new TaskList(data.id, listName);
+                if (getCurrentUser().taskLists === undefined) getCurrentUser().taskLists = [];
+                getCurrentUser().taskLists.push(taskList);
+                HTMLWriter.addTaskList(taskList);
+            })
     }
 
     getRandomizedUniqueID() {
