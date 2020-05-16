@@ -1,20 +1,32 @@
+#window-shape-edit-list {
+    height: 20vh;
+}
+
 .window {
     z-index: 10;
     position: fixed;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .window-background {
+    z-index: 1;
+    position: absolute;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s all;
 }
 
 .window-shape {
+    z-index: 2;
+    position: absolute;
     width: 50%;
     background-color: white;
     display: flex;
@@ -22,23 +34,26 @@
     align-items: center;
     border-radius: 20px;
     flex-direction: column;
+    transition: 0.5s all;
+    overflow: hidden;
 }
 
 .window-shape input {
     all:unset;
     width: 70%;
-    height: 3vh;
+    height: 70%;
     font-size: 2vh;
     padding: 1vh 1vh 1vh 2vh;
     border-radius: 10px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     margin: 2vh;
+    overflow: hidden;
 }
 
 .window-shape button {
     all: unset;
-    width: 20vw;
-    height: 3vh;
+    width: 20%;
+    height: 80%;
 
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
     color: white;
@@ -48,7 +63,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1vh;
     margin: 2vh;
+    overflow: hidden;
 }
 
 .window-shape .button-green {
