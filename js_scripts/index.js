@@ -26,6 +26,7 @@ function initialEventListener() {
     const sendEmailButton = document.querySelector("#send-button");
     const deleteAccountButton = document.querySelector("#settings #account-delete-button");
     const passwordChangeButton = document.querySelector("#settings-change-password-button");
+    const saveTaskListEditButton = document.querySelector("#save-tasklist-button")
 
     homeButton.addEventListener('click', ActionController.openHome);
     loginButton.addEventListener('click', ActionController.login);
@@ -45,4 +46,5 @@ function initialEventListener() {
     sendEmailButton.addEventListener("click", ActionController.sendEmail);
     deleteAccountButton.addEventListener("click", ActionController.deleteUser);
     passwordChangeButton.addEventListener('click', ActionController.updateUserPassword);
+    saveTaskListEditButton.addEventListener('click', ActionController.editTaskList);
 }
