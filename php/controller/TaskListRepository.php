@@ -115,7 +115,7 @@ class TaskListRepository
             );
         } else return array(
             "status" => "err",
-
+            "code" => "no_session"
         );
     }
 }
