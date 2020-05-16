@@ -1,5 +1,5 @@
 #window-shape-edit-list {
-    height: 20vh;
+    height: 0;
 }
 
 .window {
@@ -7,7 +7,7 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -17,7 +17,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
 .window-shape {
     z-index: 2;
     position: absolute;
-    width: 50%;
+    width: 0;
     background-color: white;
     display: flex;
     justify-content: space-evenly;
