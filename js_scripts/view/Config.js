@@ -4,7 +4,7 @@ import {ActionController} from "./ActionController.js";
 import {DataBase} from "../controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
 import {UiWindowController} from "./UiWindowController.js";
-import {UiWindow} from "./UiWindow.js";
+import {UiEditTaskListWindow} from "./UiTaskListWindow.js";
 
 class Config {
     static load() {
@@ -23,7 +23,7 @@ class Config {
     }
 
     static initializeWindows() {
-        UiWindowController.instance.initiateWindow(new UiWindow(
+        UiWindowController.instance.initiateWindow(new UiEditTaskListWindow(
             'tasklist-edit',
             document.querySelector('#window-edit-list'),
             '20vh'

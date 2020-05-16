@@ -187,7 +187,7 @@ class ActionController {
     }
 
     static editTaskList() {
-        console.log("edit the taskList")
+        TaskListRepository.instance.update();
     }
 
     static openTaskListSettings() {
