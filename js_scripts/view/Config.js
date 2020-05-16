@@ -4,7 +4,7 @@ import {ActionController} from "./ActionController.js";
 import {DataBase} from "../controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
 import {UiWindowController} from "./UiWindowController.js";
-import {UiWindow} from "./UiWindow";
+import {UiWindow} from "./UiWindow.js";
 
 class Config {
     static load() {
