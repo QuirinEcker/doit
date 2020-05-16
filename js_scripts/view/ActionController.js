@@ -196,9 +196,8 @@ class ActionController {
     }
 
     static prepareTaskListSettings(taskList) {
-        const nameInputField = document.querySelector("#window-edit-list #save-tasklist-button");
-        console.log(taskList);
-        nameInputField.value = taskList.id;
+        const nameInputField = document.querySelector("#window-edit-list #tasklist-edit-property");
+        nameInputField.value = getCurrentUser().taskLists[taskList.id].name;
     }
 }
 
