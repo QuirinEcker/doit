@@ -187,19 +187,25 @@ class ActionController {
     }
 
     static editTaskList() {
+        const newName = document.querySelector("#window-edit-list #tasklist-edit-property").value;
         const uiWindow = UiWindowController.instance.uiWindows['tasklist-edit'];
-        TaskListRepository.instance.update(getCurrentUser().taskLists[uiWindow.editedId]);
+        const taskListHtmlElement = document.querySelector(`#tl${uiWindow.editedId} .list-shape`);
+        const taskListObject = getCurrentUser().taskLists[uiWindow.editedId]
+        taskListHtmlElement.textContent = newName;
+        taskListObject.name = newName;
+        TaskListRepository.instance.update(taskListObject);
     }
 
     static openTaskListSettings() {
+        const taskListId = this.parentElement.parentElement.id.slice(2, this.parentElement.parentElement.id.length);
         UiWindowController.instance.openWindow('tasklist-edit');
-        ActionController.prepareTaskListSettings(this.parentElement.parentElement);
-        UiWindowController.instance.uiWindows['tasklist-edit'].editedId = this.parentElement.parentElement.id;
+        ActionController.prepareTaskListSettings(taskListId);
+        UiWindowController.instance.uiWindows['tasklist-edit'].editedId = taskListId;
     }
 
-    static prepareTaskListSettings(taskList) {
+    static prepareTaskListSettings(id) {
         const nameInputField = document.querySelector("#window-edit-list #tasklist-edit-property");
-        nameInputField.value = getCurrentUser().taskLists[taskList.id].name;
+        nameInputField.value = getCurrentUser().taskLists[id].name;
     }
 }
 
