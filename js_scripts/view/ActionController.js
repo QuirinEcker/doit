@@ -8,6 +8,7 @@ import {TaskListFactory} from "./TaskListFactory.js";
 import {UserRepository} from "../controller/UserRepository.js";
 import {Config} from "./Config.js";
 import {TaskListRepository} from "../controller/TaskListRepository.js";
+import {UiWindowController} from "./UiWindowController.js";
 
 class ActionController {
     static cancelList() {
@@ -186,6 +187,7 @@ class ActionController {
     }
 
     static editTaskList() {
+        UiWindowController.instance.openWindow('tasklist-edit');
     }
 }
 
