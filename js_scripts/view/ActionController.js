@@ -9,7 +9,6 @@ import {UserRepository} from "../controller/UserRepository.js";
 import {Config} from "./Config.js";
 import {TaskListRepository} from "../controller/TaskListRepository.js";
 import {UiWindowController} from "./UiWindowController.js";
-import {UiMenuController} from "./UiMenuController";
 
 class ActionController {
     static cancelList() {
@@ -77,7 +76,7 @@ class ActionController {
             .then(async user => {
                 const taskLists = await UserRepository.instance.getTaskLists();
                 if (taskLists.status !== 'err' && user.status !== 'err') {
-                    user.data.taskLists = taskLists.data;
+                    taskLists.data.forEach(taskList => user.data.taskLists[taskList.id] = taskList);
                     setCurrentUser(user.data);
                     ActionController.fillOutSettings();
                     ActionController.openHome();
@@ -193,11 +192,13 @@ class ActionController {
 
     static openTaskListSettings() {
         UiWindowController.instance.openWindow('tasklist-edit');
-        ActionController.prepareTaskListSettings();
+        ActionController.prepareTaskListSettings(this.parentElement.parentElement);
     }
 
-    static prepareTaskListSettings() {
-
+    static prepareTaskListSettings(taskList) {
+        const nameInputField = document.querySelector("#window-edit-list #save-tasklist-button");
+        console.log(taskList);
+        nameInputField.value = taskList.id;
     }
 }
 
