@@ -12,7 +12,7 @@ class TaskRepository
     public static function getInstance()
     {
         if (self::$instance == null) {
-            self::$instance = new UserRepository();
+            self::$instance = new TaskRepository();
         }
 
         return self::$instance;
