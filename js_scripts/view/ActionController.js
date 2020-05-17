@@ -186,7 +186,7 @@ class ActionController {
 
     static deleteTaskList() {
         const taskList = this.parentElement.parentElement;
-        TaskListRepository.instance.delete(taskList.id)
+        TaskListRepository.instance.delete(taskList.id.slice(2, taskList.id.length))
             .then(taskList.remove())
     }
 
