@@ -26,12 +26,7 @@ class TaskRepository
             $email = $_SESSION["email"];
             $tasks = array();
 
-            $resultTaskList = SqlRunner::getInstance()->run(
-                "SELECT USER_ID FROM TASK_LIST WHERE ID = '$id'"
-            );
-
-
-            if ($resultTaskList->fetch_assoc()["USER_ID"] === $email) {
+            if ($this->accessToTaskList($id, $email)) {
                 $resultTasks = SqlRunner::getInstance()->run(
                     "SELECT * FROM TASK WHERE TASK_LIST_ID = '$id'"
                 );
@@ -51,7 +46,48 @@ class TaskRepository
             );
         } else return array(
             "status" => "err",
-            "code" => "no_error"
+            "code" => "no_session"
         );
+    }
+
+    public function create($body)
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION["email"];
+
+            if ($this->accessToTaskList($body->taskListId, $email)) {
+                SqlRunner::getInstance()->run(
+                    "INSERT INTO doit_db.TASK (DUE_DATE, NAME, DESCRIPTION, IS_DONE, TASK_LIST_ID) 
+                        VALUES ('$body->dueDate', '$body->name', '$body->description', '$body->state', '$body->taskListId')"
+                );
+
+                $id = SqlRunner::getInstance()->run(
+                    "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'doit_db' AND TABLE_NAME = 'TASK_LIST'"
+                )->fetch_assoc()["AUTO_INCREMENT"] - 1;
+
+                return array(
+                    "status" => "ok",
+                    "code" => "task_created",
+                    "data" => $id
+                );
+
+            } else return array(
+                "status" => "err",
+                "code" => "access_denied"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
+
+    public function accessToTaskList($taskListId, $email) {
+        $resultTaskList = SqlRunner::getInstance()->run(
+            "SELECT USER_ID FROM TASK_LIST WHERE ID = '$taskListId'"
+        );
+
+        return $resultTaskList->fetch_assoc()["USER_ID"] === $email;
     }
 }

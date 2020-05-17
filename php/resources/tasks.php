@@ -9,6 +9,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
         echo json_encode(TaskRepository::getInstance()->getAll($_REQUEST["id"]));
         break;
+    case 'POST':
+        echo json_encode(TaskRepository::getInstance()->create($body));
+        break;
     default:
         echo "Request not supported";
 }
