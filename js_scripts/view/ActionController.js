@@ -100,8 +100,16 @@ class ActionController {
         ActionController.openList();
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
+        const taskListId = this.parentElement.id.slice(2, this.parentElement.id.length);
 
-        TaskRepository.instance.getAll(this.parentElement.id.slice(2, this.parentElement.id.length));
+        TaskRepository.instance.getAll(taskListId)
+            .then(data => {
+                console.log(data)
+                data.data.forEach(task => {
+                    getCurrentUser().taskLists[taskListId].tasks[task.id] = task;
+                    // HTMLWriter.addTask(task)
+                })
+            })
     }
 
     static addList() {
