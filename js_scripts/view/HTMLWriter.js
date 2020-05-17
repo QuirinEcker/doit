@@ -115,11 +115,13 @@ class HTMLWriter {
 
     static addTask(task) {
         let taskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'close'}-tasks`);
-        let taskElement = HTMLWriter.addElement('div', taskListContainer);
+        let taskElement = HTMLWriter.addElement('div', taskListContainer)
         HTMLWriter.addClass(taskElement, 'task');
-        HTMLWriter.changeId(taskElement, `#t${task.id}`);
+        let taskShapeElement = HTMLWriter.addElement('div', taskElement);
+        HTMLWriter.addClass(taskShapeElement, 'task-shape');
+        HTMLWriter.changeId(taskShapeElement, `#t${task.id}`);
 
-        let bigDisplay = HTMLWriter.addElement('div', taskElement);
+        let bigDisplay = HTMLWriter.addElement('div', taskShapeElement);
         HTMLWriter.addClass(bigDisplay, 'big-display');
         let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
         if (typeof task.dueDate === "string") {
@@ -127,7 +129,7 @@ class HTMLWriter {
         }
         HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(task.dueDate));
 
-        let informationElement = HTMLWriter.addElement('div', taskElement);
+        let informationElement = HTMLWriter.addElement('div', taskShapeElement);
         HTMLWriter.addClass(informationElement, 'information');
 
         let title = HTMLWriter.addElement('div', informationElement);
