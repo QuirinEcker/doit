@@ -227,6 +227,10 @@ class ActionController {
     static openAddTaskWindow() {
         UiWindowController.instance.openWindow('add-task');
     }
+
+    static addTask() {
+
+    }
 }
 
 function openMenu(uiName, animation) {
