@@ -236,8 +236,11 @@ class ActionController {
         let task = {
             name: nameProperty.value,
             dueDate: dueDateProperty.value,
-            description: descProperty.value
+            description: descProperty.value,
+            state: '0'
         }
+
+        HTMLWriter.addTask(task);
     }
 }
 
