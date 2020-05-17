@@ -28,7 +28,7 @@ class TaskRepository
 
             if ($this->accessToTaskList($id, $email)) {
                 $resultTasks = SqlRunner::getInstance()->run(
-                    "SELECT * FROM TASK WHERE TASK_LIST_ID = '$id'"
+                    "SELECT * FROM TASK WHERE TASK_LIST_ID = '$id' AND DELETED = 0"
                 );
 
                 while ($row = $resultTasks->fetch_assoc()) {
@@ -110,7 +110,7 @@ class TaskRepository
 
             } else return array(
                 "status" => "err",
-                "code" => "access_denied´"
+                "code" => "access_denied"
             );
         } else return array(
             "status" => "err",
