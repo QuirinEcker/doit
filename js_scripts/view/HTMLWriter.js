@@ -167,6 +167,8 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
         HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
         HTMLWriter.changeId(navElementEdit, 'delete-task-button');
+
+        NavigationSwipeController.addSwipe(taskShapeElement);
     }
 
     static getValuesOf(hashArray) {
