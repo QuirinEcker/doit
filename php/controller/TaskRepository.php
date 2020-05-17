@@ -64,7 +64,7 @@ class TaskRepository
                 );
 
                 $id = SqlRunner::getInstance()->run(
-                    "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'doit_db' AND TABLE_NAME = 'TASK_LIST'"
+                    "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'doit_db' AND TABLE_NAME = 'TASK'"
                 )->fetch_assoc()["AUTO_INCREMENT"] - 1;
 
                 return array(
