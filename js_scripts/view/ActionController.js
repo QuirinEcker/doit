@@ -229,7 +229,15 @@ class ActionController {
     }
 
     static addTask() {
+        const nameProperty = document.querySelector("#window-add-task #task-name-property");
+        const dueDateProperty = document.querySelector("#window-add-task #task-dueDate-property");
+        const descProperty = document.querySelector("#window-add-task #task-description-property");
 
+        let task = {
+            name: nameProperty.value,
+            dueDate: dueDateProperty.value,
+            description: descProperty.value
+        }
     }
 }
 
