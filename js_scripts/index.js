@@ -48,5 +48,5 @@ function initialEventListener() {
     deleteAccountButton.addEventListener("click", ActionController.deleteUser);
     passwordChangeButton.addEventListener('click', ActionController.updateUserPassword);
     saveTaskListEditButton.addEventListener('click', ActionController.editTaskList);
-    createTaskButton.addEventListener('click', ActionController.addTask)
+    createTaskButton.addEventListener('click', ActionController.openAddTaskWindow)
 }

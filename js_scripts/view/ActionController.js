@@ -224,7 +224,7 @@ class ActionController {
         nameInputField.value = getCurrentUser().taskLists[id].name;
     }
 
-    static addTask() {
+    static openAddTaskWindow() {
         console.log("create task")
     }
 }
