@@ -117,10 +117,10 @@ class HTMLWriter {
     static addTask(task) {
         let taskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'close'}-tasks`);
         let taskElement = HTMLWriter.addElement('div', taskListContainer)
+        HTMLWriter.changeId(taskElement, `t${task.id}`);
         HTMLWriter.addClass(taskElement, 'task');
         let taskShapeElement = HTMLWriter.addElement('div', taskElement);
         HTMLWriter.addClass(taskShapeElement, 'task-shape');
-        HTMLWriter.changeId(taskShapeElement, `#t${task.id}`);
 
         let bigDisplay = HTMLWriter.addElement('div', taskShapeElement);
         HTMLWriter.addClass(bigDisplay, 'big-display');
