@@ -23,7 +23,7 @@
     <body>
         <div class="window" id="window-edit-list">
             <div class="window-background"></div>
-            <div class="window-shape" id="window-shape-edit-list">
+            <div class="window-shape">
                 <input type="text" id="tasklist-edit-property" placeholder="name">
                 <div class="button-container">
                     <button class="button-red" id="cancel-tasklist-button">cancel</button>
@@ -31,6 +31,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="window" id="window-add-task">
+            <div class="window-background"></div>
+            <div class="window-shape">
+                <input type="text" id="task-name-property" placeholder="name">
+                <div class="button-container">
+                    <button class="button-red" id="cancel-task-button">cancel</button>
+                    <button class="button-green" id="create-task-button">Save</button>
+                </div>
+            </div>
+        </div>
+
+
         <main>
             <div id="search-bar">
                 <div id="home-button-container">
