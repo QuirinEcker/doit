@@ -101,7 +101,7 @@ class ActionController {
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
 
-        TaskRepository.instance.get(this.parentElement.id);
+        TaskRepository.instance.getAll(this.parentElement.id.slice(2, this.parentElement.id.length));
     }
 
     static addList() {
