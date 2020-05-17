@@ -59,7 +59,7 @@
     overflow: hidden;
 }
 
-.window-shape #task-dueDate-time-property {
+.window-shape #task-dueDate-time-property, .window-shape #task-dueDate-time-edit-property {
     display: flex;
     justify-content: center;
     align-items: center;
