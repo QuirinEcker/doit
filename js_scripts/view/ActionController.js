@@ -270,6 +270,18 @@ class ActionController {
                 taskElement.remove();
             })
     }
+
+    static updateTask() {
+        console.log(this.editTaskList())
+    }
+
+    static openEditTaskWindow() {
+        const taskElement = this.parentElement.parentElement;
+        const taskId = taskElement.id.slice(1, taskElement.id.length);
+
+        UiWindowController.instance.uiWindows['edit-task'].taskId = taskId;
+        UiWindowController.instance.openWindow('edit-task');
+    }
 }
 
 function openMenu(uiName, animation) {

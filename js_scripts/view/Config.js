@@ -6,6 +6,7 @@ import {KeyWordCategory} from "./KeyWordCategory.js";
 import {UiWindowController} from "./UiWindowController.js";
 import {UiEditTaskListWindow} from "./UiTaskListWindow.js";
 import {UiAddTaskWindow} from "./UiAddTaskWindow.js";
+import {UiEditTaskWindow} from "./UiEditTaskWindow.js";
 
 class Config {
     static load() {
@@ -33,6 +34,12 @@ class Config {
         UiWindowController.instance.initiateWindow(new UiAddTaskWindow(
             'add-task',
             document.querySelector('#window-add-task'),
+            '40vh'
+        ));
+
+        UiWindowController.instance.initiateWindow(new UiEditTaskWindow(
+            'edit-task',
+            document.querySelector('#window-edit-task'),
             '40vh'
         ));
     }

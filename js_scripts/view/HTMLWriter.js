@@ -164,6 +164,7 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
         HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
         HTMLWriter.changeId(navElementEdit, 'delete-task-button');
+        navElementEdit.addEventListener('click', ActionController.openEditTaskWindow)
         let navElementTrash = HTMLWriter.addElement('i', taskNav);
         HTMLWriter.addClass(navElementTrash, 'fas');
         HTMLWriter.addClass(navElementTrash, 'fa-trash');
