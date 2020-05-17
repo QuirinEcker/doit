@@ -117,4 +117,37 @@ class TaskRepository
             "code" => "no_session"
         );
     }
+
+    public function update($body)
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION["email"];
+
+            if ($this->accessToTaskList($body->taskListId, $email)) {
+                $task = $body->task;
+                echo $task->dueDate;
+
+                SqlRunner::getInstance()->run(
+                    "UPDATE TASK SET 
+                        DUE_DATE = STR_TO_DATE('$task->dueDate', '%Y-%m-%d %H:%i'), 
+                        NAME = '$task->name', 
+                        DESCRIPTION = '$task->description', 
+                        IS_DONE = '$task->state' WHERE ID = '$task->id'"
+                );
+
+                return array(
+                    "status" => "ok",
+                    "code" => "task_updated"
+                );
+            } else return array(
+                "status" => "err",
+                "code" => "access_denied"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
 }

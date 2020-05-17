@@ -15,6 +15,9 @@ switch ($_SERVER["REQUEST_METHOD"]) {
     case 'DELETE':
         echo json_encode(TaskRepository::getInstance()->delete($body));
         break;
+    case 'PUT':
+        echo json_encode(TaskRepository::getInstance()->update($body));
+        break;
     default:
         echo "Request not supported";
 }
