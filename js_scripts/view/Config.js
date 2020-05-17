@@ -33,7 +33,7 @@ class Config {
         UiWindowController.instance.initiateWindow(new UiAddTaskWindow(
             'add-task',
             document.querySelector('#window-add-task'),
-            '50vh'
+            '40vh'
         ));
     }
 
