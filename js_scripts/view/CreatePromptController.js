@@ -22,6 +22,8 @@ class CreatePromptController {
     turnOn() {
         this.visible = true;
         this.createPrompt.style.display = 'flex'
+        const createPromptField = document.querySelector(`#create-taskList-prompt-text-field`);
+        createPromptField.value = ""
     }
 }
 
