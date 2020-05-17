@@ -5,7 +5,7 @@ import {DataBase} from "../controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
 import {UiWindowController} from "./UiWindowController.js";
 import {UiEditTaskListWindow} from "./UiTaskListWindow.js";
-import {UiAddTaskWindow} from "./UiAddTaskWindow";
+import {UiAddTaskWindow} from "./UiAddTaskWindow.js";
 
 class Config {
     static load() {

@@ -225,7 +225,7 @@ class ActionController {
     }
 
     static openAddTaskWindow() {
-        console.log("create task")
+        UiWindowController.instance.openWindow('add-task');
     }
 }
 
