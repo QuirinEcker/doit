@@ -60,7 +60,7 @@ class TaskRepository
             if ($this->accessToTaskList($body->taskListId, $email)) {
                 SqlRunner::getInstance()->run(
                     "INSERT INTO doit_db.TASK (DUE_DATE, NAME, DESCRIPTION, IS_DONE, TASK_LIST_ID) 
-                        VALUES ('$body->dueDate', '$body->name', '$body->description', '$body->state', '$body->taskListId')"
+                        VALUES (STR_TO_DATE('$body->dueDate', '%Y-%m-%d %H:%i'), '$body->name', '$body->description', '$body->state', '$body->taskListId')"
                 );
 
                 $id = SqlRunner::getInstance()->run(
