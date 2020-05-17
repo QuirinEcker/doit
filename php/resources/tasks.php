@@ -7,7 +7,7 @@ $body = RequestData::getInstance()->getBody();
 
 switch ($_SERVER["REQUEST_METHOD"]) {
     case 'GET':
-        echo "getting Tasks";
+        echo json_encode(TaskRepository::getInstance()->getAll($_REQUEST["id"]));
         break;
     default:
         echo "Request not supported";
