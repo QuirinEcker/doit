@@ -9,6 +9,7 @@ import {UserRepository} from "../controller/UserRepository.js";
 import {Config} from "./Config.js";
 import {TaskListRepository} from "../controller/TaskListRepository.js";
 import {UiWindowController} from "./UiWindowController.js";
+import {TaskRepository} from "../controller/TaskRepository.js";
 
 class ActionController {
     static cancelList() {
@@ -95,6 +96,8 @@ class ActionController {
         ActionController.openList();
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
+
+        TaskRepository.instance.get(this.parentElement.id);
     }
 
     static addList() {
