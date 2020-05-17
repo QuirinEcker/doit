@@ -17,4 +17,16 @@ export class UiAddTaskWindow extends UiWindow {
             this.close();
         });
     }
+
+    prepare() {
+        super.prepare();
+
+        const nameProperty = document.querySelector("#window-add-task #task-name-property");
+        const dueDateProperty = document.querySelector("#window-add-task #task-dueDate-property");
+        const descProperty = document.querySelector("#window-add-task #task-description-property");
+
+        nameProperty.value = "";
+        dueDateProperty.value = "";
+        descProperty.value = "";
+    }
 }

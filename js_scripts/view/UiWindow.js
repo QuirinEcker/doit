@@ -8,6 +8,7 @@ export class UiWindow {
     }
 
     open() {
+        this.prepare();
         const windowBackground = this.htmlElement.children[0];
         const windowShape = this.htmlElement.children[1];
 
@@ -39,4 +40,7 @@ export class UiWindow {
         windowBackground.addEventListener('click', () => this.close());
         cancelTaskListEditButton.addEventListener('click', () => {this.close()})
     }
+
+    // Overwrite please
+    prepare() {}
 }
