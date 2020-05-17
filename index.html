@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-
         <div class="window" id="window-add-task">
             <div class="window-background"></div>
             <div class="window-shape">
@@ -44,7 +43,24 @@
                 </div>
                 <div class="button-container">
                     <button class="button-red button" id="cancel-task-button">cancel</button>
-                    <button class="button-green button" id="create-task-button">Save</button>
+                    <button class="button-green button" id="create-task-button">create</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="window-edit-task">
+            <div class="window-background"></div>
+            <div class="window-shape">
+                <input type="text" id="task-name-edit-property">
+                <input type="date" id="task-dueDate-edit-property" placeholder="dueDate">
+                <textarea name="description" id="task-description-edit-property" cols="30" rows="10" placeholder="description"></textarea>
+                <div id="task-dueDate-time-edit-property">
+                    <input type="number" class="hours" placeholder="hours">
+                    <input type="number" class="minutes" placeholder="minutes">
+                </div>
+                <div class="button-container">
+                    <button class="button-red button" id="cancel-task-edit-button">cancel</button>
+                    <button class="button-green button" id="create-task-edit-button">create</button>
                 </div>
             </div>
         </div>
