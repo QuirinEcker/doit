@@ -18,7 +18,8 @@ class ActionController {
     static confirmList() {
         let textField = document.querySelector("#create-prompt #create-taskList-prompt-text-field");
         if (textField.value !== "") {
-            TaskListFactory.instace.createList(textField.value);
+            TaskListFactory.instace.createList(textField.value)
+                .then(HTMLWriter.toggleTaskListCreatePrompt())
         }
     }
 

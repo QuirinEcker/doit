@@ -7,12 +7,13 @@ class TaskListFactory {
 
 
     createList(listName) {
-        TaskListRepository.instance.create({name: listName})
+        return TaskListRepository.instance.create({name: listName})
             .then(data => {
                 let taskList = new TaskList(data.id, listName);
                 if (getCurrentUser().taskLists === undefined) getCurrentUser().taskLists = [];
                 getCurrentUser().taskLists.push(taskList);
                 HTMLWriter.addTaskList(taskList);
+                return data;
             })
     }
 
