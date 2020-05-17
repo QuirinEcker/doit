@@ -171,6 +171,7 @@ class HTMLWriter {
         HTMLWriter.changeId(navElementTrash, 'edit-task-button')
 
         NavigationSwipeController.addSwipe(taskShapeElement);
+        taskShapeElement.addEventListener('click', ActionController.switchToFinished);
     }
 
     static getValuesOf(hashArray) {

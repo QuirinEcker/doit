@@ -250,6 +250,10 @@ class ActionController {
                 HTMLWriter.addTask(task);
             })
     }
+
+    static switchToFinished() {
+        const taskId = this.parentElement.id.slice(1, this.parentElement.id.length);
+    }
 }
 
 function openMenu(uiName, animation) {
