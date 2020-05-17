@@ -101,6 +101,7 @@ class ActionController {
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
         const taskListId = this.parentElement.id.slice(2, this.parentElement.id.length);
+        getCurrentUser().currentTaskList = taskListId;
 
         TaskRepository.instance.getAll(taskListId)
             .then(data => {
@@ -237,10 +238,15 @@ class ActionController {
             name: nameProperty.value,
             dueDate: dueDateProperty.value,
             description: descProperty.value,
-            state: '0'
+            state: '0',
+            taskListId: getCurrentUser().currentTaskList
         }
 
-        HTMLWriter.addTask(task);
+        TaskRepository.instance.create(task)
+/*            .then(data => {
+                task.id = data.data;
+                HTMLWriter.addTask(task);
+            })*/
     }
 }
 
