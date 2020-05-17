@@ -169,6 +169,7 @@ class HTMLWriter {
         HTMLWriter.addClass(navElementTrash, 'fa-trash');
         HTMLWriter.addClass(navElementTrash, 'nav-list-icon');
         HTMLWriter.changeId(navElementTrash, 'edit-task-button')
+        navElementTrash.addEventListener('click', ActionController.deleteTask);
 
         NavigationSwipeController.addSwipe(taskShapeElement);
         taskShapeElement.addEventListener('click', ActionController.switchToFinished);

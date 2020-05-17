@@ -258,6 +258,16 @@ class ActionController {
 
         TaskRepository.instance.update(task);
     }
+
+    static deleteTask() {
+        const taskElement = this.parentElement.parentElement;
+        const taskId = taskElement.id.slice(1, taskElement.id.length);
+
+        TaskRepository.instance.delete(taskId)
+            .then(() => {
+                taskElement.remove();
+            })
+    }
 }
 
 function openMenu(uiName, animation) {
