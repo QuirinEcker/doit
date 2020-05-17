@@ -233,10 +233,13 @@ class ActionController {
         const nameProperty = document.querySelector("#window-add-task #task-name-property");
         const dueDateProperty = document.querySelector("#window-add-task #task-dueDate-property");
         const descProperty = document.querySelector("#window-add-task #task-description-property");
+        const dueDateMinuteProperty = document.querySelector("#window-add-task #task-dueDate-time-property .minutes");
+        const dueDateHoursProperty = document.querySelector("#window-add-task #task-dueDate-time-property .hours");
+        console.log(`${nameProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`)
 
         let task = {
             name: nameProperty.value,
-            dueDate: dueDateProperty.value,
+            dueDate: `${dueDateProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`,
             description: descProperty.value,
             state: '0',
             taskListId: getCurrentUser().currentTaskList
