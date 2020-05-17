@@ -90,4 +90,31 @@ class TaskRepository
 
         return $resultTaskList->fetch_assoc()["USER_ID"] === $email;
     }
+
+    public function delete($data)
+    {
+        SessionController::getInstance()->start();
+
+        if (SessionController::getInstance()->sessionNotExpired()) {
+            $email = $_SESSION["email"];
+
+            if ($this->accessToTaskList($data->taskListId, $email)) {
+                SqlRunner::getInstance()->run(
+                    "UPDATE TASK SET DELETED = 1 WHERE ID = '$data->id' AND TASK_LIST_ID = '$data->taskListId'"
+                );
+
+                return array(
+                    "status" => "ok",
+                    "code" => "task_deleted"
+                );
+
+            } else return array(
+                "status" => "err",
+                "code" => "access_denied´"
+            );
+        } else return array(
+            "status" => "err",
+            "code" => "no_session"
+        );
+    }
 }
