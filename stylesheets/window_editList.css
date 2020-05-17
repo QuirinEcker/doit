@@ -59,6 +59,18 @@
     overflow: hidden;
 }
 
+.window-shape textarea {
+    all:unset;
+    width: 70%;
+    height: 20%;
+    font-size: 2vh;
+    padding: 1vh 1vh 1vh 2vh;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    margin: 2vh;
+    overflow: hidden;
+}
+
 .window-shape button {
     all: unset;
     width: 20%;
