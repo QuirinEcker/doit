@@ -55,8 +55,23 @@
     padding: 1vh 1vh 1vh 2vh;
     border-radius: 10px;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-    margin: 2vh;
+    margin: 1vh;
     overflow: hidden;
+}
+
+.window-shape #task-dueDate-time-property {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.window-shape .hours {
+    width: 30%;
+}
+
+.window-shape .minutes {
+    width: 30%;
 }
 
 .window-shape textarea {
