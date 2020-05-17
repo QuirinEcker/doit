@@ -223,6 +223,10 @@ class ActionController {
         const nameInputField = document.querySelector("#window-edit-list #tasklist-edit-property");
         nameInputField.value = getCurrentUser().taskLists[id].name;
     }
+
+    static addTask() {
+        console.log("create task")
+    }
 }
 
 function openMenu(uiName, animation) {
