@@ -11,6 +11,10 @@ export class TaskRepository {
         return Config.dataBase.fetch(`./php/resources/tasks.php`, 'POST', JSON.stringify(task))
             .then(response => response.json())
     }
+
+    update() {
+        console.log("update not implemented");
+    }
 }
 
 TaskRepository.instance = new TaskRepository()

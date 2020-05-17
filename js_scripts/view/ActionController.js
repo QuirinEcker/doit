@@ -253,6 +253,10 @@ class ActionController {
 
     static switchToFinished() {
         const taskId = this.parentElement.id.slice(1, this.parentElement.id.length);
+        const task = getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[taskId];
+        task.state = 1;
+
+        TaskRepository.instance.update(task);
     }
 }
 
