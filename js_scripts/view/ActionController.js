@@ -243,10 +243,10 @@ class ActionController {
         }
 
         TaskRepository.instance.create(task)
-/*            .then(data => {
+            .then(data => {
                 task.id = data.data;
                 HTMLWriter.addTask(task);
-            })*/
+            })
     }
 }
 

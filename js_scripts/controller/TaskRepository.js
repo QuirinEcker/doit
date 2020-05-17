@@ -9,8 +9,7 @@ export class TaskRepository {
 
     create(task) {
         return Config.dataBase.fetch(`./php/resources/tasks.php`, 'POST', JSON.stringify(task))
-            .then(response => response.text())
-            .then(console.log)
+            .then(response => response.json())
     }
 }
 
