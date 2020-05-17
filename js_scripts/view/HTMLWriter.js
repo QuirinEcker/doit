@@ -167,7 +167,6 @@ class HTMLWriter {
     }
 
     static getWeakDay(dueDate) {
-        console.log(dueDate.getDay());
         switch (dueDate.getDay()) {
             case 0: return 'So';
             case 1: return 'Mo';

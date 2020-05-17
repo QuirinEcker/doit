@@ -104,7 +104,6 @@ class ActionController {
 
         TaskRepository.instance.getAll(taskListId)
             .then(data => {
-                console.log(data)
                 data.data.forEach(task => {
                     getCurrentUser().taskLists[taskListId].tasks[task.id] = task;
                     HTMLWriter.addTask(task)
