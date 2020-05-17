@@ -5,6 +5,7 @@ import {DataBase} from "../controller/DataBase.js"
 import {KeyWordCategory} from "./KeyWordCategory.js";
 import {UiWindowController} from "./UiWindowController.js";
 import {UiEditTaskListWindow} from "./UiTaskListWindow.js";
+import {UiAddTaskWindow} from "./UiAddTaskWindow";
 
 class Config {
     static load() {
@@ -26,6 +27,12 @@ class Config {
         UiWindowController.instance.initiateWindow(new UiEditTaskListWindow(
             'tasklist-edit',
             document.querySelector('#window-edit-list'),
+            '20vh'
+        ));
+
+        UiWindowController.instance.initiateWindow(new UiAddTaskWindow(
+            'add-task',
+            document.querySelector('#window-add-task'),
             '20vh'
         ));
     }
