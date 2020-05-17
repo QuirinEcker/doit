@@ -154,6 +154,19 @@ class HTMLWriter {
             HTMLWriter.changeId(tagElement, tag.id);
             HTMLWriter.overWriteElementTextContent(tagElement, tag.name);
         })
+
+        let taskNav = HTMLWriter.addElement('div', taskElement);
+        HTMLWriter.addClass(taskNav, 'task-nav');
+        let navElementTrash = HTMLWriter.addElement('i', taskNav);
+        HTMLWriter.addClass(navElementTrash, 'fas');
+        HTMLWriter.addClass(navElementTrash, 'fa-trash');
+        HTMLWriter.addClass(navElementTrash, 'nav-list-icon');
+        HTMLWriter.changeId(navElementTrash, 'edit-task-button')
+        let navElementEdit = HTMLWriter.addElement('i', taskNav);
+        HTMLWriter.addClass(navElementEdit, 'fas');
+        HTMLWriter.addClass(navElementEdit, 'fa-pencil-alt');
+        HTMLWriter.addClass(navElementEdit, 'nav-list-icon');
+        HTMLWriter.changeId(navElementEdit, 'delete-task-button');
     }
 
     static getValuesOf(hashArray) {
