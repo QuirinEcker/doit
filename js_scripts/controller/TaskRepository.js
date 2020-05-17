@@ -1,7 +1,11 @@
+import {Config} from "../view/Config.js";
+
 export class TaskRepository {
 
-    get(taskListId) {
-        console.log(taskListId);
+    getAll(taskListId) {
+        Config.dataBase.fetch("./php/resources/tasks.php", 'GET')
+            .then(response => response.text())
+            .then(console.log)
     }
 }
 
