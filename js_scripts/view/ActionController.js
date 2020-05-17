@@ -78,7 +78,11 @@ class ActionController {
             .then(async user => {
                 const taskLists = await UserRepository.instance.getTaskLists();
                 if (taskLists.status !== 'err' && user.status !== 'err') {
-                    taskLists.data.forEach(taskList => user.data.taskLists[taskList.id] = taskList);
+                    if (taskLists.data !== undefined) {
+                        taskLists.data.forEach(taskList => user.data.taskLists[taskList.id] = taskList);
+                    } else {
+                        user.data.taskLists = [];
+                    }
                     setCurrentUser(user.data);
                     ActionController.fillOutSettings();
                     ActionController.openHome();
