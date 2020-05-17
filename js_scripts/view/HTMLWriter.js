@@ -145,6 +145,7 @@ class HTMLWriter {
         let time = HTMLWriter.addElement('div', dateTime);
         HTMLWriter.addClass(time, 'time');
         HTMLWriter.overWriteElementTextContent(time, '16:00');
+        time.style.display = 'none';
 
         let tags = HTMLWriter.addElement('div', informationElement);
         HTMLWriter.addClass(tags, 'tags');
