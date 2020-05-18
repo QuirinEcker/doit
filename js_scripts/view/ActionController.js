@@ -238,7 +238,7 @@ class ActionController {
 
         console.log(dueDateProperty.value);
 
-        let task = {
+        const task = {
             name: nameProperty.value,
             dueDate: `${dueDateProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`,
             description: descProperty.value,
@@ -258,6 +258,8 @@ class ActionController {
         const task = getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[taskId];
         task.state = 1;
 
+        console.log(task);
+
         TaskRepository.instance.update(task);
     }
 
@@ -272,7 +274,23 @@ class ActionController {
     }
 
     static updateTask() {
-        console.log(this.editTaskList())
+        const nameProperty = document.querySelector("#window-edit-task #task-name-edit-property");
+        const dueDateProperty = document.querySelector("#window-edit-task #task-dueDate-edit-property");
+        const descProperty = document.querySelector("#window-edit-task #task-description-edit-property");
+        const dueDateMinuteProperty = document.querySelector("#window-edit-task #task-dueDate-time-edit-property .minutes");
+        const dueDateHoursProperty = document.querySelector("#window-edit-task #task-dueDate-time-edit-property .hours");
+
+        const task = {
+            id: UiWindowController.instance.uiWindows['edit-task'].taskId,
+            name: nameProperty.value,
+            dueDate: `${dueDateProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`,
+            description: descProperty.value,
+            state: '0'
+        }
+
+        console.log(JSON.stringify(task));
+
+        TaskRepository.instance.update(task);
     }
 
     static openEditTaskWindow() {

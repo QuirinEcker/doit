@@ -115,7 +115,7 @@ class HTMLWriter {
     }
 
     static addTask(task) {
-        let taskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'close'}-tasks`);
+        let taskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'closed'}-tasks`);
         let taskElement = HTMLWriter.addElement('div', taskListContainer)
         HTMLWriter.changeId(taskElement, `t${task.id}`);
         HTMLWriter.addClass(taskElement, 'task');
@@ -125,10 +125,11 @@ class HTMLWriter {
         let bigDisplay = HTMLWriter.addElement('div', taskShapeElement);
         HTMLWriter.addClass(bigDisplay, 'big-display');
         let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
-        if (typeof task.dueDate === "string") {
-            task.dueDate = new Date(task.dueDate);
-        }
-        HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(task.dueDate));
+        const dueDate = new Date(task.dueDate);
+        console.log(dueDate);
+        console.log(task.dueDate);
+
+        HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(dueDate));
 
         let informationElement = HTMLWriter.addElement('div', taskShapeElement);
         HTMLWriter.addClass(informationElement, 'information');
@@ -141,7 +142,7 @@ class HTMLWriter {
         HTMLWriter.addClass(dateTime, 'date-time');
         let date = HTMLWriter.addElement('div', dateTime);
         HTMLWriter.addClass(date, 'date');
-        HTMLWriter.overWriteElementTextContent(date, task.dueDate.toLocaleString());
+        HTMLWriter.overWriteElementTextContent(date, dueDate.toLocaleString());
         let time = HTMLWriter.addElement('div', dateTime);
         HTMLWriter.addClass(time, 'time');
         HTMLWriter.overWriteElementTextContent(time, '16:00');

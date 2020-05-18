@@ -32,6 +32,5 @@ export class UiAddTaskWindow extends UiWindow {
         descProperty.value = "";
         dueDateMinuteProperty.value = null;
         dueDateHoursProperty.value = null;
-
     }
 }

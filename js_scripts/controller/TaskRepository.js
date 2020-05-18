@@ -13,8 +13,13 @@ export class TaskRepository {
             .then(response => response.json())
     }
 
-    update() {
-        console.log("update not implemented");
+    update(task) {
+        return Config.dataBase.fetch('./php/resources/tasks.php', 'PUT', JSON.stringify({
+            taskListId: getCurrentUser().currentTaskList,
+            task: task
+        }))
+            .then(response => response.text())
+            .then(console.log)
     }
 
     delete(id) {
@@ -23,7 +28,7 @@ export class TaskRepository {
             id: id,
             taskListId: getCurrentUser().currentTaskList
         }))
-            .then(response => response.json())
+            .then(response => response.text())
     }
 }
 
