@@ -81,9 +81,6 @@ class TaskListRepository
         if (SessionController::getInstance()->sessionNotExpired()) {
             $email = $_SESSION['email'];
 
-            echo $email;
-            echo $id;
-
             SqlRunner::getInstance()->run(
                 "UPDATE TASK_LIST SET DELETED = 1 WHERE ID = '$id' AND USER_ID = '$email'"
             );

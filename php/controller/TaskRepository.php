@@ -127,7 +127,6 @@ class TaskRepository
 
             if ($this->accessToTaskList($body->taskListId, $email)) {
                 $task = $body->task;
-                echo $task->dueDate;
 
                 SqlRunner::getInstance()->run(
                     "UPDATE TASK SET 
