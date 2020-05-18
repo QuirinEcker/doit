@@ -288,6 +288,7 @@ class ActionController {
             state: '0'
         }
 
+        getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[task.id] = task;
         HTMLWriter.updateTask(task);
         TaskRepository.instance.update(task);
     }

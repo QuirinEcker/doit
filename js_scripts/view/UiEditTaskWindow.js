@@ -26,7 +26,7 @@ export class UiEditTaskWindow extends UiWindow{
         dueDateProperty.value = inputDate;
         dueDateHoursProperty.value = dueDate.getHours();
         dueDateMinuteProperty.value = dueDate.getMinutes();
-        // descProperty.value = selectedTask.description;
+        descProperty.value = selectedTask.description;
         // TODO: Fix Description
     }
 
