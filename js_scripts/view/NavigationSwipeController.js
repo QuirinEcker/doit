@@ -39,8 +39,11 @@ class NavigationSwipeController {
                     element.removeEventListener('click', ActionController.switchList);
 
                     setTimeout(() => {
-                        element.addEventListener('click', ActionController.loadUserList);
-                        element.addEventListener('click', ActionController.switchList);
+                        if (element.classList.contains('list-shape')) {
+                            element.addEventListener('click', ActionController.loadUserList);
+                        } else if (element.classList.contains('task-shape')) {
+                            element.addEventListener('click', ActionController.switchList);
+                        }
                     }, 250)
                 }
             }
