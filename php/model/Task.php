@@ -11,8 +11,9 @@ class Task implements JsonSerializable, Model
     private $dueDate;
     private $parentTaskListID;
     private $state;
+    private $description;
 
-    public function __construct($id = 0, $tags = null, $name = "", $dueDate = null, $parentTaskListID = 0, $state = 0)
+    public function __construct($id = 0, $tags = null, $name = "", $dueDate = null, $parentTaskListID = 0, $state = 0, $description = "")
     {
         $this->id = $id;
         $this->tags = $tags;
@@ -20,6 +21,7 @@ class Task implements JsonSerializable, Model
         $this->dueDate = $dueDate;
         $this->parentTaskListID = $parentTaskListID;
         $this->state = $state;
+        $this->description = $description;
     }
 
     public function getId()
