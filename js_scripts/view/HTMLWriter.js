@@ -174,7 +174,7 @@ class HTMLWriter {
         navElementTrash.addEventListener('click', ActionController.deleteTask);
 
         NavigationSwipeController.addSwipe(taskShapeElement);
-        taskShapeElement.addEventListener('click', ActionController.switchToFinished);
+        taskShapeElement.addEventListener('click', ActionController.switchList);
     }
 
     static getValuesOf(hashArray) {
