@@ -32,7 +32,7 @@ class TaskRepository
                 );
 
                 while ($row = $resultTasks->fetch_assoc()) {
-                    $tasks[] = new Task($row["ID"], "", $row["NAME"], $row["DUE_DATE"], "", $row["IS_DONE"]);
+                    $tasks[] = new Task($row["ID"], "", $row["NAME"], $row["DUE_DATE"], "", $row["IS_DONE"], $row["DESCRIPTION"]);
                 }
 
                 return array(
