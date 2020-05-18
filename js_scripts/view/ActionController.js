@@ -288,6 +288,7 @@ class ActionController {
             state: '0'
         }
 
+        HTMLWriter.updateTask(task);
         TaskRepository.instance.update(task);
     }
 

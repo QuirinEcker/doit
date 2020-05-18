@@ -114,6 +114,12 @@ class HTMLWriter {
         taskListShapeElement.addEventListener('click', ActionController.loadUserList);
     }
 
+    static updateTask(task) {
+        const taskElement = document.querySelector(`#t${task.id}`);
+        taskElement.remove();
+        HTMLWriter.addTask(task);
+    }
+
     static addTask(task) {
         let taskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'closed'}-tasks`);
         let taskElement = HTMLWriter.addElement('div', taskListContainer)
