@@ -236,10 +236,18 @@ class ActionController {
         const descProperty = document.querySelector("#window-add-task #task-description-property");
         const dueDateMinuteProperty = document.querySelector("#window-add-task #task-dueDate-time-property .minutes");
         const dueDateHoursProperty = document.querySelector("#window-add-task #task-dueDate-time-property .hours");
+        let noTimeFlag = false;
 
+        if (dueDateHoursProperty.value === '' && dueDateMinuteProperty.value === '') {
+            noTimeFlag = true;
+        }
+
+        console.log(noTimeFlag)
         const task = {
             name: nameProperty.value,
-            dueDate: `${dueDateProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`,
+            dueDate: noTimeFlag
+                ? `${dueDateProperty.value} 09:00:00`
+                : `${dueDateProperty.value} ${dueDateHoursProperty.value}:${dueDateMinuteProperty.value}:00`,
             description: descProperty.value,
             state: '0',
             taskListId: getCurrentUser().currentTaskList
