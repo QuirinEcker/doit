@@ -18,17 +18,15 @@ export class TaskRepository {
             taskListId: getCurrentUser().currentTaskList,
             task: task
         }))
-            .then(response => response.text())
-            .then(console.log)
+            .then(response => response.json())
     }
 
     delete(id) {
-        console.log(id)
         return Config.dataBase.fetch('./php/resources/tasks.php', 'DELETE', JSON.stringify({
             id: id,
             taskListId: getCurrentUser().currentTaskList
         }))
-            .then(response => response.text())
+            .then(response => response.json())
     }
 }
 

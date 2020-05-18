@@ -5,8 +5,6 @@ class NavigationSwipeController {
         interact(element).draggable({
             listeners: {
                 start(event) {
-                    console.log(event.type, event.target);
-
                     Array.from(event.target.parentElement.children).forEach((child) => {
                         child.style.transitionDuration = `0s`;
                     });

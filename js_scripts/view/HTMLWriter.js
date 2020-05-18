@@ -126,8 +126,6 @@ class HTMLWriter {
         HTMLWriter.addClass(bigDisplay, 'big-display');
         let bigDisplaySpan = HTMLWriter.addElement('div', bigDisplay);
         const dueDate = new Date(task.dueDate);
-        console.log(dueDate);
-        console.log(task.dueDate);
 
         HTMLWriter.overWriteElementTextContent(bigDisplaySpan, HTMLWriter.getWeakDay(dueDate));
 
@@ -202,8 +200,6 @@ class HTMLWriter {
     }
 
     static writeTasksForTaskList(list) {
-        console.log(list);
-
         list.tasks.forEach(task => HTMLWriter.addTask(task));
     }
 

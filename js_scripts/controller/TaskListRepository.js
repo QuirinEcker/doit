@@ -18,13 +18,12 @@ export class TaskListRepository {
 
     delete(taskListId) {
         return Config.dataBase.fetch('./php/resources/taskLists.php', 'DELETE', JSON.stringify({id: taskListId}))
-            .then(data => data.text())
+            .then(data => data.json())
     }
 
     update(taskList) {
         return Config.dataBase.fetch('./php/resources/taskLists.php', 'PUT', JSON.stringify(taskList))
-            .then(data => data.text())
-            .then(console.log)
+            .then(data => data.json())
     }
 }
 
