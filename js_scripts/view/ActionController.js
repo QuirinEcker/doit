@@ -242,7 +242,12 @@ class ActionController {
             noTimeFlag = true;
         }
 
-        console.log(noTimeFlag)
+        if (dueDateProperty.value === '') {
+            alert("please specify a date")
+            return;
+        }
+
+        console.log(dueDateProperty)
         const task = {
             name: nameProperty.value,
             dueDate: noTimeFlag
