@@ -254,8 +254,12 @@ class ActionController {
     static switchList() {
         const taskId = this.parentElement.id.slice(1, this.parentElement.id.length);
         const task = getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[taskId];
-        task.state = 1;
 
+        if (task.state === '0') task.state = '1';
+        else if (task.state === '1') task.state = '0';
+
+        const newTaskListContainer = document.querySelector(`#${task.state === '0' ? 'open' : 'closed'}-tasks`);
+        newTaskListContainer.appendChild(this.parentElement);
         TaskRepository.instance.update(task);
     }
 
