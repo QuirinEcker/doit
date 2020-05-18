@@ -25,8 +25,25 @@ class ActionController {
     }
 
     static searchTask() {
-        // TODO: Not working jet
-        //TaskFilter.search(this.value);
+        const tasksInTaskList = getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks;
+        const tasksNotInSearchCriteria = [];
+        const taskInSearchCriteria = [];
+
+        tasksInTaskList.forEach(task => {
+            if (!task.name.includes(this.value)) {
+                tasksNotInSearchCriteria.push(task);
+            } else taskInSearchCriteria.push(task)
+        });
+
+        tasksNotInSearchCriteria.forEach(task => {
+            let taskElement = document.querySelector(`#t${task.id}`);
+            taskElement.style.display = 'none';
+        })
+
+        taskInSearchCriteria.forEach(task => {
+            let taskElement = document.querySelector(`#t${task.id}`);
+            taskElement.style.display = 'flex';
+        })
     }
 
     static openSignUp() {
