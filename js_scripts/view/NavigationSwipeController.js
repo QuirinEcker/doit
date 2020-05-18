@@ -1,3 +1,5 @@
+import {ActionController} from "./ActionController.js";
+
 class NavigationSwipeController {
     static addSwipe(element) {
         let position = {x: 0, y: 0};
@@ -32,6 +34,14 @@ class NavigationSwipeController {
                         event.target.style.width = `68%`;
                         event.target.parentElement.children[1].style.width = `30%`;
                     }
+
+                    element.removeEventListener('click', ActionController.loadUserList);
+                    element.removeEventListener('click', ActionController.switchList);
+
+                    setTimeout(() => {
+                        element.addEventListener('click', ActionController.loadUserList);
+                        element.addEventListener('click', ActionController.switchList);
+                    }, 250)
                 }
             }
         })
