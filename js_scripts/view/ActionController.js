@@ -248,6 +248,7 @@ class ActionController {
             .then(data => {
                 task.id = data.data;
                 HTMLWriter.addTask(task);
+                getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[task.id] = task;
             })
     }
 
