@@ -11,7 +11,7 @@ class TaskListFactory {
             .then(data => {
                 let taskList = new TaskList(data.id, listName);
                 if (getCurrentUser().taskLists === undefined) getCurrentUser().taskLists = [];
-                getCurrentUser().taskLists.push(taskList);
+                getCurrentUser().taskLists[taskList.id] = taskList;
                 HTMLWriter.addTaskList(taskList);
                 return data;
             })

@@ -98,6 +98,7 @@ class ActionController {
 
     static loadUserList() {
         ActionController.openList();
+        console.log(getCurrentUser());
         const taskListContainer = document.querySelectorAll(".task-list-container");
         taskListContainer.forEach(taskListContainer => HTMLWriter.clearAllElementIn(taskListContainer));
         const taskListId = this.parentElement.id.slice(2, this.parentElement.id.length);
