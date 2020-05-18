@@ -18,9 +18,12 @@ export class UiEditTaskWindow extends UiWindow{
         const dueDateHoursProperty = document.querySelector("#window-edit-task #task-dueDate-time-edit-property .hours");
         const selectedTask = getCurrentUser().taskLists[getCurrentUser().currentTaskList].tasks[this.taskId];
         const dueDate = new Date(selectedTask.dueDate)
+        const month = dueDate.getMonth() < 10 ? "0" + dueDate.getMonth() : dueDate.getMonth();
+        const date = dueDate.getDate() < 10 ? "0" + dueDate.getDate() : dueDate.getDate();
+        const inputDate = `${dueDate.getFullYear()}-${month}-${date}`
 
         nameProperty.value = selectedTask.name;
-        dueDateProperty.value = `${dueDate.getFullYear()}-${dueDate.getMonth()}-${dueDate.getDate()}`;
+        dueDateProperty.value = inputDate;
         dueDateHoursProperty.value = dueDate.getHours();
         dueDateMinuteProperty.value = dueDate.getMinutes();
         // descProperty.value = selectedTask.description;
